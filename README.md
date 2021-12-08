@@ -28,10 +28,10 @@ This means that we also need to know the sample of the e4s packages that have te
 I wrote a script to do that.
 
 ```bash
-$ spack python has_tests.py
+$ spack python has_tests.py experiments/e4s.yaml
+44 packages out of 90 have tests in e4s.yaml
 ```
 
-Note that I'm still trying to figure out an easy way to determine if a package has tests.
 The original spack.yaml for e4s is in [ref](ref) for reference.
 
 ### Manual Tests

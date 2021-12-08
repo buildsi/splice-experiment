@@ -4,29 +4,52 @@
 # has tests, and output a subset that do.
 
 import os
+import inspect
+import sys
 import yaml
 
+import spack.package
 from spack.spec import Spec
 
 here = os.getcwd()
 
+
 def read_yaml(filename):
-    with open(filename, 'r') as fd:
+    with open(filename, "r") as fd:
         content = yaml.load(fd.read(), Loader=yaml.SafeLoader)
     return content
 
-def main():
-    # Read in e4s packages
-    experiments = read_yaml(os.path.join(here, "experiments", "e4s.yaml"))
-    for experiment in experiments['experiments']:
-        spec = Spec(experiment)
 
-        # TODO how do we determine this? This doesn't seem to work
-        if spec.package.test_suite is not None:
-            print(spec)
-        
-    import IPython
-    IPython.embed()
+def has_test_method(pkg):
+    if not inspect.isclass(pkg):
+        return False
+
+    pkg_base = spack.package.PackageBase
+    return (issubclass(pkg, pkg_base) and pkg.test != pkg_base.test) or (
+        isinstance(pkg, pkg_base) and pkg.test.__func__ != pkg_base.test
+    )
+
+
+def main(yaml_file):
+    """
+    Given a yaml file with an experiments list, count tests in spack
+    """
+    if not os.path.exists(yaml_file):
+        sys.exit("%s does not exist." % yaml_file)
+    experiments = read_yaml(yaml_file)
+    has_tests = set()
+    for experiment in experiments["experiments"]:
+        spec = Spec(experiment)
+        if has_test_method(spec.package.__class__):
+            has_tests.add(spec.package)
+    print(
+        "%s packages out of %s have tests in %s"
+        % (len(has_tests), len(experiments["experiments"]), os.path.basename(yaml_file))
+    )
+
 
 if __name__ == "__main__":
-    main()
+    yaml_file = os.path.join(here, "experiments", "e4s.yaml")
+    if len(sys.argv) > 1:
+        yaml_file = sys.argv[1]
+    main(yaml_file)
