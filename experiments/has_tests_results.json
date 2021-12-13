@@ -1,0 +1,224 @@
+{
+    "swig": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 0.5708286762237549
+    },
+    "qthreads": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test qad6zizad2yex4vauuu43wnml26hu43u\n==> Testing package qthreads-1.16-xjekt73\n==> Error: TestFailure: 2 tests failed.\n\n\nCommand exited with status 1:\n    './hello_world_multi'\nQTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n\n\n\n1 error found in test log:\n     6     ==> [2021-12-12-14:17:29.562792] test:hello_world: Checking ability to link to the library.\n     7     ==> [2021-12-12-14:17:29.563044] '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/cc' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/\n           linux-ubuntu20.04-skylake/gcc-9.3.0/qthreads-1.16-xjekt73chhmdain4xvlupje7d3gofrsu/include' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack\n           /linux-ubuntu20.04-skylake/gcc-9.3.0/qthreads-1.16-xjekt73chhmdain4xvlupje7d3gofrsu/.spack/test/test' '/home/vanessa/Desktop/Code/spack-vsoch/o\n           pt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/qthreads-1.16-xjekt73chhmdain4xvlupje7d3gofrsu/.spack/test/test/basics/hello_world.c' '-o' 'hello_\n           world' '-L/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/qthreads-1.16-xjekt73chhmdain4xvlupje7d3gofrsu/l\n           ib' '-lqthread' '-Wl,-rpath,/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/qthreads-1.16-xjekt73chhmdain4\n           xvlupje7d3gofrsu/lib'\n     8     PASSED\n     9     ==> [2021-12-12-14:17:29.608547] test:hello_world_multi: Checking ability to execute.\n     10    ==> [2021-12-12-14:17:29.608779] './hello_world_multi'\n     11    QTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n  >> 12    FAILED: Command exited with status 1:\n     13        './hello_world_multi'\n     14    QTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n     15    \n     16      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\nCommand exited with status 1:\n    './hello_world'\nQTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n\n\n\n1 error found in test log:\n     53        self.run_tests()\n     54      File \"/home/vanessa/Desktop/Code/spack-vsoch/var/spack/repos/builtin/packages/qthreads/package.py\", line 136, in run_tests\n     55        self.run_test(test, [], purpose=reason)\n     56    ==> [2021-12-12-14:17:29.623830] test:hello_world: Checking ability to execute.\n     57    ==> [2021-12-12-14:17:29.624002] './hello_world'\n     58    QTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n  >> 59    FAILED: Command exited with status 1:\n     60        './hello_world'\n     61    QTHREADS ERROR: attempted to use 8 workers per shepherd with scheduler that only supports 1 worker per shepherd.\n     62    \n     63      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/qad6zizad2yex4vauuu43wnml26hu43u/qthreads-1.16-xjekt73-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 0.8197667598724365
+    },
+    "upcxx": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 7.820310831069946
+    },
+    "omega-h": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 4.589085817337036
+    },
+    "hypre": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test vg4uwku6rt5ob3dr37gaelwpegmb5zj5\n==> Testing package hypre-2.23.0-idrj6eu\n==> Error: TestFailure: 1 tests failed.\n\n\nCommand exited with status 2:\n    '/usr/bin/make' 'HYPRE_DIR=/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/hypre-2.23.0-idrj6euylxtz3vywihx3taxckdec3yyq' 'bigint'\nmpicc -g -Wall -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/hypre-2.23.0-idrj6euylxtz3vywihx3taxckdec3yyq/include  -c ex5big.c\nmake: mpicc: Command not found\nmake: *** [Makefile:54: ex5big.o] Error 127\n\n\n\n1 error found in test log:\n     6     make: mpicc: Command not found\n     7     make: *** [Makefile:54: ex5big.o] Error 127\n     8     FAILED: Command exited with status 2:\n     9         '/usr/bin/make' 'HYPRE_DIR=/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/hypre-2.23.0-idrj6euylxtz3v\n           ywihx3taxckdec3yyq' 'bigint'\n     10    mpicc -g -Wall -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/hypre-2.23.0-idrj6euylxtz3vywihx3taxckdec\n           3yyq/include  -c ex5big.c\n     11    make: mpicc: Command not found\n  >> 12    make: *** [Makefile:54: ex5big.o] Error 127\n     13    \n     14      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/vg4uwku6rt5ob3dr37gaelwpegmb5zj5/hypre-2.23.0-idrj6eu-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 0.9668500423431396
+    },
+    "slate": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.0240767002105713
+    },
+    "petsc": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 4.774909257888794
+    },
+    "gasnet": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 22.540730237960815
+    },
+    "strumpack": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.490063190460205
+    },
+    "hdf5": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.5055768489837646
+    },
+    "raja": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 17.716230392456055
+    },
+    "pumi": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.200772762298584
+    },
+    "superlu": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test a3ovgo5kf4aqeurc3gvruduoiwot63qf\n==> Testing package superlu-5.3.0-glyckr7\n==> Error: ProcessError: Command exited with status 2:\n    'make' 'superlu'\n\n2 errors found in test log:\n  >> 5    superlu.c:21:10: fatal error: slu_ddefs.h: No such file or directory\n     6       21 | #include \"slu_ddefs.h\"\n     7          |          ^~~~~~~~~~~~~\n     8    compilation terminated.\n  >> 9    make: *** [Makefile:185: superlu.o] Error 1\n\nSee test log for details:\n  /home/vanessa/.spack/test/a3ovgo5kf4aqeurc3gvruduoiwot63qf/superlu-5.3.0-glyckr7-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 1.3178932666778564
+    },
+    "kokkos": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test gqrsnwuo3spdzujvssfpekm4lrazskgn\n==> Testing package kokkos-3.4.01-l4tyn6y\n==> Error: ProcessError: Command exited with status 1:\n    'cmake' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/kokkos-3.4.01-l4tyn6ymtuyz5v6wu7pvuftveykpw725/.spack/test/scripts/spack_test/out' '-DEXECUTABLE_OUTPUT_PATH=/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/kokkos-3.4.01-l4tyn6ymtuyz5v6wu7pvuftveykpw725/.spack/test/scripts/spack_test/out'\n\n4 errors found in test log:\n     7     -- Detecting CXX compiler ABI info\n     8     -- Detecting CXX compiler ABI info - done\n     9     -- Detecting CXX compile features\n     10    -- Detecting CXX compile features - done\n     11    -- Enabled Kokkos devices: SERIAL\n     12    -- Configuring done\n  >> 13    CMake Error at CMakeLists.txt:18 (target_link_libraries):\n     14      Error evaluating generator expression:\n     15    \n     16        $<LINK_LANGUAGE:CXX>\n     17    \n     18      Expression did not evaluate to a known generator expression\n     19    \n     20    \n  >> 21    CMake Error at CMakeLists.txt:18 (target_link_libraries):\n     22      Error evaluating generator expression:\n     23    \n     24        $<LINK_LANGUAGE:CXX>\n     25    \n     26      Expression did not evaluate to a known generator expression\n     27    \n     28    \n  >> 29    CMake Error at CMakeLists.txt:18 (target_link_libraries):\n     30      Error evaluating generator expression:\n     31    \n     32        $<LINK_LANGUAGE:CXX>\n     33    \n     34      Expression did not evaluate to a known generator expression\n     35    \n     36    \n  >> 37    CMake Error at CMakeLists.txt:18 (target_link_libraries):\n     38      Error evaluating generator expression:\n     39    \n     40        $<LINK_LANGUAGE:CXX>\n     41    \n     42      Expression did not evaluate to a known generator expression\n     43    \n\nSee test log for details:\n  /home/vanessa/.spack/test/gqrsnwuo3spdzujvssfpekm4lrazskgn/kokkos-3.4.01-l4tyn6y-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 1.3403427600860596
+    },
+    "fortrilinos": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 7.438755512237549
+    },
+    "py-jupyterhub": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 4.870500326156616
+    },
+    "darshan-runtime": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 4.6909074783325195
+    },
+    "bolt": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test zy7oyss5ssmupkv2kcxpuo4d2ofgb3do\n==> Testing package bolt-2.0-svs7pdd\n==> Error: TestFailure: 2 tests failed.\n\n\nCommand exited with status 1:\n    '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '-lomp' '-o' 'sample_nested' '-L/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/bolt-2.0-svs7pddm6k4zqtnzzrtkta5y2g2jblll/lib' '/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c'\n/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c: In function 'main':\n/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c:15:23: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]\n   15 |     int size=(argc>1)?atoi(argv[1]):100;\n      |                       ^~~~\n/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c:21:27: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]\n   21 |     double *a = (double *)malloc(sizeof(double)*size*size);\n      |                           ^~~~~~\n/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c:21:27: warning: incompatible implicit declaration of built-in function 'malloc'\n/home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c:10:1: note: include '<stdlib.h>' or provide a declaration of 'malloc'\n    9 | #include <sys/time.h>\n  +++ |+#include <stdlib.h>\n   10 | \n/usr/bin/ld: /tmp/ccZcscfY.o: in function `main':\nsample_nested.c:(.text+0x71): undefined reference to `omp_get_num_threads'\ncollect2: error: ld returned 1 exit status\n\n\n\n1 error found in test log:\n     31    /home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd/cache/bolt/examples/sample_nested.c:10:1: note: include '<stdlib.h>\n           ' or provide a declaration of 'malloc'\n     32        9 | #include <sys/time.h>\n     33      +++ |+#include <stdlib.h>\n     34       10 |\n     35    /usr/bin/ld: /tmp/ccZcscfY.o: in function `main':\n     36    sample_nested.c:(.text+0x71): undefined reference to `omp_get_num_threads'\n  >> 37    collect2: error: ld returned 1 exit status\n     38    \n     39      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\nFailed to find executable 'sample_nested'\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1882, in run_test:\n       1879                    # stack instead of from traceback.\n       1880                    # The traceback is truncated here, so we can't use it to\n       1881                    # traverse the stack.\n  >>   1882                    m = '\\n'.join(\n       1883                        spack.build_environment.get_package_context(tb)\n       1884                    )\n       1885\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/zy7oyss5ssmupkv2kcxpuo4d2ofgb3do/bolt-2.0-svs7pdd-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 1.5067157745361328
+    },
+    "parsec": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test s2k77fsarknx6ucurzls54bf6alf7u5a\n==> Testing package parsec-3.0.2012-ondvfi2\n==> Error: TestFailure: 4 tests failed.\n\n\nCommand exited with status 1:\n    '/usr/bin/cmake' '.'\n-- The C compiler identification is GNU 9.3.0\n-- Check for working C compiler: /home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc\n-- Check for working C compiler: /home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc -- works\n-- Detecting C compiler ABI info\n-- Detecting C compiler ABI info - done\n-- Detecting C compile features\n-- Detecting C compile features - done\n-- Looking for pthread.h\n-- Looking for pthread.h - found\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n-- Looking for pthread_create in pthreads\n-- Looking for pthread_create in pthreads - not found\n-- Looking for pthread_create in pthread\n-- Looking for pthread_create in pthread - found\n-- Found Threads: TRUE  \n-- Configuring incomplete, errors occurred!\nSee also \"/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/.spack/test/contrib/build_with_parsec/CMakeFiles/CMakeOutput.log\".\nSee also \"/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/.spack/test/contrib/build_with_parsec/CMakeFiles/CMakeError.log\".\nCMake Error at /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:146 (message):\n  Could NOT find HWLOC; Options depending on HWLOC will be disabled (missing:\n  HWLOC_LIBRARY HWLOC_INCLUDE_DIR)\nCall Stack (most recent call first):\n  /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:393 (_FPHSA_FAILURE_MESSAGE)\n  /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/share/cmake/parsec/FindHWLOC.cmake:49 (find_package_handle_standard_args)\n  /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/share/cmake/parsec/PaRSECConfig.cmake:47 (find_package)\n  CMakeLists.txt:11 (find_package)\n\n\n\n\n\n1 error found in test log:\n     28      /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:393 (_FPHSA_FAILURE_MESSAGE)\n     29      /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/share/c\n           make/parsec/FindHWLOC.cmake:49 (find_package_handle_standard_args)\n     30      /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parsec-3.0.2012-ondvfi2u5irzcefca6oup2xbujbrmhjz/share/c\n           make/parsec/PaRSECConfig.cmake:47 (find_package)\n     31      CMakeLists.txt:11 (find_package)\n     32    \n     33    \n  >> 34    FAILED: Command exited with status 1:\n\n\n\nCommand exited with status 2:\n    '/usr/bin/make'\nmake: *** No targets specified and no makefile found.  Stop.\n\n\n\n1 error found in test log:\n     103        self.run_test('cmake',\n     104    ==> [2021-12-12-17:52:04.017855] Check if tests can compile\n     105    ==> [2021-12-12-17:52:04.018072] '/usr/bin/make'\n     106    make: *** No targets specified and no makefile found.  Stop.\n     107    FAILED: Command exited with status 2:\n     108        '/usr/bin/make'\n  >> 109    make: *** No targets specified and no makefile found.  Stop.\n     110    \n     111      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\nFailed to find executable './dtd_test_allreduce'\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1882, in run_test:\n       1879                    # stack instead of from traceback.\n       1880                    # The traceback is truncated here, so we can't use it to\n       1881                    # traverse the stack.\n  >>   1882                    m = '\\n'.join(\n       1883                        spack.build_environment.get_package_context(tb)\n       1884                    )\n       1885\n\n\nFailed to find executable './write_check'\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1882, in run_test:\n       1879                    # stack instead of from traceback.\n       1880                    # The traceback is truncated here, so we can't use it to\n       1881                    # traverse the stack.\n  >>   1882                    m = '\\n'.join(\n       1883                        spack.build_environment.get_package_context(tb)\n       1884                    )\n       1885\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/s2k77fsarknx6ucurzls54bf6alf7u5a/parsec-3.0.2012-ondvfi2-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 3.421644449234009
+    },
+    "superlu-dist": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test 2tcidwyabkv67sbuuvpxe6kcm5pqtelo\n==> Testing package superlu-dist-7.1.1-kh6czr3\n==> Error: ProcessError: Command exited with status 2:\n    'make' '-j8' 'pddrive'\n\n1 error found in test log:\n     4     ==> [2021-12-12-17:52:17.282481] FILTER FILE: /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dist\n           -7.1.1-kh6czr3sbrip2u2kjg32k5cu3mevo7bs/.spack/test/make.inc [replacing \"^LIBS.+\\+=.+\"]\n     5     ==> [2021-12-12-17:52:17.405821] FILTER FILE: /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dist\n           -7.1.1-kh6czr3sbrip2u2kjg32k5cu3mevo7bs/.spack/test/make.inc [replacing \"^LIBS[^\\+]+=.+\"]\n     6     ==> [2021-12-12-17:52:17.407474] FILTER FILE: /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dist\n           -7.1.1-kh6czr3sbrip2u2kjg32k5cu3mevo7bs/.spack/test/make.inc [replacing \"^LOADOPTS.+\"]\n     7     ==> [2021-12-12-17:52:17.408113] 'make' '-j8' 'pddrive'\n     8     /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym/bin/mpicc -\n           O3 -DNDEBUG -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/metis-5.1.0-27wkhg6bsor4hnrkgdekrd3rlcbqvg5f\n           /include -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parmetis-4.0.3-o4fae5xk6h5nnuqojvjcrhw3rohfvvyy\n           /include -DUSE_VENDOR_BLAS  -std=c99 -fPIC   -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dis\n           t-7.1.1-kh6czr3sbrip2u2kjg32k5cu3mevo7bs/include -c pddrive.c\n     9     /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym/bin/mpicc -\n           O3 -DNDEBUG -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/metis-5.1.0-27wkhg6bsor4hnrkgdekrd3rlcbqvg5f\n           /include -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/parmetis-4.0.3-o4fae5xk6h5nnuqojvjcrhw3rohfvvyy\n           /include -DUSE_VENDOR_BLAS  -std=c99 -fPIC   -I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dis\n           t-7.1.1-kh6czr3sbrip2u2kjg32k5cu3mevo7bs/include -c dcreate_matrix.c\n  >> 10    make: *** No rule to make target '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dist-7.1.1-kh6cz\n           r3sbrip2u2kjg32k5cu3mevo7bs//home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/superlu-dist-7.1.1-kh6czr3sbri\n           p2u2kjg32k5cu3mevo7bs/lib/libsuperlu_dist.so', needed by 'pddrive'.  Stop.\n     11    make: *** Waiting for unfinished jobs....\n\nSee test log for details:\n  /home/vanessa/.spack/test/2tcidwyabkv67sbuuvpxe6kcm5pqtelo/superlu-dist-7.1.1-kh6czr3-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 1.8441298007965088
+    },
+    "py-warpx": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 2.114794969558716
+    },
+    "heffte": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test kbhvalajyzj7ulu2dnatxi4yhivsihng\n==> Testing package heffte-2.2.0-ocwrjj5\n==> Error: ProcessError: Command exited with status 1:\n    'cmake' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/heffte-2.2.0-ocwrjj5752vylm7foci4xxixc4s4o4yf/share/heffte/testing'\n\n1 error found in test log:\n  >> 3    CMake Error at CMakeLists.txt:1 (cmake_minimum_required):\n     4      CMake 3.21 or higher is required.  You are running version 3.16.3\n     5    \n     6    \n     7    -- Configuring incomplete, errors occurred!\n\nSee test log for details:\n  /home/vanessa/.spack/test/kbhvalajyzj7ulu2dnatxi4yhivsihng/heffte-2.2.0-ocwrjj5-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 1.8323125839233398
+    },
+    "openpmd-api": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.77730393409729
+    },
+    "parallel-netcdf": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 5.384877443313599
+    },
+    "py-petsc4py": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.7401149272918701
+    },
+    "tau": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 3.817626476287842
+    },
+    "papyrus": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 7.258093595504761
+    },
+    "archer": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 3.27274751663208
+    },
+    "aml": {
+        "install": "failure",
+        "reason": "[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/libsigsegv-2.13-nhg7qep6byb3fttv655s6frahi3zcnxw\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/berkeley-db-18.1.40-pdlzkb4o4qsw3nglppv7eqjm7lepqvod\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/libiconv-1.16-infpf4xwcb7253odbry6ljjcsat2ksp5\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/pkgconf-1.8.0-5bckkoeicca3dtolbeyz6tnnyxwcsfn5\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/zlib-1.2.11-3kmnsdv36qxm3slmcyrb326gkghsp6px\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/m4-1.4.19-d4vlqx75hylz6fp4bavvuanyoblcm6jm\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/diffutils-3.8-ae4ve7adrxntd2kafm4xxmeyhrwpzpmg\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/ncurses-6.2-5bzr63iqgpogufanleaw2fzjxnzziz67\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/libtool-2.4.6-xo4w6edpgkwhlu6ju4gfbfr62xceieea\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/bzip2-1.0.8-doeyikigv6jk4dk6fdxm3cl5j7j465if\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/readline-8.1-wkga37hicua476jm2bjjmuzufz6h574j\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/gdbm-1.19-wuhyaf477mw6nmgftp3gvrxic7qzgpso\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/perl-5.34.0-bvgnm2ejnajpvaruta22d5c24g6qi4zu\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/autoconf-2.69-lt4yzekpvtbqtpop2xpegbtzopjlsamt\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/automake-1.16.3-vc66ewrmkwimzgpjnfe7wuf776vbugm2\n[+] /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/numactl-2.0.14-xdbrc26b7oparqyw7rzrmtcbru4qx7my\n==> Installing aml-0.1.0-xysnwbg2v7hpv7tyoiu2knfghsyzaqbr\n==> No binary for aml-0.1.0-xysnwbg2v7hpv7tyoiu2knfghsyzaqbr found: installing from source\n==> Using cached archive: /home/vanessa/Desktop/Code/spack-vsoch/var/spack/cache/_source-cache/archive/cc/cc89a8768693f1f11539378b21cdca9f0ce3fc5cb564f9b3e4154a051dcea69b.tar.gz\n==> No patches needed for aml\n==> aml: Executing phase: 'autoreconf'\n==> aml: Executing phase: 'configure'\n==> aml: Executing phase: 'build'\n==> aml: Executing phase: 'install'\n==> Error: ProcessError: Command exited with status 2:\n    'make' '-j8' 'install'\n\n3 errors found in build log:\n     877    sphinx-build -b html -a . ./build-sphinx\n     878    Running Sphinx v4.3.1\n     879    loading translations [C]... not available for built-in messages\n     880    \n     881    Extension error:\n     882    Could not import extension breathe (exception: No module named 'breathe')\n  >> 883    make[2]: *** [Makefile:456: build-docs] Error 2\n     884    make[2]: Leaving directory '/tmp/vanessa/spack-stage/spack-stage-aml-0.1.0-xysnwbg2v7hpv7tyoiu2knfghsyzaqbr/spack-src/doc'\n  >> 885    make[1]: *** [Makefile:346: install-am] Error 2\n     886    make[1]: Leaving directory '/tmp/vanessa/spack-stage/spack-stage-aml-0.1.0-xysnwbg2v7hpv7tyoiu2knfghsyzaqbr/spack-src/doc'\n  >> 887    make: *** [Makefile:452: install-recursive] Error 1\n\nSee build log for details:\n  /tmp/vanessa/spack-stage/spack-stage-aml-0.1.0-xysnwbg2v7hpv7tyoiu2knfghsyzaqbr/spack-build-out.txt\n\n"
+    },
+    "arborx": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test zokmgqpw5w4veqlrxtwrismyw2b7vsrk\n==> Testing package arborx-1.1-tvb37xo\n==> Error: TestFailure: 1 tests failed.\n\n\nCommand exited with status 1:\n    '/usr/bin/cmake' '.' '-DCMAKE_PREFIX_PATH=/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/arborx-1.1-tvb37xo5ftxkpifarwkiktbhonfuwhvi;/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym' '-DCMAKE_CXX_COMPILER=/usr/bin/g++' '-DKokkos_ROOT:STRING=/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/kokkos-3.4.01-l4tyn6ymtuyz5v6wu7pvuftveykpw725'\n-- The CXX compiler identification is GNU 9.3.0\n-- Check for working CXX compiler: /usr/bin/g++\n-- Check for working CXX compiler: /usr/bin/g++ -- works\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Found MPI_CXX: /home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym/lib/libmpi.so (found version \"3.1\") \n-- Found MPI: TRUE (found version \"3.1\")  \n-- Could NOT find Boost (missing: Boost_INCLUDE_DIR program_options) \n-- Configuring done\n-- Generating done\nCMake Error at access_traits/CMakeLists.txt:7 (target_link_libraries):\n  Error evaluating generator expression:\n\n    $<LINK_LANGUAGE:CXX>\n\n  Expression did not evaluate to a known generator expression\n\n\nCMake Error at callback/CMakeLists.txt:2 (target_link_libraries):\n  Error evaluating generator expression:\n\n    $<LINK_LANGUAGE:CXX>\n\n  Expression did not evaluate to a known generator expression\n\n\nCMake Error at simple_intersection/CMakeLists.txt:2 (target_link_libraries):\n  Error evaluating generator expression:\n\n    $<LINK_LANGUAGE:CXX>\n\n  Expression did not evaluate to a known generator expression\n\n\nCMake Generate step failed.  Build files cannot be regenerated correctly.\n\n\n\n1 error found in test log:\n     36        $<LINK_LANGUAGE:CXX>\n     37    \n     38      Expression did not evaluate to a known generator expression\n     39    \n     40    \n     41    CMake Generate step failed.  Build files cannot be regenerated correctly.\n  >> 42    FAILED: Command exited with status 1:\n\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/zokmgqpw5w4veqlrxtwrismyw2b7vsrk/arborx-1.1-tvb37xo-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 13.16953158378601
+    },
+    "sundials": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 1.7800228595733643
+    },
+    "legion": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 12.562512874603271
+    },
+    "mfem": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 35.65487051010132
+    },
+    "py-libensemble": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 2.6941778659820557
+    },
+    "tasmanian": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test z55haf5f7dbvpcrnzl4ski2lgl243s4g\n==> Testing package tasmanian-7.7-o54geas\n==> Error: ProcessError: Command exited with status 1:\n    'cmake' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/tasmanian-7.7-o54geasisuouzsyuaeh3fyxbrqzjknsl/share/Tasmanian/testing'\n\n1 error found in test log:\n  >> 3    CMake Error at CMakeLists.txt:1 (cmake_minimum_required):\n     4      CMake 3.21 or higher is required.  You are running version 3.16.3\n     5    \n     6    \n     7    -- Configuring incomplete, errors occurred!\n\nSee test log for details:\n  /home/vanessa/.spack/test/z55haf5f7dbvpcrnzl4ski2lgl243s4g/tasmanian-7.7-o54geas-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 2.0730583667755127
+    },
+    "nrm": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 2.227888584136963
+    },
+    "openmpi": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 11.275782108306885
+    },
+    "slepc": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test ymnscun24aqzhygqntg2n75zqvib4qoq\n==> Testing package slepc-3.16.1-qwcpcez\n==> Error: TestFailure: 2 tests failed.\n\n\nCommand exited with status 1:\n    '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/slepc-3.16.1-qwcpcez5ie2touquxvyfeda3dsqf3772/include' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/slepc-3.16.1-qwcpcez5ie2touquxvyfeda3dsqf3772/lib' '-l' 'slepc' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/petsc-3.16.1-z7i77eh3fhfv5ztn7rezf5bufe4hmi4r/lib' '-l' 'petsc' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym/lib' '-l' 'mpi' '-o' 'hello' '/home/vanessa/.spack/test/ymnscun24aqzhygqntg2n75zqvib4qoq/slepc-3.16.1-qwcpcez/data/slepc/hello.c'\n/usr/bin/ld: /tmp/ccZT7Upk.o: in function `main':\nhello.c:(.text+0x2b): undefined reference to `SlepcInitialize'\n/usr/bin/ld: hello.c:(.text+0x32): undefined reference to `PETSC_COMM_WORLD'\n/usr/bin/ld: hello.c:(.text+0x46): undefined reference to `PetscPrintf'\ncollect2: error: ld returned 1 exit status\n\n\n\n1 error found in test log:\n     9     FAILED: Command exited with status 1:\n     10        '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylak\n           e/gcc-9.3.0/slepc-3.16.1-qwcpcez5ie2touquxvyfeda3dsqf3772/include' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-sky\n           lake/gcc-9.3.0/slepc-3.16.1-qwcpcez5ie2touquxvyfeda3dsqf3772/lib' '-l' 'slepc' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubu\n           ntu20.04-skylake/gcc-9.3.0/petsc-3.16.1-z7i77eh3fhfv5ztn7rezf5bufe4hmi4r/lib' '-l' 'petsc' '-L' '/home/vanessa/Desktop/Code/spack-vsoch/opt/spa\n           ck/linux-ubuntu20.04-skylake/gcc-9.3.0/openmpi-4.1.2-dbbo72yb7ys57hq625tytdzczn4s2fym/lib' '-l' 'mpi' '-o' 'hello' '/home/vanessa/.spack/test/y\n           mnscun24aqzhygqntg2n75zqvib4qoq/slepc-3.16.1-qwcpcez/data/slepc/hello.c'\n     11    /usr/bin/ld: /tmp/ccZT7Upk.o: in function `main':\n     12    hello.c:(.text+0x2b): undefined reference to `SlepcInitialize'\n     13    /usr/bin/ld: hello.c:(.text+0x32): undefined reference to `PETSC_COMM_WORLD'\n     14    /usr/bin/ld: hello.c:(.text+0x46): undefined reference to `PetscPrintf'\n  >> 15    collect2: error: ld returned 1 exit status\n     16    \n     17      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\nFailed to find executable 'hello'\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1882, in run_test:\n       1879                    # stack instead of from traceback.\n       1880                    # The traceback is truncated here, so we can't use it to\n       1881                    # traverse the stack.\n  >>   1882                    m = '\\n'.join(\n       1883                        spack.build_environment.get_package_context(tb)\n       1884                    )\n       1885\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/ymnscun24aqzhygqntg2n75zqvib4qoq/slepc-3.16.1-qwcpcez-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 2.340453624725342
+    },
+    "ginkgo": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test q2skanytquj7fei7exr63kh44vtnjc7n\n==> Testing package ginkgo-1.4.0-2m4wbkc\n==> Error: TestFailure: 1 tests failed.\n\n\nExecutable 'test_install' expected in prefix, found in ./test_install instead\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1911, in _run_test_helper:\n       1908\n       1909        if installed:\n       1910            msg = \"Executable '{0}' expected in prefix\".format(runner.name)\n  >>   1911            msg += \", found in {0} instead\".format(runner.path)\n       1912            assert runner.path.startswith(self.spec.prefix), msg\n       1913\n       1914        try:\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/q2skanytquj7fei7exr63kh44vtnjc7n/ginkgo-1.4.0-2m4wbkc-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 2.159527540206909
+    },
+    "hpctoolkit": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 3.0876855850219727
+    },
+    "darshan-util": {
+        "install": "success",
+        "test": "success",
+        "time_seconds": 2.379193067550659
+    },
+    "caliper": {
+        "install": "success",
+        "test": "failure",
+        "reason": "==> Spack test 2cq47i4gdozyq3hnf4dkiimqnt44vor6\n==> Testing package caliper-2.7.0-devjxuj\n==> Error: TestFailure: 2 tests failed.\n\n\nCommand exited with status 1:\n    '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '/home/vanessa/.spack/test/2cq47i4gdozyq3hnf4dkiimqnt44vor6/caliper-2.7.0-devjxuj/cache/caliper/examples/apps/cxx-example.cpp' '-L/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/caliper-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/lib64' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/caliper-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/include' '-std=c++11' '-lcaliper' '-lstdc++' '-o' 'cxx-example'\n/usr/bin/ld: cannot find -lcaliper\ncollect2: error: ld returned 1 exit status\n\n\n\n1 error found in test log:\n     4     ==> [2021-12-12-20:40:26.543463] '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '/home/vanessa/.spack/test/2cq47i4gdozyq3hnf4dk\n           iimqnt44vor6/caliper-2.7.0-devjxuj/cache/caliper/examples/apps/cxx-example.cpp' '-L/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubunt\n           u20.04-skylake/gcc-9.3.0/caliper-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/lib64' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu\n           20.04-skylake/gcc-9.3.0/caliper-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/include' '-std=c++11' '-lcaliper' '-lstdc++' '-o' 'cxx-example'\n     5     /usr/bin/ld: cannot find -lcaliper\n     6     collect2: error: ld returned 1 exit status\n     7     FAILED: Command exited with status 1:\n     8         '/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/env/gcc/gcc' '/home/vanessa/.spack/test/2cq47i4gdozyq3hnf4dkiimqnt44vor6/caliper-2.7.0-de\n           vjxuj/cache/caliper/examples/apps/cxx-example.cpp' '-L/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/cali\n           per-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/lib64' '-I/home/vanessa/Desktop/Code/spack-vsoch/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/calip\n           er-2.7.0-devjxuj7k3sllecoq74wf2ywszytx2e5/include' '-std=c++11' '-lcaliper' '-lstdc++' '-o' 'cxx-example'\n     9     /usr/bin/ld: cannot find -lcaliper\n  >> 10    collect2: error: ld returned 1 exit status\n     11    \n     12      File \"/home/vanessa/Desktop/Code/spack-vsoch/bin/spack\", line 98, in <module>\n\n\n\nFailed to find executable 'cxx-example'\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/package.py:1882, in run_test:\n       1879                    # stack instead of from traceback.\n       1880                    # The traceback is truncated here, so we can't use it to\n       1881                    # traverse the stack.\n  >>   1882                    m = '\\n'.join(\n       1883                        spack.build_environment.get_package_context(tb)\n       1884                    )\n       1885\n\n\n/home/vanessa/Desktop/Code/spack-vsoch/lib/spack/spack/build_environment.py:1051, in _setup_pkg_and_run:\n       1048        tb_string = traceback.format_exc()\n       1049\n       1050        # build up some context from the offending package so we can\n  >>   1051        # show that, too.\n       1052        package_context = get_package_context(tb)\n       1053\n       1054        logfile = None\n\nSee test log for details:\n  /home/vanessa/.spack/test/2cq47i4gdozyq3hnf4dkiimqnt44vor6/caliper-2.7.0-devjxuj-test-out.txt\n\n==> Error: 1 test(s) in the suite failed.\n\n",
+        "time_seconds": 2.699887990951538
+    }
+}

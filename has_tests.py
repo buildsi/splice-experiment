@@ -19,6 +19,9 @@ def read_yaml(filename):
         content = yaml.load(fd.read(), Loader=yaml.SafeLoader)
     return content
 
+def write_yaml(filename, content):
+    with open(filename, "w") as fd:
+        fd.write(yaml.dump(content))
 
 def has_test_method(pkg):
     if not inspect.isclass(pkg):
@@ -41,11 +44,15 @@ def main(yaml_file):
     for experiment in experiments["experiments"]:
         spec = Spec(experiment)
         if has_test_method(spec.package.__class__):
-            has_tests.add(spec.package)
+            has_tests.add(spec.package.name)
     print(
         "%s packages out of %s have tests in %s"
         % (len(has_tests), len(experiments["experiments"]), os.path.basename(yaml_file))
     )
+    # Save to file
+    dirname = os.path.dirname(yaml_file)
+    outfile = os.path.join(dirname, "has_tests.yaml")
+    write_yaml(outfile, {"experiments": list(has_tests)})
 
 
 if __name__ == "__main__":

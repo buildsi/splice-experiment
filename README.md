@@ -32,7 +32,39 @@ $ spack python has_tests.py experiments/e4s.yaml
 44 packages out of 90 have tests in e4s.yaml
 ```
 
-The original spack.yaml for e4s is in [ref](ref) for reference.
+This will also generate a file with the subset of packages that have tests:
+
+```bash
+$ cat experiments/has_tests.yaml 
+experiments:
+- swig
+...
+```
+
+The original spack.yaml for e4s is in [ref](ref) for reference. Finally, once you  have
+this list, you can do a run on your host to determine which tests might be broken (my first
+run 14/44 failed, or a little less than 1/3, where 1/3 is about half of the libraries in the e4s set.
+
+```bash
+$ python run_tests.py
+qthreads             test bug or failure
+hypre                test bug or failure
+superlu              test bug or failure
+kokkos               test bug or failure
+bolt                 test bug or failure
+parsec               test bug or failure
+superlu-dist         test bug or failure
+heffte               test bug or failure
+aml                  install failure
+arborx               test bug or failure
+tasmanian            test bug or failure
+slepc                test bug or failure
+ginkgo               test bug or failure
+caliper              test bug or failure
+```
+
+For full details and error messages you can see [experiments/has_tests_results.json](experiments/has_tests_results.json).
+
 
 ### Manual Tests
 
