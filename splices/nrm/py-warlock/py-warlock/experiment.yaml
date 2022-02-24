@@ -1,0 +1,5 @@
+
+package: nrm
+splice: py-warlock
+replace: py-warlock
+tests: true

@@ -1,0 +1,5 @@
+
+package: swig
+splice: pkgconf
+replace: pkgconf
+tests: true

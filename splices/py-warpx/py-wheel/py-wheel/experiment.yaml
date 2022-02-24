@@ -1,0 +1,5 @@
+
+package: py-warpx
+splice: py-wheel
+replace: py-wheel
+tests: true

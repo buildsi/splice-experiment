@@ -1,0 +1,5 @@
+
+package: tau
+splice: hwloc
+replace: hwloc
+tests: true

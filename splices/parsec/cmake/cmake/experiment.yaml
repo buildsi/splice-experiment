@@ -1,0 +1,5 @@
+
+package: parsec
+splice: cmake
+replace: cmake
+tests: true

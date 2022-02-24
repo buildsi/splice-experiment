@@ -1,0 +1,5 @@
+
+package: py-petsc4py
+splice: petsc
+replace: petsc
+tests: true

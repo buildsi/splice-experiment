@@ -1,0 +1,5 @@
+
+package: py-jupyterhub
+splice: py-prometheus-client
+replace: py-prometheus-client
+tests: true

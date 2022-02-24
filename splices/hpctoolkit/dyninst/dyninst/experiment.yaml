@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: dyninst
+replace: dyninst
+tests: true

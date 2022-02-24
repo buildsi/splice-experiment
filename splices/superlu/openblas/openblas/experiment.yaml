@@ -1,0 +1,5 @@
+
+package: superlu
+splice: openblas
+replace: openblas
+tests: true

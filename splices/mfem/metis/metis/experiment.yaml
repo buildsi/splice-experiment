@@ -1,0 +1,5 @@
+
+package: mfem
+splice: metis
+replace: metis
+tests: true

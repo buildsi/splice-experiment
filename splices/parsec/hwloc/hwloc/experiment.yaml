@@ -1,0 +1,5 @@
+
+package: parsec
+splice: hwloc
+replace: hwloc
+tests: true

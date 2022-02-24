@@ -1,0 +1,5 @@
+
+package: papyrus
+splice: cmake
+replace: cmake
+tests: true

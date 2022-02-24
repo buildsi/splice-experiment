@@ -1,0 +1,5 @@
+
+package: pumi
+splice: cmake
+replace: cmake
+tests: true

@@ -1,0 +1,5 @@
+
+package: strumpack
+splice: openmpi
+replace: openmpi
+tests: true

@@ -1,0 +1,5 @@
+
+package: py-warpx
+splice: py-mpi4py
+replace: py-mpi4py
+tests: true

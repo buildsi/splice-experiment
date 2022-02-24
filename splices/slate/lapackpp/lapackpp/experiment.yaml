@@ -1,0 +1,5 @@
+
+package: slate
+splice: lapackpp
+replace: lapackpp
+tests: true

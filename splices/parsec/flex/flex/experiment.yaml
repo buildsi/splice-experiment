@@ -1,0 +1,5 @@
+
+package: parsec
+splice: flex
+replace: flex
+tests: true

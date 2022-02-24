@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: libdwarf
+replace: libdwarf
+tests: true

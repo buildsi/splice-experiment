@@ -1,0 +1,5 @@
+
+package: py-jupyterhub
+splice: py-pamela
+replace: py-pamela
+tests: true

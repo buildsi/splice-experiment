@@ -1,0 +1,5 @@
+
+package: tau
+splice: papi
+replace: papi
+tests: true

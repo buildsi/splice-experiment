@@ -1,0 +1,5 @@
+
+package: nrm
+splice: py-pyzmq
+replace: py-pyzmq
+tests: true

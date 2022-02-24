@@ -1,0 +1,5 @@
+
+package: nrm
+splice: py-scipy
+replace: py-scipy
+tests: true

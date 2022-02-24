@@ -1,0 +1,5 @@
+
+package: petsc
+splice: openblas
+replace: openblas
+tests: true

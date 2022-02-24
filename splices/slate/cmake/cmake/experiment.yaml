@@ -1,0 +1,5 @@
+
+package: slate
+splice: cmake
+replace: cmake
+tests: true

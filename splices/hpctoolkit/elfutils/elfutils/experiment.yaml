@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: elfutils
+replace: elfutils
+tests: true

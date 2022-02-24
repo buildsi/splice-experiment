@@ -1,0 +1,5 @@
+
+package: py-libensemble
+splice: py-setuptools
+replace: py-setuptools
+tests: true

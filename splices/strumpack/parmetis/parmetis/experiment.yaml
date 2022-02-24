@@ -1,0 +1,5 @@
+
+package: strumpack
+splice: parmetis
+replace: parmetis
+tests: true

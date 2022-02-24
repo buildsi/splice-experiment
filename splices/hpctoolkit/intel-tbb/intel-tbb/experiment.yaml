@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: intel-tbb
+replace: intel-tbb
+tests: true

@@ -1,0 +1,5 @@
+
+package: petsc
+splice: metis
+replace: metis
+tests: true

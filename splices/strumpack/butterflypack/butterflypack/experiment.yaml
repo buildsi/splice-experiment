@@ -1,0 +1,5 @@
+
+package: strumpack
+splice: butterflypack
+replace: butterflypack
+tests: true

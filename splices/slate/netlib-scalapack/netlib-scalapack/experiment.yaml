@@ -1,0 +1,5 @@
+
+package: slate
+splice: netlib-scalapack
+replace: netlib-scalapack
+tests: true

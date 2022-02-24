@@ -1,0 +1,5 @@
+
+package: openmpi
+splice: openssh
+replace: openssh
+tests: true

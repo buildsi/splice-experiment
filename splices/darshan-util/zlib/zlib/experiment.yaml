@@ -1,0 +1,5 @@
+
+package: darshan-util
+splice: zlib
+replace: zlib
+tests: true

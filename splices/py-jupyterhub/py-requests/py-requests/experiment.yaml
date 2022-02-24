@@ -1,0 +1,5 @@
+
+package: py-jupyterhub
+splice: py-requests
+replace: py-requests
+tests: true

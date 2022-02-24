@@ -1,0 +1,5 @@
+
+package: py-warpx
+splice: python
+replace: python
+tests: true

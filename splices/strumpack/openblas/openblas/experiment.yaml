@@ -1,0 +1,5 @@
+
+package: strumpack
+splice: openblas
+replace: openblas
+tests: true

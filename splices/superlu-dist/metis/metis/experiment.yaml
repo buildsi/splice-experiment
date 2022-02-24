@@ -1,0 +1,5 @@
+
+package: superlu-dist
+splice: metis
+replace: metis
+tests: true

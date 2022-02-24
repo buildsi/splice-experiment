@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: libunwind
+replace: libunwind
+tests: true

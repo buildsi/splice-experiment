@@ -1,0 +1,5 @@
+
+package: superlu-dist
+splice: parmetis
+replace: parmetis
+tests: true

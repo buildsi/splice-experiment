@@ -1,0 +1,5 @@
+
+package: superlu-dist
+splice: cmake
+replace: cmake
+tests: true

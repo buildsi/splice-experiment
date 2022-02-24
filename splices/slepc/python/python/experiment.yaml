@@ -1,0 +1,5 @@
+
+package: slepc
+splice: python
+replace: python
+tests: true

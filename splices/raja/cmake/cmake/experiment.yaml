@@ -1,0 +1,5 @@
+
+package: raja
+splice: cmake
+replace: cmake
+tests: true

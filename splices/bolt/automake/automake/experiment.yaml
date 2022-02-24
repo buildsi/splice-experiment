@@ -1,0 +1,5 @@
+
+package: bolt
+splice: automake
+replace: automake
+tests: true

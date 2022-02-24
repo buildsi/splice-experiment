@@ -1,0 +1,5 @@
+
+package: py-jupyterhub
+splice: py-traitlets
+replace: py-traitlets
+tests: true

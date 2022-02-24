@@ -1,0 +1,5 @@
+
+package: caliper
+splice: cmake
+replace: cmake
+tests: true

@@ -1,0 +1,5 @@
+
+package: openpmd-api
+splice: mpark-variant
+replace: mpark-variant
+tests: true

@@ -1,0 +1,5 @@
+
+package: slate
+splice: openblas
+replace: openblas
+tests: true

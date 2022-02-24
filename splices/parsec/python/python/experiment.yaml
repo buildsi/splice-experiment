@@ -1,0 +1,5 @@
+
+package: parsec
+splice: python
+replace: python
+tests: true

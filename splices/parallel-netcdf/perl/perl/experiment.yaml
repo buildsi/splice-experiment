@@ -1,0 +1,5 @@
+
+package: parallel-netcdf
+splice: perl
+replace: perl
+tests: true

@@ -1,0 +1,5 @@
+
+package: heffte
+splice: openmpi
+replace: openmpi
+tests: true

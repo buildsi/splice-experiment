@@ -1,0 +1,5 @@
+
+package: tau
+splice: elfutils
+replace: elfutils
+tests: true

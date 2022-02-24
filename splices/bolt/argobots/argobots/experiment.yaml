@@ -1,0 +1,5 @@
+
+package: bolt
+splice: argobots
+replace: argobots
+tests: true

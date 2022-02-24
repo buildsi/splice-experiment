@@ -1,0 +1,5 @@
+
+package: archer
+splice: ninja
+replace: ninja
+tests: true

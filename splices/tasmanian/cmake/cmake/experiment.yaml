@@ -1,0 +1,5 @@
+
+package: tasmanian
+splice: cmake
+replace: cmake
+tests: true

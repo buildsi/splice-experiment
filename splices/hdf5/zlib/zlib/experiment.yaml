@@ -1,0 +1,5 @@
+
+package: hdf5
+splice: zlib
+replace: zlib
+tests: true

@@ -1,0 +1,5 @@
+
+package: petsc
+splice: superlu-dist
+replace: superlu-dist
+tests: true

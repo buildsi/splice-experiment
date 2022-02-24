@@ -1,0 +1,5 @@
+
+package: py-jupyterhub
+splice: py-certipy
+replace: py-certipy
+tests: true

@@ -1,0 +1,5 @@
+
+package: parsec
+splice: bison
+replace: bison
+tests: true

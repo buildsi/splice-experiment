@@ -1,0 +1,5 @@
+
+package: fortrilinos
+splice: trilinos
+replace: trilinos
+tests: true

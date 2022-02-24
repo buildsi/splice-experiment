@@ -1,0 +1,5 @@
+
+package: hpctoolkit
+splice: xz
+replace: xz
+tests: true

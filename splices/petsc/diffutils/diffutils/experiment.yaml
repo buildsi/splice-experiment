@@ -1,0 +1,5 @@
+
+package: petsc
+splice: diffutils
+replace: diffutils
+tests: true
