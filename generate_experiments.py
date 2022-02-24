@@ -61,5 +61,5 @@ if __name__ == "__main__":
     yaml_file = os.path.join(here, "experiments", "has_tests.yaml")
     if len(sys.argv) != 2:
         sys.exit("please provide the output directory for experiment yamls.")
-        outdir = sys.argv[1]
+    outdir = sys.argv[1]
     main(yaml_file, outdir)

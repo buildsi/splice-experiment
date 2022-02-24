@@ -89,7 +89,7 @@ And we need spack.
 git clone -b vsoch/db-17-splice https://github.com/vsoch/spack
 . spack/share/spack/setup-env.sh 
 
-# always build with debug!
+# always build with debug (this is in template script too)
 export SPACK_ADD_DEBUG_FLAGS=true
 
 # add anaconda (or your favorite python install) to the path to install spliced
@@ -112,11 +112,12 @@ To generate new experiment files we can do the following:
 
 ```bash
 $ mkdir -p splices
-$ python generate_experiments.py splices/
+$ spack python generate_experiments.py splices/
 ```
 
-
-And then the idea is you can have spliced generate the commands for you:
+And then the idea is you can have spliced generate the commands for you. Note
+that @vsoch has probably already run this if there is a "splices" directory in the
+repository.
 
 ```bash
 cd ../

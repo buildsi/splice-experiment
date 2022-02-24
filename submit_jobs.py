@@ -75,7 +75,7 @@ if not os.path.exists(scripts):
 
 template = """#!/bin/bash 
 
-. /usr/workspace/sochat1/splice-experiment/spack/share/spack/setup-env.sh 
+. /usr/workspace/sochat1/spliced-experiment/spack/share/spack/setup-env.sh 
 
 # always build with debug!
 export SPACK_ADD_DEBUG_FLAGS=true
