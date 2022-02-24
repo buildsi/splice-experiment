@@ -97,7 +97,8 @@ for entry in matrix:
     if not os.path.exists(entry["outdir"]):
         os.makedirs(entry["outdir"])
     templated = template + "\n" + entry["command"]
-    outprefix = os.path.join(log_dir, slug)
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
-    os.system("sbatch --time 360 --out %s -err %s %s" % (tmpfile, outfile, errfile))
+    os.system("sbatch --time 360 --out=%s --err %s %s" % (outfile, errfile, tmpfile))
+    # Just running one to test for now
+    sys.exit()
