@@ -101,5 +101,3 @@ for entry in matrix:
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
     os.system("sbatch --time 360 --out=%s --err %s %s" % (outfile, errfile, tmpfile))
-    # Just running one to test for now
-    sys.exit()
