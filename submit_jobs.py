@@ -81,13 +81,14 @@ if not os.path.exists(scripts):
 
 template = """#!/bin/bash 
 
-. /usr/workspace/sochat1/spliced-experiment/spack/share/spack/setup-env.sh 
+. /p/vast1/build/spack/share/spack/setup-env.sh 
 
-# always build with debug!
+# always build with debug
 export SPACK_ADD_DEBUG_FLAGS=true
 
-# add anaconda (or your favorite python install) to the path
-export PATH=/usr/workspace/sochat1/anaconda3/bin:$PATH
+# add anaconda (or your favorite python install) to the path to install spliced
+export PATH=/p/vast1/build/anaconda3/bin:$PATH
+
 """
 
 for entry in matrix:
