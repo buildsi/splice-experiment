@@ -69,7 +69,7 @@ for version in versions:
         )
 
 # create scripts directory
-scripts = os.path.abspath(here, "scripts")
+scripts = os.path.abspath(os.path.join(here, "scripts"))
 if not os.path.exists(scripts):
     os.makedirs(scripts)
 

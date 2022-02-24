@@ -114,45 +114,31 @@ To generate new experiment files we can do the following:
 $ mkdir -p splices
 $ spack python generate_experiments.py splices/
 ```
-Note
-that @vsoch has probably already run this if there is a "splices" directory in the
-repository. Then is you can have spliced generate the commands for you.  Here is an example
+
+Note that @vsoch has probably already run this if there is a "splices" directory in the
+repository. Then you can have spliced generate the commands for you.  Here is an example
 to run on your own to see:
 
 ```bash
-spliced command splices/curl.yaml
+spliced command splices/swig/pcre/pcre/experiment.yaml
 ```
 
-Here is how we might manually generate commands for an experiment (to launch a job with everything loaded):
-
-```bash
-OLD=$IFS
-IFS=$'\n'
-for command in $(spliced command splices/curl.yaml); do
-   echo $command
-done
-```
-Take a look at the output above if you are interested. But let's do this in Python. Make a root output directory alongside spack
+Take a look at the commands generated above if you are interested. But let's do this in Python. Make a root output directory alongside spack
 ```bash
 $ mkdir -p results
 ```
 
-Here is a script to generate the commands, derive the output directory, and submit.
+The script [submit_jobs.py](submit_jobs.py) will do exactly that.
 
-```python
-$ wget https://raw.githubusercontent.com/buildsi/spliced-experiment/main/submit_jobs.py
-$ chmod +x submit_jobs.py
-```
-
-**important** I've hard coded the template for the submission script at the bottom, please
-change this to be where your spack install is, etc.
+**important** I've hard coded the template for the submission script at the bottom of that script, please
+change this to be where your spack install is, etc. It's hard coded for mine because *reasons*.
 
 The above will submit a bunch of jobs for all versions of the input parameters on the cluster,
 and keep scripts in `$PWD/scripts`
 
 ```bash
-                        # experiment      # output directory
-$ python submit_jobs.py splices/curl.yaml results
+                        # experiment                           # output directory
+$ python submit_jobs.py splices/swig/pcre/pcre/experiment.yaml results
 ```
 
 Note that @vsoch needs to add a boolean to spliced to say "run spack tests for this splice"
