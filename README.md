@@ -77,10 +77,19 @@ easy to do) to run the predictions without needing to spack install them.
 ## Running the Experiment
 
 Let's clone the experiment repository to get the examples and scripts.
+We have space in `/p/vast1/build`
 
 ```bash
+cd /p/vast1/build
 git clone https://github.com/buildsi/spliced-experiment
-cd spliced-experiment
+```
+
+Let's install anaconda to avoid pain.
+
+```bash
+wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+chmod +x Anaconda3-5.3.1-Linux-x86_64.sh
+./Anaconda3-5.3.1-Linux-x86_64.sh -p /p/vast1/build/anaconda3
 ```
 
 And we need spack.
@@ -93,17 +102,18 @@ git clone -b vsoch/db-17-splice https://github.com/vsoch/spack
 export SPACK_ADD_DEBUG_FLAGS=true
 
 # add anaconda (or your favorite python install) to the path to install spliced
-export PATH=/usr/workspace/sochat1/anaconda3/bin:$PATH
+export PATH=/p/vast1/build/anaconda3/bin:$PATH
 spack compiler find
 ```
 
-Install [spliced](https://github.com/buildsi/spliced):
+Install [spliced](https://github.com/buildsi/spliced) and [symbolator](https://github.com/buildsi/symbolator)
 
-```
-pip install spliced
+```bash
+pip install spliced symbolator-python
 ```
 
-You can see example splices in [splices](splices) and we are going to be generating them programatically
+Note that @vsoch is testing the branch `add/spack-tests` that will run spack tests
+with a splice for the command. You can see example splices in [splices](splices) and we are going to be generating them programatically
 based on tests we have.
 
 ## Generating experiments

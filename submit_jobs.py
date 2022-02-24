@@ -25,6 +25,9 @@ experiment.load(experiment_yaml)
 versions = get_package_versions(experiment.package)
 splice_versions = get_splice_versions(experiment)
 
+# Make an output logs directory
+logs_dir = os.path.join(here, "logs")
+
 # We will build up a matrix of experiments
 matrix = []
 
@@ -87,9 +90,12 @@ export PATH=/usr/workspace/sochat1/anaconda3/bin:$PATH
 
 for entry in matrix:
     tmpfile = os.path.join(scripts, "%s.sh" % entry["slug"])
+    outfile = os.path.join(logs_dir, "%s.out" % entry["slug"])
+    errfile = os.path.join(logs_dir, "%s.err" % entry["slug"])
     if not os.path.exists(entry["outdir"]):
         os.makedirs(entry["outdir"])
     templated = template + "\n" + entry["command"]
+    outprefix = os.path.join(log_dir, slug)
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
-    os.system("sbatch %s" % tmpfile)
+    os.system("sbatch --time 360 --out %s -err %s %s" % (tmpfile, outfile, errfile))
