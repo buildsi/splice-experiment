@@ -114,13 +114,12 @@ To generate new experiment files we can do the following:
 $ mkdir -p splices
 $ spack python generate_experiments.py splices/
 ```
-
-And then the idea is you can have spliced generate the commands for you. Note
+Note
 that @vsoch has probably already run this if there is a "splices" directory in the
-repository.
+repository. Then is you can have spliced generate the commands for you.  Here is an example
+to run on your own to see:
 
 ```bash
-cd ../
 spliced command splices/curl.yaml
 ```
 
