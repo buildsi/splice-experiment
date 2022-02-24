@@ -72,3 +72,88 @@ Since we can't splice in things that aren't dependencies in spack (and we need t
 that picks/chooses some manual cases that we know will cause issue (e.g. mpich and openmpi) to run those.
 We will want to do these "by hand" and perhaps run a manual experiment (not developed yet in spliced but should be fairly
 easy to do) to run the predictions without needing to spack install them.
+
+
+## Running the Experiment
+
+Let's clone the experiment repository to get the examples and scripts.
+
+```bash
+git clone https://github.com/buildsi/spliced-experiment
+cd spliced-experiment
+```
+
+And we need spack.
+
+```bash
+git clone -b vsoch/db-17-splice https://github.com/vsoch/spack
+. spack/share/spack/setup-env.sh 
+
+# always build with debug!
+export SPACK_ADD_DEBUG_FLAGS=true
+
+# add anaconda (or your favorite python install) to the path to install spliced
+export PATH=/usr/workspace/sochat1/anaconda3/bin:$PATH
+spack compiler find
+```
+
+Install [spliced](https://github.com/buildsi/spliced):
+
+```
+pip install spliced
+```
+
+You can see example splices in [splices](splices) and we are going to be generating them programatically
+based on tests we have.
+
+## Generating experiments
+
+To generate new experiment files we can do the following:
+
+```bash
+$ mkdir -p splices
+$ python generate_experiments.py splices/
+```
+
+
+And then the idea is you can have spliced generate the commands for you:
+
+```bash
+cd ../
+spliced command splices/curl.yaml
+```
+
+Here is how we might manually generate commands for an experiment (to launch a job with everything loaded):
+
+```bash
+OLD=$IFS
+IFS=$'\n'
+for command in $(spliced command splices/curl.yaml); do
+   echo $command
+done
+```
+Take a look at the output above if you are interested. But let's do this in Python. Make a root output directory alongside spack
+```bash
+$ mkdir -p results
+```
+
+Here is a script to generate the commands, derive the output directory, and submit.
+
+```python
+$ wget https://raw.githubusercontent.com/buildsi/spliced-experiment/main/submit_jobs.py
+$ chmod +x submit_jobs.py
+```
+
+**important** I've hard coded the template for the submission script at the bottom, please
+change this to be where your spack install is, etc.
+
+The above will submit a bunch of jobs for all versions of the input parameters on the cluster,
+and keep scripts in `$PWD/scripts`
+
+```bash
+                        # experiment      # output directory
+$ python submit_jobs.py splices/curl.yaml results
+```
+
+Note that @vsoch needs to add a boolean to spliced to say "run spack tests for this splice"
+and then it will be ready to go.

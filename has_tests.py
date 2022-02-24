@@ -19,9 +19,11 @@ def read_yaml(filename):
         content = yaml.load(fd.read(), Loader=yaml.SafeLoader)
     return content
 
+
 def write_yaml(filename, content):
     with open(filename, "w") as fd:
         fd.write(yaml.dump(content))
+
 
 def has_test_method(pkg):
     if not inspect.isclass(pkg):
