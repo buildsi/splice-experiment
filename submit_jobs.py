@@ -27,6 +27,8 @@ splice_versions = get_splice_versions(experiment)
 
 # Make an output logs directory
 logs_dir = os.path.join(here, "logs")
+if not os.path.exists(logs_dir):
+    os.makedirs(logs_dir)
 
 # We will build up a matrix of experiments
 matrix = []
