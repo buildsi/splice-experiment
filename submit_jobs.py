@@ -64,6 +64,7 @@ for version in versions:
                 "replace": experiment.replace,
                 "experiment": experiment.name,
                 "outfile": outfile,
+                "outdir": os.path.dirname(outfile),
                 "slug": slug,
             }
         )
@@ -86,6 +87,8 @@ export PATH=/usr/workspace/sochat1/anaconda3/bin:$PATH
 
 for entry in matrix:
     tmpfile = os.path.join(scripts, "%s.sh" % entry["slug"])
+    if not os.path.exists(entry["outdir"]):
+        os.makedirs(entry["outdir"])
     templated = template + "\n" + entry["command"]
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
