@@ -31,7 +31,6 @@ package: %s
 splice: %s
 replace: %s
 command: %s
-tests: true
 """
 
 
