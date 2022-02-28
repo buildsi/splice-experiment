@@ -2,4 +2,3 @@
 package: swig
 splice: pcre
 replace: pcre
-tests: true

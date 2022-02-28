@@ -2,4 +2,3 @@
 package: upcxx
 splice: python
 replace: python
-tests: true

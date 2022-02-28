@@ -2,4 +2,3 @@
 package: omega-h
 splice: zlib
 replace: zlib
-tests: true

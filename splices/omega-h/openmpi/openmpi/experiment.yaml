@@ -2,4 +2,3 @@
 package: omega-h
 splice: openmpi
 replace: openmpi
-tests: true

@@ -30,7 +30,6 @@ template = """
 package: %s
 splice: %s
 replace: %s
-command: %s
 """
 
 
@@ -48,7 +47,7 @@ def main(yaml_file, outdir):
         for dep in spec.dependencies():
 
             # "Replace a dependncy with a different version of itself"
-            recipe = template % (package.name, dep.name, dep.name)
+            recipe = template % (spec.name, dep.name, dep.name)
             outfile = os.path.join(
                 outdir, spec.name, dep.name, dep.name, "experiment.yaml"
             )

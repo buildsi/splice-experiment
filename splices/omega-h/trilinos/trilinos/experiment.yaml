@@ -2,4 +2,3 @@
 package: omega-h
 splice: trilinos
 replace: trilinos
-tests: true

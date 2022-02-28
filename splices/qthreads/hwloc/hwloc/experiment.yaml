@@ -2,4 +2,3 @@
 package: qthreads
 splice: hwloc
 replace: hwloc
-tests: true
