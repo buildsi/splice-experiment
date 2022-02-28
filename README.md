@@ -95,7 +95,7 @@ chmod +x Anaconda3-5.3.1-Linux-x86_64.sh
 And we need spack.
 
 ```bash
-git clone -b vsoch/db-17-splice https://github.com/vsoch/spack
+git clone -b vsoch/db-17-splice-feb-25 https://github.com/vsoch/spack
 . spack/share/spack/setup-env.sh 
 
 # always build with debug (this is in template script too)
@@ -104,6 +104,14 @@ export SPACK_ADD_DEBUG_FLAGS=true
 # add anaconda (or your favorite python install) to the path to install spliced
 export PATH=/p/vast1/build/anaconda3/bin:$PATH
 spack compiler find
+```
+
+Note that libabigail with gcc 10.2.0 is going to fail, so we need to use a different
+compiler and install before running anything.
+
+```bash
+$ module load gcc/8.3.1
+$ spack install libabigail%gcc@8.3.1
 ```
 
 Install [spliced](https://github.com/buildsi/spliced) and [symbolator](https://github.com/buildsi/symbolator)
