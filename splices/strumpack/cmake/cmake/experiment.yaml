@@ -2,4 +2,3 @@
 package: strumpack
 splice: cmake
 replace: cmake
-tests: true

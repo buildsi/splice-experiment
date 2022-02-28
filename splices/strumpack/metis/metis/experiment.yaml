@@ -2,4 +2,3 @@
 package: strumpack
 splice: metis
 replace: metis
-tests: true

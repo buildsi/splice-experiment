@@ -2,4 +2,3 @@
 package: aml
 splice: numactl
 replace: numactl
-tests: true

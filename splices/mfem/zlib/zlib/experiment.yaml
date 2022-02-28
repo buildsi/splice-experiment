@@ -2,4 +2,3 @@
 package: mfem
 splice: zlib
 replace: zlib
-tests: true

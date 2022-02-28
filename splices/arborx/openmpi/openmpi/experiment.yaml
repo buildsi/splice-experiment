@@ -2,4 +2,3 @@
 package: arborx
 splice: openmpi
 replace: openmpi
-tests: true

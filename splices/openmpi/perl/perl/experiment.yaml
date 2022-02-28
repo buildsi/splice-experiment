@@ -2,4 +2,3 @@
 package: openmpi
 splice: perl
 replace: perl
-tests: true

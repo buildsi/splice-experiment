@@ -2,4 +2,3 @@
 package: bolt
 splice: cmake
 replace: cmake
-tests: true

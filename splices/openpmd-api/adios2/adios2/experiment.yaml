@@ -2,4 +2,3 @@
 package: openpmd-api
 splice: adios2
 replace: adios2
-tests: true

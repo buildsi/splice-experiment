@@ -2,4 +2,3 @@
 package: darshan-runtime
 splice: zlib
 replace: zlib
-tests: true

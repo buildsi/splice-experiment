@@ -2,4 +2,3 @@
 package: petsc
 splice: python
 replace: python
-tests: true

@@ -2,4 +2,3 @@
 package: bolt
 splice: libtool
 replace: libtool
-tests: true

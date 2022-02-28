@@ -2,4 +2,3 @@
 package: strumpack
 splice: slate
 replace: slate
-tests: true

@@ -2,4 +2,3 @@
 package: nrm
 splice: py-tornado
 replace: py-tornado
-tests: true

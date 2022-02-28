@@ -2,4 +2,3 @@
 package: py-warpx
 splice: py-picmistandard
 replace: py-picmistandard
-tests: true

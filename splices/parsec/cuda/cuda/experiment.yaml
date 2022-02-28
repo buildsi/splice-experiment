@@ -2,4 +2,3 @@
 package: parsec
 splice: cuda
 replace: cuda
-tests: true

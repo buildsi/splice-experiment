@@ -2,4 +2,3 @@
 package: openmpi
 splice: libevent
 replace: libevent
-tests: true

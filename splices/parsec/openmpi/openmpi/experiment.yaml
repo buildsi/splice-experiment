@@ -2,4 +2,3 @@
 package: parsec
 splice: openmpi
 replace: openmpi
-tests: true

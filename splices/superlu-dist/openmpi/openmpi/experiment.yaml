@@ -2,4 +2,3 @@
 package: superlu-dist
 splice: openmpi
 replace: openmpi
-tests: true

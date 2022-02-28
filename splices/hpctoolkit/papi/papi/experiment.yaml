@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: papi
 replace: papi
-tests: true

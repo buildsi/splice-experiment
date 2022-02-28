@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-sqlalchemy
 replace: py-sqlalchemy
-tests: true

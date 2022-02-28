@@ -2,4 +2,3 @@
 package: arborx
 splice: kokkos
 replace: kokkos
-tests: true

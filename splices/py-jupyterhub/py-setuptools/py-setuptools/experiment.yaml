@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-setuptools
 replace: py-setuptools
-tests: true

@@ -2,4 +2,3 @@
 package: openmpi
 splice: pkgconf
 replace: pkgconf
-tests: true

@@ -2,4 +2,3 @@
 package: nrm
 splice: py-pyyaml
 replace: py-pyyaml
-tests: true

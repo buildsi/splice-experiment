@@ -2,4 +2,3 @@
 package: nrm
 splice: py-six
 replace: py-six
-tests: true

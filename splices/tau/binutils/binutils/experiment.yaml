@@ -2,4 +2,3 @@
 package: tau
 splice: binutils
 replace: binutils
-tests: true

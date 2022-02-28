@@ -2,4 +2,3 @@
 package: archer
 splice: cmake
 replace: cmake
-tests: true

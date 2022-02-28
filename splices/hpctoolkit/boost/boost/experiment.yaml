@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: boost
 replace: boost
-tests: true
