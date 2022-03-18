@@ -2,4 +2,3 @@
 package: legion
 splice: cmake
 replace: cmake
-tests: true

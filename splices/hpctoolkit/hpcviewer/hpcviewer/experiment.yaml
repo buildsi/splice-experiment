@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: hpcviewer
 replace: hpcviewer
-tests: true

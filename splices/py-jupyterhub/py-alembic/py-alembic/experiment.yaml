@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-alembic
 replace: py-alembic
-tests: true

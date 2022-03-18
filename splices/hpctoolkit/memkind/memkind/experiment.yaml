@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: memkind
 replace: memkind
-tests: true

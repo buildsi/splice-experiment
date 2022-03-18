@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-mako
 replace: py-mako
-tests: true

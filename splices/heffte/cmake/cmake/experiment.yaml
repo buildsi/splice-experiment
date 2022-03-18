@@ -2,4 +2,3 @@
 package: heffte
 splice: cmake
 replace: cmake
-tests: true

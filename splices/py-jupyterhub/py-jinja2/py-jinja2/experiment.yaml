@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-jinja2
 replace: py-jinja2
-tests: true

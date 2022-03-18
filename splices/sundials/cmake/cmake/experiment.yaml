@@ -2,4 +2,3 @@
 package: sundials
 splice: cmake
 replace: cmake
-tests: true

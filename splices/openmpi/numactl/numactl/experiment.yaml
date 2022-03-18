@@ -2,4 +2,3 @@
 package: openmpi
 splice: numactl
 replace: numactl
-tests: true

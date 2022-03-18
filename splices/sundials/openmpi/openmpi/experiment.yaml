@@ -2,4 +2,3 @@
 package: sundials
 splice: openmpi
 replace: openmpi
-tests: true

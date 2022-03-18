@@ -2,4 +2,3 @@
 package: nrm
 splice: py-jsonschema
 replace: py-jsonschema
-tests: true

@@ -2,4 +2,3 @@
 package: py-petsc4py
 splice: py-setuptools
 replace: py-setuptools
-tests: true

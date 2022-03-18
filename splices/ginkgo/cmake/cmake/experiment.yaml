@@ -2,4 +2,3 @@
 package: ginkgo
 splice: cmake
 replace: cmake
-tests: true

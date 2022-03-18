@@ -2,4 +2,3 @@
 package: strumpack
 splice: zfp
 replace: zfp
-tests: true

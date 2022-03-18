@@ -2,4 +2,3 @@
 package: papyrus
 splice: openmpi
 replace: openmpi
-tests: true

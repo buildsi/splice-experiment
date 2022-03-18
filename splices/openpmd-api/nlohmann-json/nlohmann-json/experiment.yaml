@@ -2,4 +2,3 @@
 package: openpmd-api
 splice: nlohmann-json
 replace: nlohmann-json
-tests: true

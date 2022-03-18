@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: libmonitor
 replace: libmonitor
-tests: true

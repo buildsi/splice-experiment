@@ -2,4 +2,3 @@
 package: hdf5
 splice: openmpi
 replace: openmpi
-tests: true

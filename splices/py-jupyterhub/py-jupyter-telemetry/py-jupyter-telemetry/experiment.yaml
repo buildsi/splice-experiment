@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: py-jupyter-telemetry
 replace: py-jupyter-telemetry
-tests: true

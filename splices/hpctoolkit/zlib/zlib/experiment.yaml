@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: zlib
 replace: zlib
-tests: true

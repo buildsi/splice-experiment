@@ -2,4 +2,3 @@
 package: openpmd-api
 splice: cmake
 replace: cmake
-tests: true

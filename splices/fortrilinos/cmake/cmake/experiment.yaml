@@ -2,4 +2,3 @@
 package: fortrilinos
 splice: cmake
 replace: cmake
-tests: true

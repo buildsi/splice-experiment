@@ -2,4 +2,3 @@
 package: openmpi
 splice: hwloc
 replace: hwloc
-tests: true

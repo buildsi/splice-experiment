@@ -2,4 +2,3 @@
 package: openmpi
 splice: zlib
 replace: zlib
-tests: true

@@ -2,4 +2,3 @@
 package: py-libensemble
 splice: py-psutil
 replace: py-psutil
-tests: true

@@ -52,6 +52,9 @@ def main(yaml_file, outdir):
                 outdir, spec.name, dep.name, dep.name, "experiment.yaml"
             )
             print("Writing %s" % outfile)
+            dirname = os.path.dirname(outfile)
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
             write_file(outfile, recipe)
 
 

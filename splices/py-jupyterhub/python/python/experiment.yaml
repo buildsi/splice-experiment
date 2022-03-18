@@ -2,4 +2,3 @@
 package: py-jupyterhub
 splice: python
 replace: python
-tests: true

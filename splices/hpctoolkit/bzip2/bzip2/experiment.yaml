@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: bzip2
 replace: bzip2
-tests: true

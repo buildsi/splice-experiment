@@ -2,4 +2,3 @@
 package: raja
 splice: camp
 replace: camp
-tests: true

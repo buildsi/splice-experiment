@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: mbedtls
 replace: mbedtls
-tests: true

@@ -2,4 +2,3 @@
 package: hpctoolkit
 splice: xerces-c
 replace: xerces-c
-tests: true

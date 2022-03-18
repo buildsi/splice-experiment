@@ -2,4 +2,3 @@
 package: nrm
 splice: py-setuptools
 replace: py-setuptools
-tests: true

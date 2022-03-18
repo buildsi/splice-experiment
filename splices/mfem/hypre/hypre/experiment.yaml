@@ -2,4 +2,3 @@
 package: mfem
 splice: hypre
 replace: hypre
-tests: true
