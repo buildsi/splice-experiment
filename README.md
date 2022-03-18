@@ -95,7 +95,7 @@ chmod +x Anaconda3-5.3.1-Linux-x86_64.sh
 And we need spack.
 
 ```bash
-git clone -b vsoch/db-17-splice-feb-25 https://github.com/vsoch/spack
+git clone -b vsoch/vsoch/db-17-splice-mar-18 https://github.com/vsoch/spack
 . spack/share/spack/setup-env.sh 
 
 # always build with debug (this is in template script too)
