@@ -120,8 +120,7 @@ Install [spliced](https://github.com/buildsi/spliced) and [symbolator](https://g
 pip install spliced symbolator-python
 ```
 
-Note that @vsoch is testing the branch `add/spack-tests` that will run spack tests
-with a splice for the command. You can see example splices in [splices](splices) and we are going to be generating them programatically
+You can see example splices in [splices](splices) and we are going to be generating them programatically
 based on tests we have.
 
 ## Generating experiments
@@ -142,11 +141,26 @@ spliced command splices/swig/pcre/pcre/experiment.yaml
 ```
 
 Take a look at the commands generated above if you are interested. But let's do this in Python. Make a root output directory alongside spack
+
 ```bash
 $ mkdir -p results
 ```
 
-The script [submit_jobs.py](submit_jobs.py) will do exactly that.
+Finally, pull the container we need for Smeagle BEFORE running the job.
+
+```bash
+$ singularity pull docker://vanessa/smeagle:callsites
+```
+
+Yes, this means you need Singularity too :) The exported path to the pulled
+container will be provided in the submission script, e.g.,:
+
+```
+export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
+```
+
+The script [submit_jobs.py](submit_jobs.py) will do exactly that - submit jobs ensuring we have 
+the correct environment variables, etc.
 
 **important** I've hard coded the template for the submission script at the bottom of that script, please
 change this to be where your spack install is, etc. It's hard coded for mine because *reasons*.
@@ -158,6 +172,3 @@ and keep scripts in `$PWD/scripts`
                         # experiment                           # output directory
 $ python submit_jobs.py splices/swig/pcre/pcre/experiment.yaml results
 ```
-
-Note that @vsoch needs to add a boolean to spliced to say "run spack tests for this splice"
-and then it will be ready to go.

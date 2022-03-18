@@ -89,6 +89,8 @@ export SPACK_ADD_DEBUG_FLAGS=true
 # add anaconda (or your favorite python install) to the path to install spliced
 export PATH=/p/vast1/build/anaconda3/bin:$PATH
 
+# Ensure smeagle container is found (will not work if not)
+export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
 """
 
 for entry in matrix:
