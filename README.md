@@ -76,6 +76,51 @@ easy to do) to run the predictions without needing to spack install them.
 
 ## Running the Experiment
 
+### A Test Run
+
+Note that you can do this *after* the setup has been done in [detailed instructions](#detailed-instructions) below.
+
+```bash
+# Go to our build space
+cd /p/vast1/build 
+
+# I need to do this because I alias python3 to python (you might not)
+unalias python
+
+# Smeagle (the PR branch installed for spliced) needs a container in the environment
+export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
+
+# Source the spack in build
+. spack/share/spack/setup-env.sh 
+
+# always build with debug (this is in template script too)
+export SPACK_ADD_DEBUG_FLAGS=true
+
+# add anaconda to the path (where spliced, symbolator are installed)
+export PATH=/p/vast1/build/anaconda3/bin:$PATH
+
+# double check you are using the right spack and python
+which spack
+# /p/vast1/build/spack/bin/spack
+which python
+# /p/vast1/build/anaconda3/bin/python
+
+# get a NOOOOODE
+salloc -N 1
+
+# cd into the experiment directory where we have configs
+cd spliced-experiment
+
+# Here is how I generate commands (printed to the terminal) and you can use any experiment config in splices/
+spliced command splices/swig/pcre/pcre/experiment.yaml
+
+# Here is one I chose from the list printed
+spliced splice --package swig@master --splice pcre --runner spack --replace pcre --experiment experiment
+# You can set an --outfile to save output, but for testing it's fine to just watch the terminal!
+```
+
+### Detailed Instructions
+
 Let's clone the experiment repository to get the examples and scripts.
 We have space in `/p/vast1/build`
 
