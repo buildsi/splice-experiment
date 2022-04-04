@@ -96,10 +96,9 @@ export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
 for entry in matrix:
     tmpfile = os.path.join(scripts, "%s.sh" % entry["slug"])
     outfile = os.path.join(logs_dir, "%s.out" % entry["slug"])
-    errfile = os.path.join(logs_dir, "%s.err" % entry["slug"])
     if not os.path.exists(entry["outdir"]):
         os.makedirs(entry["outdir"])
     templated = template + "\n" + entry["command"]
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
-    os.system("sbatch --time 360 -A asi --out=%s --exclusive --err %s %s" % (outfile, errfile, tmpfile))
+    os.system("sbatch --time 360 -A asi --out=%s --exclusive --err %s %s" % (outfile, outfile, tmpfile))
