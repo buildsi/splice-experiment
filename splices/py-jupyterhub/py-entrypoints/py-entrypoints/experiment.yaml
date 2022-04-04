@@ -1,4 +1,0 @@
-
-package: py-jupyterhub
-splice: py-entrypoints
-replace: py-entrypoints

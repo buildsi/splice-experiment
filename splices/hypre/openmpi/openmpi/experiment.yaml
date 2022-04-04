@@ -1,4 +1,0 @@
-
-package: hypre
-splice: openmpi
-replace: openmpi

@@ -1,4 +1,0 @@
-
-package: parsec
-splice: bison
-replace: bison

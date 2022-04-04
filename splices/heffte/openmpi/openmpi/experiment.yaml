@@ -1,4 +1,0 @@
-
-package: heffte
-splice: openmpi
-replace: openmpi

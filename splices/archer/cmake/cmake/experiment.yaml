@@ -1,4 +1,0 @@
-
-package: archer
-splice: cmake
-replace: cmake

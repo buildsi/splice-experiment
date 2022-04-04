@@ -1,4 +1,0 @@
-
-package: py-libensemble
-splice: py-wheel
-replace: py-wheel

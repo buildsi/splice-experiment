@@ -1,4 +1,0 @@
-
-package: archer
-splice: llvm
-replace: llvm

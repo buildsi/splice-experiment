@@ -1,4 +1,0 @@
-
-package: bolt
-splice: cmake
-replace: cmake

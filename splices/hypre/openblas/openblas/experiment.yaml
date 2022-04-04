@@ -1,4 +1,0 @@
-
-package: hypre
-splice: openblas
-replace: openblas

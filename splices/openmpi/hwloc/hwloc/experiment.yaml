@@ -1,4 +1,0 @@
-
-package: openmpi
-splice: hwloc
-replace: hwloc

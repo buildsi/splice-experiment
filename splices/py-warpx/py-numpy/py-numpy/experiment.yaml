@@ -1,4 +1,0 @@
-
-package: py-warpx
-splice: py-numpy
-replace: py-numpy

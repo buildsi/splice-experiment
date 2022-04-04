@@ -1,4 +1,0 @@
-
-package: petsc
-splice: diffutils
-replace: diffutils

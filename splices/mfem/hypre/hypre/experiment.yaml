@@ -1,4 +1,0 @@
-
-package: mfem
-splice: hypre
-replace: hypre

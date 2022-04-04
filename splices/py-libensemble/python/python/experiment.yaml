@@ -1,4 +1,0 @@
-
-package: py-libensemble
-splice: python
-replace: python

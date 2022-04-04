@@ -1,4 +1,0 @@
-
-package: parallel-netcdf
-splice: perl
-replace: perl

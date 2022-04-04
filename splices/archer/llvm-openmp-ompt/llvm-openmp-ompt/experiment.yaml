@@ -1,4 +1,0 @@
-
-package: archer
-splice: llvm-openmp-ompt
-replace: llvm-openmp-ompt

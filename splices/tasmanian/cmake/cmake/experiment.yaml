@@ -1,4 +1,0 @@
-
-package: tasmanian
-splice: cmake
-replace: cmake

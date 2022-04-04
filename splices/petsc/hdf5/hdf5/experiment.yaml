@@ -1,4 +1,0 @@
-
-package: petsc
-splice: hdf5
-replace: hdf5

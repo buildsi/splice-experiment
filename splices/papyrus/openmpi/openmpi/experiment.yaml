@@ -1,4 +1,0 @@
-
-package: papyrus
-splice: openmpi
-replace: openmpi

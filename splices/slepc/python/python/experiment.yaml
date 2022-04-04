@@ -1,4 +1,0 @@
-
-package: slepc
-splice: python
-replace: python

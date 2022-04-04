@@ -1,4 +1,0 @@
-
-package: ginkgo
-splice: cmake
-replace: cmake

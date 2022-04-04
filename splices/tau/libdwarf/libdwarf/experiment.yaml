@@ -1,4 +1,0 @@
-
-package: tau
-splice: libdwarf
-replace: libdwarf

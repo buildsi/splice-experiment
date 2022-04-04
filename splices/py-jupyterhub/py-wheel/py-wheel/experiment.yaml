@@ -1,4 +1,0 @@
-
-package: py-jupyterhub
-splice: py-wheel
-replace: py-wheel

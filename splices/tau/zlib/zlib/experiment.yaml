@@ -1,4 +1,0 @@
-
-package: tau
-splice: zlib
-replace: zlib

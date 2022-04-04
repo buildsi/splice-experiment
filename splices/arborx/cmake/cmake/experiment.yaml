@@ -1,4 +1,0 @@
-
-package: arborx
-splice: cmake
-replace: cmake

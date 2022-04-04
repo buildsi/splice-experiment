@@ -1,4 +1,0 @@
-
-package: pumi
-splice: openmpi
-replace: openmpi

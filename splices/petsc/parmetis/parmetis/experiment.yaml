@@ -1,4 +1,0 @@
-
-package: petsc
-splice: parmetis
-replace: parmetis

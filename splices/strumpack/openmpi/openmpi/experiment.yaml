@@ -1,4 +1,0 @@
-
-package: strumpack
-splice: openmpi
-replace: openmpi

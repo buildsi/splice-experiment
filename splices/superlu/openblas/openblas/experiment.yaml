@@ -1,4 +1,0 @@
-
-package: superlu
-splice: openblas
-replace: openblas

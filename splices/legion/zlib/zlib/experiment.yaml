@@ -1,4 +1,0 @@
-
-package: legion
-splice: zlib
-replace: zlib

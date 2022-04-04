@@ -1,4 +1,0 @@
-
-package: heffte
-splice: cmake
-replace: cmake

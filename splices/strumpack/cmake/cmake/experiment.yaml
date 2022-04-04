@@ -1,4 +1,0 @@
-
-package: strumpack
-splice: cmake
-replace: cmake

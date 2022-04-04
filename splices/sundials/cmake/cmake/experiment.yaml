@@ -1,4 +1,0 @@
-
-package: sundials
-splice: cmake
-replace: cmake

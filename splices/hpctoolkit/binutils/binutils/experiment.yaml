@@ -1,4 +1,0 @@
-
-package: hpctoolkit
-splice: binutils
-replace: binutils

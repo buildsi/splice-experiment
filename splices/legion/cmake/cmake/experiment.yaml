@@ -1,4 +1,0 @@
-
-package: legion
-splice: cmake
-replace: cmake

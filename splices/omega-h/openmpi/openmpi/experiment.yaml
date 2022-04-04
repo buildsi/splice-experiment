@@ -1,4 +1,0 @@
-
-package: omega-h
-splice: openmpi
-replace: openmpi

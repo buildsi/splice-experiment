@@ -1,4 +1,0 @@
-
-package: py-jupyterhub
-splice: py-python-dateutil
-replace: py-python-dateutil
