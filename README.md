@@ -151,6 +151,15 @@ export PATH=/p/vast1/build/anaconda3/bin:$PATH
 spack compiler find
 ```
 
+Ensure in your default spack config (`spack/etc/spack/defaults/config.yaml`) to set deprecated: true so we download deprecated packages,
+and that debug is enabled.
+
+```yaml
+config:
+  deprecated: true
+  debug: true
+```
+
 Note that libabigail with gcc 10.2.0 is going to fail, so we need to use a different
 compiler and install before running anything.
 
