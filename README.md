@@ -132,9 +132,9 @@ git clone https://github.com/buildsi/spliced-experiment
 Let's install anaconda to avoid pain.
 
 ```bash
-wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
-chmod +x Anaconda3-5.3.1-Linux-x86_64.sh
-./Anaconda3-5.3.1-Linux-x86_64.sh -p /p/vast1/build/anaconda3
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+chmod +x Anaconda3-2022.05-Linux-x86_64.sh
+./Anaconda3-2022.05-Linux-x86_64.sh -p /p/vast1/build/anaconda3
 ```
 
 And we need spack.
@@ -172,6 +172,20 @@ Install [spliced](https://github.com/buildsi/spliced) and [symbolator](https://g
 
 ```bash
 pip install spliced symbolator-python
+```
+
+And then cle:
+
+```bash
+git clone https://github.com/vsoch/cle
+
+# archinfo, pyvex, pyelftools, then cle
+pip install wheel
+pip install git+https://github.com/angr/archinfo
+pip install git+https://github.com/angr/pyvex
+pip install git+https://github.com/eliben/pyelftools
+pip install .
+
 ```
 
 You can see example splices in [splices](splices) and we are going to be generating them programatically
