@@ -99,6 +99,9 @@ export SPACK_ADD_DEBUG_FLAGS=true
 # add anaconda to the path (where spliced, symbolator are installed)
 export PATH=/p/vast1/build/anaconda3/bin:$PATH
 
+# Add smeagle facts cache (in a place that will get big)
+export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/smeagle-cache
+
 # double check you are using the right spack and python
 which spack
 # /p/vast1/build/spack/bin/spack
@@ -214,17 +217,10 @@ Take a look at the commands generated above if you are interested. But let's do 
 $ mkdir -p results
 ```
 
-Finally, pull the container we need for Smeagle BEFORE running the job.
+Finally, export a cache directory for Smeagle (so we only derive facts once)
 
 ```bash
-$ singularity pull docker://vanessa/smeagle:callsites
-```
-
-Yes, this means you need Singularity too :) The exported path to the pulled
-container will be provided in the submission script, e.g.,:
-
-```
-export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
+export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/smeagle-cache
 ```
 
 The script [submit_jobs.py](submit_jobs.py) will do exactly that - submit jobs ensuring we have 
