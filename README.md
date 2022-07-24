@@ -87,8 +87,8 @@ cd /p/vast1/build
 # I need to do this because I alias python3 to python (you might not)
 unalias python
 
-# Smeagle (the PR branch installed for spliced) needs a container in the environment
-export SMEAGLE_CONTAINER=/p/vast1/build/smeagle_callsites.sif
+# ABI Laboratory container
+export SPLICED_ABILAB_CONTAINER=/p/vast1/build/abi-laboratory-docker_latest.sif
 
 # Source the spack in build
 . spack/share/spack/setup-env.sh 
@@ -188,11 +188,25 @@ pip install git+https://github.com/angr/archinfo
 pip install git+https://github.com/angr/pyvex
 pip install git+https://github.com/eliben/pyelftools
 pip install .
-
 ```
 
 You can see example splices in [splices](splices) and we are going to be generating them programatically
 based on tests we have.
+
+## Containers
+
+One of our predictors (the ABI laboratory) is easiest to use from a container!
+Pull the container with singularity:
+
+```bash
+$ singularity pull docker://ghcr.io/buildsi/abi-laboratory-docker
+```
+
+And ensure you export the environment variable for the predictor to find.
+
+```bash
+$ export SPLICED_ABILAB_CONTAINER=/p/vast1/build/abi-laboratory-docker_latest.sif
+```
 
 ## Generating experiments
 
