@@ -101,7 +101,7 @@ export PATH=/p/vast1/build/anaconda3/bin:$PATH
 
 # Add cache (in a place that will get big)
 export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/spliced-cache
-export SPLICED_ABILAB_CACHE=/p/vast1/build/spliced-cache
+export SPLICED_ABILAB_CACHE_DIR=/p/vast1/build/spliced-cache
 
 # double check you are using the right spack and python
 which spack
@@ -236,7 +236,7 @@ Finally, export a cache directory for Smeagle and the ABI Laboratory (so we only
 
 ```bash
 export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/spliced-cache
-export SPLICED_ABILAB_CACHE=/p/vast1/build/spliced-cache
+export SPLICED_ABILAB_CACHE_DIR=/p/vast1/build/spliced-cache
 ```
 
 The script [submit_jobs.py](submit_jobs.py) will do exactly that - submit jobs ensuring we have 
