@@ -99,8 +99,9 @@ export SPACK_ADD_DEBUG_FLAGS=true
 # add anaconda to the path (where spliced, symbolator are installed)
 export PATH=/p/vast1/build/anaconda3/bin:$PATH
 
-# Add smeagle facts cache (in a place that will get big)
+# Add cache (in a place that will get big)
 export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/smeagle-cache
+export SPLICED_ABILAB_CACHE=/p/vast1/build/smeagle-cache
 
 # double check you are using the right spack and python
 which spack
@@ -231,10 +232,11 @@ Take a look at the commands generated above if you are interested. But let's do 
 $ mkdir -p results
 ```
 
-Finally, export a cache directory for Smeagle (so we only derive facts once)
+Finally, export a cache directory for Smeagle and the ABI Laboratory (so we only derive facts once)
 
 ```bash
 export SPLICED_SMEAGLE_CACHE_DIR=/p/vast1/build/smeagle-cache
+export SPLICED_ABILAB_CACHE=/p/vast1/build/smeagle-cache
 ```
 
 The script [submit_jobs.py](submit_jobs.py) will do exactly that - submit jobs ensuring we have 
