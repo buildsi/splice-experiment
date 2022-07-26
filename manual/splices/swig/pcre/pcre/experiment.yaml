@@ -1,0 +1,4 @@
+
+package: swig
+splice: pcre
+replace: pcre

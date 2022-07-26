@@ -1,0 +1,4 @@
+
+package: py-jupyterhub
+splice: py-notebook
+replace: py-notebook

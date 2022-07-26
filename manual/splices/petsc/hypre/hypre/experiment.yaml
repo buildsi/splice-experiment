@@ -1,0 +1,4 @@
+
+package: petsc
+splice: hypre
+replace: hypre

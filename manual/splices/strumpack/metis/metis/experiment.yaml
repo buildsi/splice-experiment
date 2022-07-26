@@ -1,0 +1,4 @@
+
+package: strumpack
+splice: metis
+replace: metis

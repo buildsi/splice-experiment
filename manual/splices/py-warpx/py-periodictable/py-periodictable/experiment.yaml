@@ -1,0 +1,4 @@
+
+package: py-warpx
+splice: py-periodictable
+replace: py-periodictable

@@ -1,0 +1,4 @@
+
+package: slepc
+splice: arpack-ng
+replace: arpack-ng

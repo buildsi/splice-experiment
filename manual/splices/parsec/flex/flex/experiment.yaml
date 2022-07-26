@@ -1,0 +1,4 @@
+
+package: parsec
+splice: flex
+replace: flex

@@ -1,0 +1,4 @@
+
+package: strumpack
+splice: parmetis
+replace: parmetis

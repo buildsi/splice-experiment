@@ -1,0 +1,4 @@
+
+package: openmpi
+splice: zlib
+replace: zlib

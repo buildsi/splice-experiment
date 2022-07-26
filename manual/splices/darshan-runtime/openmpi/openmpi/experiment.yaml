@@ -1,0 +1,4 @@
+
+package: darshan-runtime
+splice: openmpi
+replace: openmpi

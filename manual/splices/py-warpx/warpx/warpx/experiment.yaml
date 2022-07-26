@@ -1,0 +1,4 @@
+
+package: py-warpx
+splice: warpx
+replace: warpx

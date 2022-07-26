@@ -1,0 +1,4 @@
+
+package: caliper
+splice: openmpi
+replace: openmpi

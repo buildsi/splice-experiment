@@ -1,0 +1,4 @@
+
+package: openpmd-api
+splice: hdf5
+replace: hdf5

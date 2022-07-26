@@ -1,0 +1,4 @@
+
+package: nrm
+splice: py-numpy
+replace: py-numpy

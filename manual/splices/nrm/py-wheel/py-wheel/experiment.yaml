@@ -1,0 +1,4 @@
+
+package: nrm
+splice: py-wheel
+replace: py-wheel

@@ -1,0 +1,4 @@
+
+package: slepc
+splice: petsc
+replace: petsc

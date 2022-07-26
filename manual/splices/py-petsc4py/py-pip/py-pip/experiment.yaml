@@ -1,0 +1,4 @@
+
+package: py-petsc4py
+splice: py-pip
+replace: py-pip
