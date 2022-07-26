@@ -3,11 +3,6 @@ FROM ghcr.io/buildsi/libabigail:2.0
 # docker build -t ghcr.io/buildsi/spliced-experiment .
 # docker run -it -v /p/vast1/build/spliced-cache:/cache /p/vast1/build/spack:/spack ghcr.io/buildsi/spliced-experiment
 
-# TODO
-# try installing spack on the inside
-# then try changing home
-# need main entrypoint that is run post job submit
-
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y build-essential
 
