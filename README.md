@@ -78,6 +78,7 @@ in separate files. We can use the container for this:
 $ singularity exec --home $PWD spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 ```
 
+You should not have spack on your path (so it can be found in the container).
 Note that home needs to be set to somewhere that isn't actually your home to not interfere with your host configs.
 After this run, you can see example splices in [splices](splices).
 
@@ -85,42 +86,45 @@ After this run, you can see example splices in [splices](splices).
 
 To run a splice you will want to bind:
 
- - a directory to install packages to `/spack/opt`
+ - an originally empty directory to install packages to `/spack/opt` (e.g., not a local spack installs)
  - an empty directory to cache data to `/cache`
  - a results directory for results to `/results` (if saving files)
 
-First, generate an example command using an experiment file. Note that we are binding an install directory
-with spack installs to the container. You should be consistent about the one you use, and ideally start with
-it empty.
+First, generate an example command using an experiment file:
 
 ```bash
-$ export SPACK_INSTALL=$HOME/spack-vsoch/opt
-$ singularity exec --home $PWD --bind $SPACK_INSTALL:/spack/opt spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
+$ singularity exec --home $PWD spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
 ```
 
-Then you can choose a command, and test running (and printing to the terminal):
-
-    $ singularity exec --home $PWD --bind $SPACK_INSTALL:/spack/opt spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
-
-**TODO** need to update spliced to not use containers, fix but that splice_spec needs to be
-concretized before inspecting package.
-
-### Automated Run a Splice
-
-*STOPPED HERE* need to update spliced to not use container, but call commands / scripts directly.
-
-The script [submit_jobs.py](scripts/submit_jobs.py) will do exactly that - submit jobs ensuring we have 
-the correct environment variables, etc.
-
-**not written yet**
-
-The above will submit a bunch of jobs for all versions of the input parameters on the cluster,
-and keep scripts in `$PWD/scripts`
+or with Docker:
 
 ```bash
-                        # experiment                           # output directory
-$ python submit_jobs.py splices/swig/pcre/pcre/experiment.yaml results
+$ docker run -it ghcr.io/buildsi/spliced-experiment spliced command splices/swig/pcre/pcre/experiment.yaml
 ```
+
+Then you can choose a command, and test running (and printing to the terminal).  Note that we are binding a fresh (empty) install directory with spack installs to the container. This directory should *only* be used for your container, and you should start with it empty. The reason is because paths (from within the container) will be hard-coded there, and you can get erroneous results to have a mixture of both. You'll also need to bind a cache directory to `/cache` - if you don't it will work for Docker but not Singularity (as there will be no write). And we are also binding the original path to itself (so it can be found, e.g., for RPATHs).  Here is Singularity:
+
+```bash
+$ mkdir -p cache
+$ mkdir -p spack-opt
+$ singularity exec --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
+```
+
+and Docker:
+
+```bash
+$ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
+```
+
+### Automated Run Splices
+
+The script [submit_jobs.py](scripts/submit_jobs.py) will do exactly that - submit jobs for all your experiments in some subdirectory of `spliced` ensuring we have the correct environment variables, etc. You should provide the input directory (splices), the existing results directory (results) and a path to the container SIF (Singularity).
+
+```bash
+$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif
+```
+
+The above will submit a bunch of jobs for all `experiment.yaml` files it finds under spliced. Note that this variat of experiment.yaml has a splice, replace, and main package (it's not the one in the root here with your main experiment package names). Submission scripts will be written to `$PWD/submit` for you to inspect or re-run.
 
 
 ## Development
