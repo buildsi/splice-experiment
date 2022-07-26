@@ -23,6 +23,17 @@ This means that we also need to know the sample of the e4s packages that have te
 I wrote a script to do that.
 
 
+## TLDR
+
+> Too Long, Didn't Read
+
+```bash
+$ singularity pull docker://ghcr.io/buildsi/spliced-experiment
+$ singularity exec --home $PWD spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ mkdir -p ./results ./spack-opt ./cache
+$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
+```
+
 ## Running the Experiment
 
 ### Clone the repository
@@ -121,7 +132,7 @@ $ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment
 The script [submit_jobs.py](scripts/submit_jobs.py) will do exactly that - submit jobs for all your experiments in some subdirectory of `spliced` ensuring we have the correct environment variables, etc. You should provide the input directory (splices), the existing results directory (results) and a path to the container SIF (Singularity).
 
 ```bash
-$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif
+$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
 ```
 
 The above will submit a bunch of jobs for all `experiment.yaml` files it finds under spliced. Note that this variat of experiment.yaml has a splice, replace, and main package (it's not the one in the root here with your main experiment package names). Submission scripts will be written to `$PWD/submit` for you to inspect or re-run.

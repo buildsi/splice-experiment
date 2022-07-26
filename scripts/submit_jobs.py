@@ -24,7 +24,7 @@ export SPACK_ADD_DEBUG_FLAGS=true
 # This is to submit the job
 submit_template = """#!/bin/bash 
 
-singularity exec -b %s:/spack/opt %s /bin/bash %s
+singularity exec -b %s:/cache -b %s:/spack/opt %s /bin/bash %s
 
 """
 
@@ -43,6 +43,10 @@ def get_parser():
         "--spack-opt",
         dest="spack_opt",
         help="Full path to spack opt (empty to start) to bind.",
+    )
+    parser.add_argument(
+        "--cache",
+        help="Full path to predictor cache (empty to start) to bind.",
     )
     return parser
 
@@ -124,7 +128,11 @@ def main():
     experiment_dir = os.path.abspath(args.experiment_dir)
     outdir = os.path.abspath(args.outdir)
     container = os.path.abspath(args.sif)
+
+    if not args.spack_opt or not args.cache:
+        sys.exit("Both --spack-opt and --cache are required.")
     spack_opt = os.path.abspath(args.spack_opt)
+    cache = os.path.abspath(args.cache)
 
     for path in experiment_dir, outdir, container:
         if not os.path.exists(path):
@@ -162,7 +170,7 @@ def main():
         if not os.path.exists(entry["outdir"]):
             os.makedirs(entry["outdir"])
         templated = template + "\n" + entry["command"]
-        submit_templated = submit_template % s(spack_opt, container, tmpfile)
+        submit_templated = submit_template % (cache, spack_opt, container, tmpfile)
         with open(tmpfile, "w") as fd:
             fd.writelines(templated)
         with open(submitfile, "w") as fd:
