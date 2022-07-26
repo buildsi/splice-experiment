@@ -1,0 +1,4 @@
+
+package: openmpi
+splice: perl
+replace: perl

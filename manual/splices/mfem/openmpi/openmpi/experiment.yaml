@@ -1,0 +1,4 @@
+
+package: mfem
+splice: openmpi
+replace: openmpi

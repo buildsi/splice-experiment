@@ -1,0 +1,4 @@
+
+package: openpmd-api
+splice: cmake
+replace: cmake

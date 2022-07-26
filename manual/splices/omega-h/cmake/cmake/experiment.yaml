@@ -1,0 +1,4 @@
+
+package: omega-h
+splice: cmake
+replace: cmake

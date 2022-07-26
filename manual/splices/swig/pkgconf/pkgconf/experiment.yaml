@@ -1,0 +1,4 @@
+
+package: swig
+splice: pkgconf
+replace: pkgconf

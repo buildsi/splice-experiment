@@ -1,0 +1,4 @@
+
+package: parallel-netcdf
+splice: m4
+replace: m4

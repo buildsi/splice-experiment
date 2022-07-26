@@ -1,0 +1,4 @@
+
+package: hpctoolkit
+splice: intel-xed
+replace: intel-xed

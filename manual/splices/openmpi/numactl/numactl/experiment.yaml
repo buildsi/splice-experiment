@@ -1,0 +1,4 @@
+
+package: openmpi
+splice: numactl
+replace: numactl

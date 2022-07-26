@@ -1,0 +1,4 @@
+
+package: fortrilinos
+splice: cmake
+replace: cmake

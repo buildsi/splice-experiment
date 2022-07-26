@@ -1,0 +1,4 @@
+
+package: tau
+splice: openjdk
+replace: openjdk

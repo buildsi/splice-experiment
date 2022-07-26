@@ -1,0 +1,4 @@
+
+package: superlu-dist
+splice: openblas
+replace: openblas

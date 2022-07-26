@@ -1,0 +1,4 @@
+
+package: hdf5
+splice: cmake
+replace: cmake

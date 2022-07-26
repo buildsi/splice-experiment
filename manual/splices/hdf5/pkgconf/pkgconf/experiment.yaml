@@ -1,0 +1,4 @@
+
+package: hdf5
+splice: pkgconf
+replace: pkgconf

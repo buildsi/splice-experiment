@@ -1,0 +1,4 @@
+
+package: pumi
+splice: cmake
+replace: cmake

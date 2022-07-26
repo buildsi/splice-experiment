@@ -1,0 +1,4 @@
+
+package: strumpack
+splice: netlib-scalapack
+replace: netlib-scalapack

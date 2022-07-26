@@ -1,0 +1,4 @@
+
+package: hpctoolkit
+splice: bzip2
+replace: bzip2

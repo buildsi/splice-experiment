@@ -1,0 +1,4 @@
+
+package: hpctoolkit
+splice: hpcviewer
+replace: hpcviewer

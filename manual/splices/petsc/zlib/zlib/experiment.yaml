@@ -1,0 +1,4 @@
+
+package: petsc
+splice: zlib
+replace: zlib

@@ -1,0 +1,4 @@
+
+package: strumpack
+splice: zfp
+replace: zfp

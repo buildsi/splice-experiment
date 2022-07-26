@@ -1,0 +1,4 @@
+
+package: py-warpx
+splice: py-setuptools
+replace: py-setuptools

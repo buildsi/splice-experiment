@@ -1,0 +1,4 @@
+
+package: raja
+splice: cmake
+replace: cmake

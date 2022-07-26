@@ -1,0 +1,4 @@
+
+package: sundials
+splice: openmpi
+replace: openmpi

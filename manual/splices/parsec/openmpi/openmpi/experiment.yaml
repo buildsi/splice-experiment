@@ -1,0 +1,4 @@
+
+package: parsec
+splice: openmpi
+replace: openmpi

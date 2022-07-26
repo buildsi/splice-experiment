@@ -1,0 +1,4 @@
+
+package: parallel-netcdf
+splice: openmpi
+replace: openmpi
