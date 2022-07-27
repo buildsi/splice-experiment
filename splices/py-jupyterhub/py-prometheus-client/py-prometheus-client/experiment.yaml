@@ -1,4 +1,8 @@
-
-package: py-jupyterhub
-splice: py-prometheus-client
+package:
+  name: py-jupyterhub
+  versions:
+  - 0.9.4
+  - 1.0.0
+  - 1.4.1
 replace: py-prometheus-client
+splice: py-prometheus-client

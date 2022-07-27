@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-warlock
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-warlock
+splice: py-warlock

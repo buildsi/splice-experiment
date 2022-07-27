@@ -1,4 +1,8 @@
-
-package: parsec
-splice: python
+package:
+  name: parsec
+  versions:
+  - 1.1.0
+  - 3.0.2012
+  - master
 replace: python
+splice: python

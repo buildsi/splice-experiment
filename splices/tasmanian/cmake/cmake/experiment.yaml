@@ -1,4 +1,14 @@
-
-package: tasmanian
-splice: cmake
+package:
+  name: tasmanian
+  versions:
+  - '5.0'
+  - '5.1'
+  - '6.0'
+  - '7.0'
+  - '7.1'
+  - '7.3'
+  - '7.5'
+  - '7.7'
+  - develop
 replace: cmake
+splice: cmake

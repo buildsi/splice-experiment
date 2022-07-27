@@ -1,4 +1,18 @@
-
-package: omega-h
-splice: openmpi
+package:
+  name: omega-h
+  versions:
+  - 9.13.13
+  - 9.13.14
+  - 9.14.0
+  - 9.15.0
+  - 9.19.0
+  - 9.19.1
+  - 9.22.2
+  - 9.27.0
+  - 9.29.0
+  - 9.32.5
+  - 9.34.1
+  - main
+  - scorec.10.1.0
 replace: openmpi
+splice: openmpi

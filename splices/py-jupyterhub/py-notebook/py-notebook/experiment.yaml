@@ -1,4 +1,8 @@
-
-package: py-jupyterhub
-splice: py-notebook
+package:
+  name: py-jupyterhub
+  versions:
+  - 0.9.4
+  - 1.0.0
+  - 1.4.1
 replace: py-notebook
+splice: py-notebook

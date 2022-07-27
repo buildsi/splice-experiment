@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-six
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-six
+splice: py-six

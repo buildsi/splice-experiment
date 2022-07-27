@@ -1,4 +1,9 @@
-
-package: fortrilinos
-splice: cmake
+package:
+  name: fortrilinos
+  versions:
+  - 2.0.0
+  - 2.0.dev2
+  - 2.0.dev3
+  - master
 replace: cmake
+splice: cmake

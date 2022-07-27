@@ -1,4 +1,7 @@
-
-package: archer
-splice: llvm
+package:
+  name: archer
+  versions:
+  - 1.0.0
+  - 2.0.0
 replace: llvm
+splice: llvm

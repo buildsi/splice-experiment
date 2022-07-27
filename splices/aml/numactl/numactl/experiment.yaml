@@ -1,4 +1,7 @@
-
-package: aml
-splice: numactl
+package:
+  name: aml
+  versions:
+  - 0.1.0
+  - master
 replace: numactl
+splice: numactl

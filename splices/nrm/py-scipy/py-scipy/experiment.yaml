@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-scipy
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-scipy
+splice: py-scipy

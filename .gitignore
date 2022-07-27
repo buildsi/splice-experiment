@@ -1,2 +1,5 @@
+spack-opt
+cache
+submit
 *.sif
 .spack

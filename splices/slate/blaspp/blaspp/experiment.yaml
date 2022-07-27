@@ -1,4 +1,11 @@
-
-package: slate
-splice: blaspp
+package:
+  name: slate
+  versions:
+  - 2020.10.00
+  - 2021.05.01
+  - 2021.05.02
+  - 2022.05.00
+  - 2022.06.00
+  - master
 replace: blaspp
+splice: blaspp

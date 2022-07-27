@@ -1,4 +1,6 @@
-
-package: nrm
-splice: python
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: python
+splice: python

@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-jsonschema
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-jsonschema
+splice: py-jsonschema

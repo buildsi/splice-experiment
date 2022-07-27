@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-pyzmq
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-pyzmq
+splice: py-pyzmq

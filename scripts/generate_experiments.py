@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
-import spack.spec
+import os
 import sys
 import tempfile
-import os
+
+import spack.spec
+import spliced.experiment
 import yaml
+from spliced.client.command import get_package_versions, get_splice_versions
 
 # You can't use __file__ with spack python
 here = os.getcwd()
@@ -26,11 +29,18 @@ def write_file(filename, content):
         fd.write(content)
 
 
-template = """
-package: %s
-splice: %s
-replace: %s
-"""
+def generate_recipe(spec, dep):
+
+    experiment = spliced.experiment.Experiment()
+    experiment.config = {"package": spec.name, "splice": dep.name, "replace": dep.name}
+    return {
+        "package": {
+            "name": spec.name,
+            "versions": sorted(get_package_versions(spec.name)),
+        },
+        "splice": dep.name,
+        "replace": dep.name,
+    }
 
 
 def main(yaml_file, outdir):
@@ -47,7 +57,8 @@ def main(yaml_file, outdir):
         for dep in spec.dependencies():
 
             # "Replace a dependncy with a different version of itself"
-            recipe = template % (spec.name, dep.name, dep.name)
+            recipe = generate_recipe(spec, dep)
+
             outfile = os.path.join(
                 outdir, spec.name, dep.name, dep.name, "experiment.yaml"
             )
@@ -55,7 +66,7 @@ def main(yaml_file, outdir):
             dirname = os.path.dirname(outfile)
             if not os.path.exists(dirname):
                 os.makedirs(dirname)
-            write_file(outfile, recipe)
+            write_yaml(outfile, recipe)
 
 
 if __name__ == "__main__":

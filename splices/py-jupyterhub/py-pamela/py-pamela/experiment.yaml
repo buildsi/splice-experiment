@@ -1,4 +1,8 @@
-
-package: py-jupyterhub
-splice: py-pamela
+package:
+  name: py-jupyterhub
+  versions:
+  - 0.9.4
+  - 1.0.0
+  - 1.4.1
 replace: py-pamela
+splice: py-pamela

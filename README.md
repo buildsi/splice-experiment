@@ -2,37 +2,49 @@
 
 This is planning for the [spliced](https://github.com/buildsi/spliced) experiment
 that we plan to run for the BUILDSI project. We will use a container base to the largest extent possible.
-To see our original manual setup, you can look in [manual](manual).
+To see our original manual setup, you can look in [manual](manual), or to read the original
+experiment plan and design, see [plan.md](plan.md).
 
-## Plan
+## Usage
 
-Once the above are done, here is the plan! 
+### Singularity and Slurm
 
-### Matrix Automated Tests
-
-We will first need to choose a set of compilers appropriate for a scoped analysis (likely related to what Smeagle can parse). The [experiments/e4s.yaml](experiments/e4s.yaml) will be run with a custom Python script
-that reads in each e4s package, and:
-
-```bash
-For every package in e4s P with tests:
-  For every dependency of package P, D that is also in e4s:
-    Perform splice of package P and dependency D
-```
-
-This means that we also need to know the sample of the e4s packages that have tests.
-I wrote a script to do that.
-
-
-## TLDR
-
-> Too Long, Didn't Read
+Generate all experiments (yaml) and run all splices with Singularity. Make sure spack isn't on your PATH
+so it gets picked up in the container!
 
 ```bash
-$ singularity pull docker://ghcr.io/buildsi/spliced-experiment
-$ singularity exec --home $PWD spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 $ mkdir -p ./results ./spack-opt ./cache
+$ singularity pull docker://ghcr.io/buildsi/spliced-experiment
+
+# Generate splice experiment configs (runs internal to container)
+$ singularity exec --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+
+# Submit jobs (using configs) to cluster - submission is external to container, runs with container
 $ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
 ```
+
+The experiment [splices](splices) we generated are included here.
+
+### Preview Underlying Commands
+
+Want to generate commands for a single run, perhaps to test? The following are easy ways to generate commands (for testing):
+
+```bash
+# Generate singularity (default) run commands to manually test (with default paths)
+$ python scripts/submit_jobs.py ./splices ./results --dry-run
+
+# Generate docker run commands to manually test (with default paths)
+$ python scripts/submit_jobs.py ./splices ./results --docker --dry-run
+
+# Limit to 10
+$ python scripts/submit_jobs.py ./splices ./results --docker --dry-run -N 10
+
+# Custom paths for spack-opt and cache
+$ python scripts/submit_jobs.py ./splices ./results --docker --spack-opt ./spack-opt --cache ./cache --dry-run
+```
+
+and of course you can shell into any container with the same binds to do the same.
+
 
 ## Running the Experiment
 
@@ -86,12 +98,13 @@ Since we will submit jobs that run the container, we need to generate our experi
 in separate files. We can use the container for this:
 
 ```bash
-$ singularity exec --home $PWD spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ singularity exec --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 ```
 
 You should not have spack on your path (so it can be found in the container).
 Note that home needs to be set to somewhere that isn't actually your home to not interfere with your host configs.
 After this run, you can see example splices in [splices](splices).
+
 
 ### Manually Run a Splice
 
@@ -101,7 +114,7 @@ To run a splice you will want to bind:
  - an empty directory to cache data to `/cache`
  - a results directory for results to `/results` (if saving files)
 
-First, generate an example command using an experiment file:
+Note that you can also use the commands shown in [Preview Underlying Commands](#preview-underlying-commands) to generate testing commands. First, generate an example command using an experiment file:
 
 ```bash
 $ singularity exec --home $PWD spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
@@ -116,8 +129,7 @@ $ docker run -it ghcr.io/buildsi/spliced-experiment spliced command splices/swig
 Then you can choose a command, and test running (and printing to the terminal).  Note that we are binding a fresh (empty) install directory with spack installs to the container. This directory should *only* be used for your container, and you should start with it empty. The reason is because paths (from within the container) will be hard-coded there, and you can get erroneous results to have a mixture of both. You'll also need to bind a cache directory to `/cache` - if you don't it will work for Docker but not Singularity (as there will be no write). And we are also binding the original path to itself (so it can be found, e.g., for RPATHs).  Here is Singularity:
 
 ```bash
-$ mkdir -p cache
-$ mkdir -p spack-opt
+$ mkdir -p cache spack-opt
 $ singularity exec --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
 ```
 
@@ -137,6 +149,10 @@ $ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.si
 
 The above will submit a bunch of jobs for all `experiment.yaml` files it finds under spliced. Note that this variat of experiment.yaml has a splice, replace, and main package (it's not the one in the root here with your main experiment package names). Submission scripts will be written to `$PWD/submit` for you to inspect or re-run.
 
+
+### Notes
+
+Conceptually, we are providing a spack install in the container, and only writing the database and libraries installed to our local filesystem to be used as a shared cache. Since an installed package might pull in system libraries, this is why it is essential that you don't bind an actual spack install, and (worse) one that has a mix of already installed things. Also note that the spack in the container is a custom (modified) version that, along with easily printing all versions and other tweaks, runs in debug mode. In practice we found some locking issues on our HPC system and it was helpful to have this verbosity.
 
 ## Development
 

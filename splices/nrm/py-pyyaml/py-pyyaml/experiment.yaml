@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-pyyaml
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-pyyaml
+splice: py-pyyaml

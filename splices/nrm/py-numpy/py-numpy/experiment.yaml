@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-numpy
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-numpy
+splice: py-numpy

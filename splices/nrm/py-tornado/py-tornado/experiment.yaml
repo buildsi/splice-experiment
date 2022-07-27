@@ -1,4 +1,6 @@
-
-package: nrm
-splice: py-tornado
+package:
+  name: nrm
+  versions:
+  - 0.1.0
 replace: py-tornado
+splice: py-tornado

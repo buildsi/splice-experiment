@@ -1,4 +1,14 @@
-
-package: upcxx
-splice: python
+package:
+  name: upcxx
+  versions:
+  - 2020.10.0
+  - 2020.11.0
+  - 2020.3.0
+  - 2020.3.2
+  - 2021.3.0
+  - 2021.9.0
+  - 2022.3.0
+  - develop
+  - master
 replace: python
+splice: python

@@ -1,4 +1,9 @@
-
-package: bolt
-splice: cmake
+package:
+  name: bolt
+  versions:
+  - '1.0'
+  - 1.0.1
+  - '2.0'
+  - main
 replace: cmake
+splice: cmake

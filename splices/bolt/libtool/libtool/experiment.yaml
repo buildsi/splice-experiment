@@ -1,4 +1,9 @@
-
-package: bolt
-splice: libtool
+package:
+  name: bolt
+  versions:
+  - '1.0'
+  - 1.0.1
+  - '2.0'
+  - main
 replace: libtool
+splice: libtool

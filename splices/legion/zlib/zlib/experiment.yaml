@@ -1,4 +1,9 @@
-
-package: legion
-splice: zlib
+package:
+  name: legion
+  versions:
+  - 21.03.0
+  - cr
+  - master
+  - stable
 replace: zlib
+splice: zlib
