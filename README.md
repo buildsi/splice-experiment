@@ -33,6 +33,9 @@ Want to generate commands for a single run, perhaps to test? The following are e
 # Generate singularity (default) run commands to manually test (with default paths)
 $ python scripts/submit_jobs.py ./splices ./results --dry-run
 
+# Generate singularity (default) run commands, with a single command per package (e.g., to time)
+$ python scripts/submit_jobs.py ./splices ./results --dry-run --single
+
 # Generate docker run commands to manually test (with default paths)
 $ python scripts/submit_jobs.py ./splices ./results --docker --dry-run
 

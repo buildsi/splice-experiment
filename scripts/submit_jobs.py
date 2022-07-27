@@ -59,6 +59,12 @@ def get_parser():
         action="store_true",
     )
     parser.add_argument(
+        "--single",
+        help="Show a single command for each",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
         "--docker",
         help="Show docker command instead",
         default=False,
@@ -212,7 +218,10 @@ def main():
 
         # The generator will derive versions, etc. and a matrix of jobs
         gen = ExperimentJobsGenerator(experiment_yaml, outdir)
-        matrix += gen.generate_jobs()
+        if args.single:
+            matrix.append(gen.generate_jobs()[0])
+        else:
+            matrix += gen.generate_jobs()
 
     print("Generated %s jobs" % len(matrix))
     print("Shuffling...")
