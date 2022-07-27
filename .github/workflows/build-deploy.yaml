@@ -3,6 +3,9 @@ name: Build and Deploy containers
 on:
   # Always test on pull request
   pull_request: []
+  
+  # On demand
+  workflow_dispatch:
 
   # Deploy on merge to main
   push:
