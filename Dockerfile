@@ -44,7 +44,10 @@ RUN git clone https://github.com/lvc/abi-dumper && \
 RUN pip install ipython && apt-get install -y vim
 
 # Try installing spack to inside of container (and will bind install on outside)
+# Don't install modules, and change var cache path
 RUN git clone --depth 1 -b vsoch/db-17-splice-july-25 https://github.com/vsoch/spack /spack && \
+    spack config add 'modules:default:enable:[]' && \
+    spack config add config:source_cache:/cache/spack-cache && \
     /spack/bin/spack compiler find
 
 # Add scripts

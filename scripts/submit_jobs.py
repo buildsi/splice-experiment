@@ -28,7 +28,7 @@ submit_template = """#!/bin/bash
 """
 
 docker_template = "docker run -v %s:/cache -v %s:/spack/opt -it %s %s"
-singularity_template = "singularity exec --containall --home $PWD --bind %s:/cache --bind %s:/spack/opt --bind %s:/spack/var %s %s"
+singularity_template = "singularity exec --containall --home $PWD --bind %s:/cache --bind %s:/spack/opt %s %s"
 
 
 def get_parser():
@@ -51,12 +51,6 @@ def get_parser():
         dest="spack_opt",
         help="Full path to spack opt (empty to start) to bind.",
         default="spack-opt",
-    )
-    parser.add_argument(
-        "--spack-var",
-        dest="spack_var",
-        help="Full path to spack var (empty to start) to bind.",
-        default="spack-var",
     )
     parser.add_argument(
         "--dry-run",
@@ -182,7 +176,6 @@ def main():
     if not args.spack_opt or not args.cache:
         sys.exit("Both --spack-opt and --cache are required.")
     spack_opt = os.path.abspath(args.spack_opt)
-    spack_var = os.path.abspath(args.spack_var)
     cache = os.path.abspath(args.cache)
 
     for path in experiment_dir, outdir:
@@ -251,7 +244,6 @@ def main():
             container_templated = singularity_template % (
                 cache,
                 spack_opt,
-                spack_var,
                 container,
                 entrypoint,
             )
