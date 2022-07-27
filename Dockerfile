@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y build-essential gfortran
 
 # always build with debug (this is in template script too)
 ENV SPACK_ADD_DEBUG_FLAGS=true
-
+ENV SPACK_DISABLE_LOCAL_CONFIG=true
+ENV SPACK_USER_CACHE_PATH=/cache/spack
+   
 # Always save to this cache (should be bound from the host)
 ENV SPLICED_SMEAGLE_CACHE_DIR=/cache
 ENV SPLICED_ABILAB_CACHE_DIR=/cache

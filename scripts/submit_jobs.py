@@ -28,7 +28,7 @@ submit_template = """#!/bin/bash
 """
 
 docker_template = "docker run -v %s:/cache -v %s:/spack/opt -it %s %s"
-singularity_template = "singularity exec --bind %s:/cache --bind %s:/spack/opt %s %s"
+singularity_template = "singularity exec --containall --home $PWD --bind %s:/cache --bind %s:/spack/opt %s %s"
 
 
 def get_parser():

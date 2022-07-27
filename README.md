@@ -17,7 +17,7 @@ $ mkdir -p ./results ./spack-opt ./cache
 $ singularity pull docker://ghcr.io/buildsi/spliced-experiment
 
 # Generate splice experiment configs (runs internal to container)
-$ singularity exec --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
 $ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
@@ -98,7 +98,7 @@ Since we will submit jobs that run the container, we need to generate our experi
 in separate files. We can use the container for this:
 
 ```bash
-$ singularity exec --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ singularity exec --containall --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 ```
 
 You should not have spack on your path (so it can be found in the container).
@@ -117,7 +117,7 @@ To run a splice you will want to bind:
 Note that you can also use the commands shown in [Preview Underlying Commands](#preview-underlying-commands) to generate testing commands. First, generate an example command using an experiment file:
 
 ```bash
-$ singularity exec --home $PWD spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
+$ singularity exec --containall --home $PWD spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
 ```
 
 or with Docker:
@@ -130,7 +130,7 @@ Then you can choose a command, and test running (and printing to the terminal). 
 
 ```bash
 $ mkdir -p cache spack-opt
-$ singularity exec --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
+$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
 ```
 
 and Docker:
