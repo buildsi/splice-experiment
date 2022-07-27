@@ -4,7 +4,7 @@ FROM ghcr.io/buildsi/libabigail:2.0
 # docker run -it -v /p/vast1/build/spliced-cache:/cache /p/vast1/build/spack:/spack ghcr.io/buildsi/spliced-experiment
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y build-essential gfortran
 
 # always build with debug (this is in template script too)
 ENV SPACK_ADD_DEBUG_FLAGS=true
@@ -42,7 +42,8 @@ RUN git clone https://github.com/lvc/abi-dumper && \
 RUN pip install ipython && apt-get install -y vim
 
 # Try installing spack to inside of container (and will bind install on outside)
-RUN git clone --depth 1 -b vsoch/db-17-splice-july-25 https://github.com/vsoch/spack /spack
+RUN git clone --depth 1 -b vsoch/db-17-splice-july-25 https://github.com/vsoch/spack /spack && \
+    /spack/bin/spack compiler find
 
 # Add scripts
 WORKDIR /code
