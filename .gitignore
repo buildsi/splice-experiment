@@ -3,3 +3,4 @@ cache
 submit
 *.sif
 .spack
+.env

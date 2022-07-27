@@ -4,6 +4,7 @@ import argparse
 import os
 import random
 import re
+import json
 import sys
 import tempfile
 
@@ -65,12 +66,21 @@ def get_parser():
         action="store_true",
     )
     parser.add_argument(
+        "--json",
+        help="Dump commands as json instead (also writes to GitHub output)",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
         "--docker",
         help="Show docker command instead",
         default=False,
         action="store_true",
     )
     parser.add_argument("-N", help="number of commands to run or generate")
+    parser.add_argument(
+        "--pattern", help="match this pattern to discover an experiment."
+    )
 
     parser.add_argument(
         "--cache",
@@ -185,14 +195,14 @@ def main():
     cache = os.path.abspath(args.cache)
 
     for path in experiment_dir, outdir:
-        if not os.path.exists(path) and not args.dry_run:
+        if not os.path.exists(path) and not args.dry_run and not args.json:
             sys.exit(f"{path} does not exist.")
 
     if args.docker:
         container = "ghcr.io/buildsi/spliced-experiment:latest"
     elif args.sif:
         container = os.path.abspath(args.sif)
-        if not args.dry_run:
+        if not args.dry_run and not args.json:
             assert os.path.exists(container)
     else:
         sys.exit(
@@ -215,6 +225,8 @@ def main():
 
     # Recursively find experiments
     for experiment_yaml in recursive_find(experiment_dir, "experiment.yaml"):
+        if args.pattern and not re.search(args.pattern, experiment_yaml):
+            continue
 
         # The generator will derive versions, etc. and a matrix of jobs
         gen = ExperimentJobsGenerator(experiment_yaml, outdir)
@@ -226,6 +238,12 @@ def main():
     print("Generated %s jobs" % len(matrix))
     print("Shuffling...")
     random.shuffle(matrix)
+
+    # Only print matrix to output (and GitHub actions output)
+    if args.json:
+        print(matrix)
+        print("::set-output name=commands::%s\n" % json.dumps(matrix))
+        return
 
     for i, entry in enumerate(matrix):
 
