@@ -13,11 +13,11 @@ Generate all experiments (yaml) and run all splices with Singularity. Make sure 
 so it gets picked up in the container!
 
 ```bash
-$ mkdir -p ./results ./spack-opt ./cache
+$ mkdir -p ./results ./spack-opt ./cache ./spack-var
 $ singularity pull docker://ghcr.io/buildsi/spliced-experiment
 
 # Generate splice experiment configs (runs internal to container)
-$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/spack-var:/spack/var spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
 $ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
@@ -98,7 +98,7 @@ Since we will submit jobs that run the container, we need to generate our experi
 in separate files. We can use the container for this:
 
 ```bash
-$ singularity exec --containall --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
+$ singularity exec --containall --home $PWD --bind ./spack-opt:/spack/opt --bind $PWD/spack-var:/spack/var spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 ```
 
 You should not have spack on your path (so it can be found in the container).
@@ -130,7 +130,7 @@ Then you can choose a command, and test running (and printing to the terminal). 
 
 ```bash
 $ mkdir -p cache spack-opt
-$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
+$ singularity exec --containall --home $PWD --bind $PWD/spack-var:/spack/var --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
 ```
 
 and Docker:
