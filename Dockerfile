@@ -4,7 +4,7 @@ FROM ghcr.io/buildsi/libabigail:2.0
 # docker run -it -v /p/vast1/build/spliced-cache:/cache /p/vast1/build/spack:/spack ghcr.io/buildsi/spliced-experiment
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y build-essential gfortran
+RUN apt-get update && apt-get install -y build-essential gfortran patchelf
 
 # always build with debug (this is in template script too)
 ENV SPACK_ADD_DEBUG_FLAGS=true
@@ -29,7 +29,7 @@ RUN git clone https://github.com/vsoch/cle && \
     pip install git+https://github.com/eliben/pyelftools && \
     pip install .
 
-RUN pip install git+https://github.com/buildsi/spliced
+RUN pip install git+https://github.com/buildsi/spliced@spack-fixes
 
 # Install abi-laboratory tools
 RUN git clone https://github.com/lvc/abi-dumper && \
