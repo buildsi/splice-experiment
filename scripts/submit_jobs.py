@@ -234,6 +234,8 @@ def main():
     # We will want to shuffle to not do the same builds at once
     matrix = []
 
+    seen = set()
+
     # Recursively find experiments
     for experiment_yaml in recursive_find(experiment_dir, "experiment.yaml"):
         if args.pattern and not re.search(args.pattern, experiment_yaml):
@@ -241,6 +243,11 @@ def main():
 
         # The generator will derive versions, etc. and a matrix of jobs
         gen = ExperimentJobsGenerator(experiment_yaml, outdir)
+
+        if args.single and gen.experiment["package"]["name"] in seen:
+            continue
+        seen.add(gen.experiment["package"]["name"])
+
         if args.single:
             matrix.append(gen.generate_jobs()[0])
         else:
