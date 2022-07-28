@@ -4,3 +4,7 @@ submit
 *.sif
 .spack
 .env
+results
+aws-batch
+cache
+spack-opt

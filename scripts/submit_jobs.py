@@ -28,7 +28,7 @@ submit_template = """#!/bin/bash
 %s
 """
 
-docker_template = "docker run -v %s:/cache -v %s:/spack/opt -it %s %s"
+docker_template = "%s run -v %s:/cache -v %s:/spack/opt -v %s:/results -it %s %s"
 singularity_template = "singularity exec --containall --home $PWD --bind %s:/cache --bind %s:/spack/opt %s %s"
 
 
@@ -40,12 +40,14 @@ def get_parser():
     parser.add_argument(
         "experiment_dir", help="directory with experiments.yaml to discover"
     )
-    parser.add_argument("outdir", help="Output directory for results")
     parser.add_argument(
         "sif",
         help="Full path to submit container.",
         default="spliced-experiment_latest.sif",
         nargs="?",
+    )
+    parser.add_argument(
+        "--outdir", help="Output directory for results", default="results"
     )
     parser.add_argument(
         "--spack-opt",
@@ -74,6 +76,12 @@ def get_parser():
     parser.add_argument(
         "--docker",
         help="Show docker command instead",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "--podman",
+        help="Use podman instead",
         default=False,
         action="store_true",
     )
@@ -121,7 +129,7 @@ class ExperimentJobsGenerator:
         # versioned package
         package = "%s@%s" % (self.experiment["package"]["name"], version)
         outfile = os.path.join(
-            self.outdir,
+            "/results",
             self.experiment["package"]["name"],
             version,
             splice_version,
@@ -185,20 +193,23 @@ def main():
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
     args, extra = parser.parse_known_args()
 
+    if args.docker and args.podman:
+        sys.exit("You can only choose one of --docker or --podman")
+
     experiment_dir = os.path.abspath(args.experiment_dir)
-    outdir = os.path.abspath(args.outdir)
     container = os.path.abspath(args.sif)
 
     if not args.spack_opt or not args.cache:
         sys.exit("Both --spack-opt and --cache are required.")
     spack_opt = os.path.abspath(args.spack_opt)
     cache = os.path.abspath(args.cache)
+    outdir = os.path.abspath(args.outdir)
 
     for path in experiment_dir, outdir:
         if not os.path.exists(path) and not args.dry_run and not args.json:
             sys.exit(f"{path} does not exist.")
 
-    if args.docker:
+    if args.docker or args.podman:
         container = "ghcr.io/buildsi/spliced-experiment:latest"
     elif args.sif:
         container = os.path.abspath(args.sif)
@@ -260,10 +271,12 @@ def main():
         else:
             entrypoint = "/bin/bash " + tmpfile
 
-        if args.docker:
+        if args.docker or args.podman:
             container_templated = docker_template % (
+                "docker" if args.docker else "podman",
                 cache,
                 spack_opt,
+                outdir,
                 container,
                 entrypoint,
             )

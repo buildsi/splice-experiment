@@ -20,7 +20,7 @@ $ singularity pull docker://ghcr.io/buildsi/spliced-experiment
 $ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
-$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
+$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
 ```
 
 ### Podman and Slurm
@@ -30,13 +30,13 @@ $ mkdir -p ./results ./spack-opt ./cache
 $ podman pull ghcr.io/buildsi/spliced-experiment
 
 # Generate splice experiment configs (runs internal to container)
-$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.op/buildsi/spliced-experiment spack python /code/scripts/generate_experiments.py /splices
+$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.io/buildsi/spliced-experiment spack python /code/scripts/generate_experiments.py /splices
 
 # Try a single command
-$ podman run -v $(pwd)/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
+$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/results:/results -v /tmp/sochat1:/tmp -v $(pwd)/cache:/cache ghcr.io/buildsi/spliced-experiment spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
-$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache --podman
+$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache --podman
 ```
 
 
@@ -48,19 +48,19 @@ Want to generate commands for a single run, perhaps to test? The following are e
 
 ```bash
 # Generate singularity (default) run commands to manually test (with default paths)
-$ python scripts/submit_jobs.py ./splices ./results --dry-run
+$ python scripts/submit_jobs.py ./splices --dry-run
 
 # Generate singularity (default) run commands, with a single command per package (e.g., to time)
-$ python scripts/submit_jobs.py ./splices ./results --dry-run --single
+$ python scripts/submit_jobs.py ./splices --dry-run --single
 
 # Generate docker run commands to manually test (with default paths)
-$ python scripts/submit_jobs.py ./splices ./results --docker --dry-run
+$ python scripts/submit_jobs.py ./splices --docker --dry-run
 
 # Limit to 10
-$ python scripts/submit_jobs.py ./splices ./results --docker --dry-run -N 10
+$ python scripts/submit_jobs.py ./splices --docker --dry-run -N 10
 
 # Custom paths for spack-opt and cache
-$ python scripts/submit_jobs.py ./splices ./results --docker --spack-opt ./spack-opt --cache ./cache --dry-run
+$ python scripts/submit_jobs.py ./splices --docker --spack-opt ./spack-opt --cache ./cache --dry-run
 ```
 
 and of course you can shell into any container with the same binds to do the same.
@@ -121,7 +121,13 @@ in separate files. We can use the container for this:
 $ singularity exec --containall --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
 ```
 
-You should not have spack on your path (so it can be found in the container).
+or with Docker:
+
+```bash
+$ docker run -v $PWD/cache:/cache -v $PWD/splices:/splices -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/generate_experiments.py /splices/
+```
+
+You should not have spack on your path (so it can be found in the container) if you are using Singularity.
 Note that home needs to be set to somewhere that isn't actually your home to not interfere with your host configs.
 After this run, you can see example splices in [splices](splices).
 
@@ -164,7 +170,7 @@ $ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment
 The script [submit_jobs.py](scripts/submit_jobs.py) will do exactly that - submit jobs for all your experiments in some subdirectory of `spliced` ensuring we have the correct environment variables, etc. You should provide the input directory (splices), the existing results directory (results) and a path to the container SIF (Singularity).
 
 ```bash
-$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
+$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
 ```
 
 The above will submit a bunch of jobs for all `experiment.yaml` files it finds under spliced. Note that this variat of experiment.yaml has a splice, replace, and main package (it's not the one in the root here with your main experiment package names). Submission scripts will be written to `$PWD/submit` for you to inspect or re-run.

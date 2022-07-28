@@ -3,6 +3,7 @@ FROM ghcr.io/buildsi/libabigail:2.0
 # docker build -t ghcr.io/buildsi/spliced-experiment .
 # docker run -it -v /p/vast1/build/spliced-cache:/cache /p/vast1/build/spack:/spack ghcr.io/buildsi/spliced-experiment
 
+ENV CMAKE_VERSION=3.20.4
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y build-essential gfortran patchelf
 
@@ -40,15 +41,19 @@ RUN git clone https://github.com/lvc/abi-dumper && \
     cd abi-compliance-checker && \
     make install prefix=/usr
 
-# Install "nice to haves"
-RUN pip install ipython && apt-get install -y vim
+# Install "nice to haves" and try to provide cmake
+RUN pip install ipython && apt-get install -y vim && \
+    curl -s -L https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.sh > cmake.sh && \
+    sh cmake.sh --prefix=/usr/local --skip-license && \
+    rm cmake.sh
 
 # Try installing spack to inside of container (and will bind install on outside)
 # Don't install modules, and change var cache path
 RUN git clone --depth 1 -b vsoch/db-17-splice-july-25 https://github.com/vsoch/spack /spack && \
     spack config add 'modules:default:enable::[]' && \
     spack config add config:source_cache:/cache/spack-cache && \
-    /spack/bin/spack compiler find
+    /spack/bin/spack compiler find && \
+    mkdir -p /results
 
 # Add scripts
 WORKDIR /code

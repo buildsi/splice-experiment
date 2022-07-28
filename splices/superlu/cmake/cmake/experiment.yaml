@@ -1,8 +1,6 @@
 package:
   name: superlu
   versions:
-  - '4.2'
-  - '4.3'
   - 5.2.1
   - 5.2.2
   - 5.3.0
