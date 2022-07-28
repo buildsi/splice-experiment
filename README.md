@@ -34,7 +34,7 @@ $ podman pull ghcr.io/buildsi/spliced-experiment
 $ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.io/buildsi/spliced-experiment spack python /code/scripts/generate_experiments.py /splices
 
 # Try a single command
-$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/results:/results -v /tmp/sochat1:/tmp -v $(pwd)/cache:/cache ghcr.io/buildsi/spliced-experiment spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
+$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/results:/results -v /tmp/sochat1:/tmp -v $(pwd)/cache:/cache ghcr.io/buildsi/spliced-experiment spack python /usr/local/bin/spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
 # This is not tested - my Podman run never worked.
@@ -158,7 +158,7 @@ Then you can choose a command, and test running (and printing to the terminal). 
 
 ```bash
 $ mkdir -p cache spack-opt
-$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
+$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spack python /usr/local/bin/spliced --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
 ```
 
 and Docker:
