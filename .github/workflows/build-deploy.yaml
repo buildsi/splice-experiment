@@ -28,4 +28,7 @@ jobs:
         run: |
           docker images
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
-          docker push ghcr.io/buildsi/spliced-experiment
+          tag=$(cat VERSION)
+          docker tag ghcr.io/buildsi/spliced-experiment:latest ghcr.io/buildsi/spliced-experiment:${tag}
+          docker push ghcr.io/buildsi/spliced-experiment:latest
+          docker push ghcr.io/buildsi/spliced-experiment:${tag}
