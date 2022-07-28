@@ -36,8 +36,7 @@ $ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.op/b
 $ podman run -v $(pwd)/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
 
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
-# TODO not written yet
-$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
+$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache --podman
 ```
 
 
