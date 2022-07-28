@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y build-essential gfortran patchelf
 ENV SPACK_ADD_DEBUG_FLAGS=true
 ENV SPACK_DISABLE_LOCAL_CONFIG=true
 ENV SPACK_USER_CACHE_PATH=/cache/spack
-ENV SPACK_DEBUG_LOG_DIR=/cache/spack-debug-logs
    
 # Always save to this cache (should be bound from the host)
 ENV SPLICED_SMEAGLE_CACHE_DIR=/cache
