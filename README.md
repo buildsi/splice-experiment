@@ -13,7 +13,7 @@ Generate all experiments (yaml) and run all splices with Singularity. Make sure 
 so it gets picked up in the container!
 
 ```bash
-$ mkdir -p ./results ./spack-opt ./cache ./spack-var
+$ mkdir -p ./results ./spack-opt ./cache
 $ singularity pull docker://ghcr.io/buildsi/spliced-experiment
 
 # Generate splice experiment configs (runs internal to container)
@@ -22,6 +22,24 @@ $ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt spl
 # Submit jobs (using configs) to cluster - submission is external to container, runs with container
 $ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
 ```
+
+### Podman and Slurm
+
+```bash
+$ mkdir -p ./results ./spack-opt ./cache
+$ podman pull ghcr.io/buildsi/spliced-experiment
+
+# Generate splice experiment configs (runs internal to container)
+$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.op/buildsi/spliced-experiment spack python /code/scripts/generate_experiments.py /splices
+
+# Try a single command
+$ podman run -v $(pwd)/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
+
+# Submit jobs (using configs) to cluster - submission is external to container, runs with container
+# TODO not written yet
+$ python scripts/submit_jobs.py ./splices ./results spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
+```
+
 
 The experiment [splices](splices) we generated are included here.
 
