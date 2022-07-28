@@ -143,7 +143,7 @@ class ExperimentJobsGenerator:
         )
         # The command requires spack python from the getgo to get exactly what spack is settingup
         cmd = (
-            "spack python /usr/local/bin/spliced splice --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s"
+            "spack python /code/scripts/run_spliced.py splice --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s"
             % (
                 package,
                 splice_version,
