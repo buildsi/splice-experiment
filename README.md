@@ -3,7 +3,8 @@
 This is planning for the [spliced](https://github.com/buildsi/spliced) experiment
 that we plan to run for the BUILDSI project. We will use a container base to the largest extent possible.
 To see our original manual setup, you can look in [manual](manual), or to read the original
-experiment plan and design, see [plan.md](plan.md).
+experiment plan and design, see [plan.md](plan.md). Note that @vsoch is currently working on this
+locally with docker because there are filesystem issues on HPC.
 
 ## Usage
 
