@@ -30,7 +30,7 @@ RUN git clone https://github.com/vsoch/cle && \
     pip install git+https://github.com/eliben/pyelftools && \
     pip install .
 
-RUN pip install git+https://github.com/vsoch/elfcall@main
+RUN pip install git+https://github.com/vsoch/elfcall@tweaks
 RUN pip install git+https://github.com/buildsi/spliced@main
 
 # Install abi-laboratory tools
