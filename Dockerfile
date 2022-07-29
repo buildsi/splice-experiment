@@ -5,7 +5,7 @@ FROM ghcr.io/buildsi/libabigail:2.0
 
 ENV CMAKE_VERSION=3.20.4
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y build-essential gfortran patchelf
+RUN apt-get update && apt-get install -y build-essential gfortran patchelf unzip bzip2
 
 # always build with debug (this is in template script too)
 ENV SPACK_ADD_DEBUG_FLAGS=true
