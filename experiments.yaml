@@ -7,6 +7,7 @@ experiments:
 - emacs
 - falcon
 - formetis
+- gdal
 
 # above here not e4s but has tests
 - swig

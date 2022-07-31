@@ -10,7 +10,7 @@ examples of running scripts are provided for Singularity, Podman, and Docker, in
 
 ### 1. Experiment Derivation
 
-**data from this step is provided here**
+*data from this step is provided here*
 
 Starting from the repository cloned, first we generated [experiments_with_tests.yaml](experiments_with_tests.yaml). This was run with a previous (17.x) version of spack, as concetization wasn't required to inspect the underlying package.
 
@@ -32,7 +32,7 @@ Across spack, when we remove Python libraries, there are unfortunately only 104 
 
 ### 2. Filtering
 
-**data from this step is provided here**
+*data from this step is provided here*
 
 Since @vsoch was going to run this in GitHub actions, she wanted to ensure she only used workers for packages that would actually build. To do this, she used the same underlying runner container (bound to a common install directory) and manually tested the base installs (what spack installs by default) to filter down to a set of experiments that would build. In addition, she also removed experiments that didn't have any binaries in bin or lib.
 The final set of experiments are in [experiments.yaml](experiments.yaml), and they are separated into e4s and non-e4s packages (the latter set was too small for the entire study). You can see a log of her work in [manual-runs.md](manual-runs.md). If you want to use the container interactively to do similar, you can do:
@@ -46,7 +46,7 @@ Binding spack-opt allows for re-use (and faster testing).
 
 ### 3. Splice Experiment Generation
 
-**data from this step is provided here**
+*data from this step is provided here*
 
 At this point we want to take the experiments.yaml and generate [splices](splices).
 Here is how to generate that directory:
@@ -60,7 +60,7 @@ and defined the `splice_versions` of the experiment.yaml in splices. This is so 
 
 ### 4. Running Experiments
 
-Running experiments is easy! Simply:
+Running experiments is easy, and automated! We use the container build alongside this repostiory with a Github workflow in a separate repository and then can programatically get results. Simply:
 
 1. Ensure this repository is pushed (up to date), as the [splices](splices) come from here.
 2. Go to [buildsi/splice-experiment-runs Actions](https://github.com/buildsi/splice-experiment-runs/actions)

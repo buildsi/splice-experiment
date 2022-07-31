@@ -4,7 +4,7 @@ Welcome to the new game of...
 
 > Does it build?
 
-This is a manual test of installing the main packages (to be spliced) - if this fails, there is no point attempting them in the experiment. Spack MUST build and splice them to get any kind of result. From the below, I've derived the following list of packages we can run/test in GitHub actions:
+This is a manual test of installing the main packages (to be spliced) - if this fails, there is no point attempting them in the experiment. Spack MUST build and splice them to get any kind of result. From the below, I've derived the following list of packages we can run/test in GitHub actions. I'm also linking to the runs that were used for the experiment.
 
  - [x] qthreads/numactl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762890515))
  - [x] hdf5/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764243645))
@@ -22,17 +22,17 @@ This is a manual test of installing the main packages (to be spliced) - if this 
 
 Not e4s, but have tests (and were added)
 
- - [ ] binutils/diffutils ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770405790))
- - [ ] binutils/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770713059))
- - [ ] binutils/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770860947))
+ - [x] binutils/diffutils ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770405790))
+ - [x] binutils/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770713059))
+ - [x] binutils/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770860947))
  - [ ] cget/python ([run]())
  - [ ] cmake/ncurses ([run]())
  - [ ] cmake/openssl ([run]())
 
- - [ ] biobambam2/autoconf ([run]())
- - [ ] biobambam2/libmaus2 ([run]())
- - [ ] biobambam2/libtool ([run]())
- - [ ] biobambam2/m4 ([run]())
+ - [ ] biobambam2/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771034917))
+ - [ ] biobambam2/libmaus2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771037860))
+ - [ ] biobambam2/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771038870))
+ - [ ] biobambam2/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771039859))
 
  - [ ] dssp/autoconf ([run]())
  - [ ] dssp/boost ([run]())
@@ -53,6 +53,22 @@ Not e4s, but have tests (and were added)
  - [ ] falcon/python ([run]())
  - [ ] formetis/metis ([run]())
 
+ - [ ] gdal/brunsli ([run]())
+ - [ ] gdal/expat ([run]())
+ - [ ] gdal/geos ([run]())
+ - [ ] gdal/json-c ([run]())
+ - [ ] gdal/lerc ([run]())
+ - [ ] gdal/libgeotiff ([run]())
+ - [ ] gdal/libjpeg-turbo ([run]())
+ - [ ] gdal/libpng ([run]())
+ - [ ] gdal/libtiff ([run]())
+ - [ ] gdal/ninja ([run]())
+ - [ ] gdal/pkgconf ([run]())
+ - [ ] gdal/proj ([run]())
+ - [ ] gdal/qhull ([run]())
+ - [ ] gdal/sqlite ([run]())
+ - [ ] gdal/zlib ([run]())
+
 
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
@@ -60,8 +76,7 @@ These were run with a smaller set of dependency versions (to fit in GH-actions):
  - [x] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770326508))
 
 
-The following packages were either attempted but killed the worker (meaning likely were using too much memory), or
-had weird bugs:
+The following packages were either attempted or decided to not be used:
 
  - [ ] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
  - [ ] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
