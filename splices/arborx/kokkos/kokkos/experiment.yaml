@@ -7,3 +7,11 @@ package:
   - master
 replace: kokkos
 splice: kokkos
+splice_versions:
+  - "3.6.01"
+  - "3.5.00"
+  - "3.4.01"
+  - "3.3.01"
+  - "3.2.01"
+  - "3.1.01"
+  - "3.0.00"
