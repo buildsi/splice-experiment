@@ -14,7 +14,6 @@ This is a manual test of installing the main packages (to be spliced) - if this 
  - [x] bolt/argobots ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2769095079)) only successful for main
  - [x] bolt/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/runs/7597830173?check_suite_focus=true)) only successful for main
  - [x] darshan-util/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767479049)) (we have a few results, some versions failed)
- - [x] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400))
  - [x] darshan-util/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767481780))
  - [x] darshan-util/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767482219))
  - [x] darshan-util/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767482631))
@@ -22,15 +21,19 @@ This is a manual test of installing the main packages (to be spliced) - if this 
  - [x] swig/pkgconf([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767485056))
 
 
-The following packages were attempted but killed the worker (meaning likely were using too much memory):
+These were run with a smaller set of dependency versions (to fit in GH-actions):
 
-
- - [ ] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
- - [ ] bolt/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764794583))
- - [ ] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
  - [ ] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766904278)) seems to get cancelled for going out of bounds of resources available.
+ - [ ] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
+
+
+The following packages were either attempted but killed the worker (meaning likely were using too much memory), or
+had weird bugs:
+
+ - [ ] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
  - [ ] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
  - [ ] bolt/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767908491)) automake won't work, something about the container
+ - [ ] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400)) we can't iterate over automake, error that aclocal file missing (cannot reproduce locally).
 
 
 A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:

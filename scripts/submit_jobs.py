@@ -118,8 +118,12 @@ class ExperimentJobsGenerator:
         for version in self.experiment["package"]["versions"]:
 
             # One version (the dep name, versions extracted in job run)
-            if "splice_version" in self.experiment:
+            if "splice_versions" in self.experiment:
                 for splice_version in self.experiment["splice_versions"]:
+                    splice_version = "%s@%s" % (
+                        self.experiment["splice"],
+                        splice_version,
+                    )
                     matrix.append(
                         self.generate_spliced_command(version, splice_version)
                     )
