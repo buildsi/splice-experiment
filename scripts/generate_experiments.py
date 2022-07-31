@@ -52,9 +52,19 @@ def main(yaml_file, outdir):
     # For every package in e4s P with tests:
     for package in packages:
         spec = spack.spec.Spec(package)
-        spec.concretize()
+
+        try:
+            spec.concretize()
+        except:
+            print("Issue with concretizing %s" % package)
+            continue
+
         # For every dependency of package P, D that is also in e4s:
         for dep in spec.dependencies():
+
+            # Skip Python dependencies
+            if dep.name.startswith("py-"):
+                continue
 
             # "Replace a dependncy with a different version of itself"
             recipe = generate_recipe(spec, dep)

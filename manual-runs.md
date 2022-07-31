@@ -11,12 +11,9 @@ This is a manual test of installing the main packages (to be spliced) - if this 
  - [x] hdf5/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764243977))
  - [x] raja/blt ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762946012))
  - [x] raja/camp ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762946312))
- - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766904278))
- - [x] bolt/argobots ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766496849))
- - [x] bolt/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766495801))
- - [x] bolt/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766494500))
- - [x] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
- - [x] darshan-util/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767479049))
+ - [x] bolt/argobots ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2769095079)) only successful for main
+ - [x] bolt/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/runs/7597830173?check_suite_focus=true)) only successful for main
+ - [x] darshan-util/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767479049)) (we have a few results, some versions failed)
  - [x] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400))
  - [x] darshan-util/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767481780))
  - [x] darshan-util/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767482219))
@@ -28,12 +25,15 @@ This is a manual test of installing the main packages (to be spliced) - if this 
 The following packages were attempted but killed the worker (meaning likely were using too much memory):
 
 
- - [x] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
- - [x] bolt/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764794583))
- - [x] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
+ - [ ] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
+ - [ ] bolt/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764794583))
+ - [ ] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
+ - [ ] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766904278)) seems to get cancelled for going out of bounds of resources available.
+ - [ ] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
+ - [ ] bolt/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767908491)) automake won't work, something about the container
 
 
-A checkbox means we have run -> artifacts -> results.
+A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:
 
 ### strumpack: FAIL
 
