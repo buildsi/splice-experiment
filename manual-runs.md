@@ -20,6 +20,12 @@ This is a manual test of installing the main packages (to be spliced) - if this 
  - [x] swig/pcre ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767484624))
  - [x] swig/pkgconf([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767485056))
 
+Not e4s, but have tests (and were added)
+
+ - [ ] binutils/diffutils
+ - [ ] binutils/gettext
+ - [ ] binutils/zlib
+
 
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
