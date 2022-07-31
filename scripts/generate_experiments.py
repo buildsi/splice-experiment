@@ -71,6 +71,10 @@ def main(yaml_file, outdir):
 
 if __name__ == "__main__":
     yaml_file = os.path.join(here, "experiments.yaml")
+
+    # Yaml file is first argument (after script name)
+    if len(sys.argv) == 3:
+        yaml_file = sys.argv.pop(1)
     if len(sys.argv) != 2:
         sys.exit("please provide the output directory for experiment yamls.")
     outdir = sys.argv[1]

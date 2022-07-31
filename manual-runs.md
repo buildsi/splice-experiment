@@ -6,27 +6,31 @@ Welcome to the new game of...
 
 This is a manual test of installing the main packages (to be spliced) - if this fails, there is no point attempting them in the experiment. Spack MUST build and splice them to get any kind of result. From the below, I've derived the following list of packages we can run/test in GitHub actions:
 
+ - [x] qthreads/numactl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762890515))
+ - [x] hdf5/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764243645))
+ - [x] hdf5/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764243977))
+ - [x] raja/blt ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762946012))
+ - [x] raja/camp ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762946312))
+ - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766904278))
+ - [x] bolt/argobots ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766496849))
+ - [x] bolt/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766495801))
+ - [x] bolt/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766494500))
+ - [x] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
+ - [x] darshan-util/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767479049))
+ - [x] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400))
+ - [x] darshan-util/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767481780))
+ - [x] darshan-util/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767482219))
+ - [x] darshan-util/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767482631))
+ - [x] swig/pcre ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767484624))
+ - [x] swig/pkgconf([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767485056))
 
- - [ ] qthreads/numactl ([run]())
- - [ ] hdf5/pkgconf ([run]())
- - [ ] hdf5/zlib ([run]())
- - [ ] raja/blt ([run]())
- - [ ] raja/camp ([run]())
- - [ ] upcxx/python ([run]())
- - [ ] arborx/kokkos ([run]())
- - [ ] legion/zlib ([run]())
- - [ ] bolt/argobots ([run]())
- - [ ] bolt/autoconf ([run]())
- - [ ] bolt/automake ([run]())
- - [ ] bolt/libtool ([run]())
- - [ ] superlu/openblas ([run]())
- - [ ] darshan-util/autoconf ([run]())
- - [ ] darshan-util/automake ([run]())
- - [ ] darshan-util/libtool ([run]())
- - [ ] darshan-util/m4 ([run]())
- - [ ] darshan-util/zlib ([run]())
- - [ ] swig/pcre ([run]())
- - [ ] swig/pkgconf([run]())
+
+The following packages were attempted but killed the worker (meaning likely were using too much memory):
+
+
+ - [x] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
+ - [x] bolt/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764794583))
+ - [x] legion/zlib ([run](https://github.com/buildsi/splice-experiment-runs/runs/7592992926?check_suite_focus=true)) is Python and doesn't have any libs/binaries that are ELF.
 
 
 A checkbox means we have run -> artifacts -> results.

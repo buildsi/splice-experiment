@@ -54,6 +54,7 @@ RUN git clone --depth 1 -b vsoch/db-17-splice-july-25 https://github.com/vsoch/s
     spack config add 'modules:default:enable::[]' && \
     spack config add config:source_cache:/cache/spack-cache && \
     /spack/bin/spack compiler find && \
+    spack external find automake autoconf && \
     mkdir -p /results
 
 # Add scripts

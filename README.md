@@ -57,6 +57,9 @@ $ python scripts/submit_jobs.py ./splices --dry-run --single
 # Generate docker run commands to manually test (with default paths)
 $ python scripts/submit_jobs.py ./splices --docker --dry-run
 
+# One command per top level package
+$ python scripts/submit_jobs.py ./splices --docker --dry-run --single > commands.txt
+
 # Limit to 10
 $ python scripts/submit_jobs.py ./splices --docker --dry-run -N 10
 
@@ -65,6 +68,14 @@ $ python scripts/submit_jobs.py ./splices --docker --spack-opt ./spack-opt --cac
 ```
 
 and of course you can shell into any container with the same binds to do the same.
+
+
+### Generating subset with tests
+
+1. I modified experiments.yaml -> experiments_with_tests.yaml in scripts/generate_commands.py
+2. `docker build -t ghcr.io/buildsi/spliced-experiment .`
+2. `mkdir -p with_tests/splices`
+3. `docker run -v $PWD/cache:/cache -v $PWD/with_tests/splices:/splices -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/generate_experiments.py /code/experiments_with_tests.yaml /splices/`
 
 
 ## Running the Experiment
