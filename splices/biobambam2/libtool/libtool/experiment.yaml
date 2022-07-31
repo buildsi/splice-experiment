@@ -1,0 +1,6 @@
+package:
+  name: biobambam2
+  versions:
+  - 2.0.177
+replace: libtool
+splice: libtool

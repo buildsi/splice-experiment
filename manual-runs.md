@@ -22,9 +22,14 @@ This is a manual test of installing the main packages (to be spliced) - if this 
 
 Not e4s, but have tests (and were added)
 
- - [ ] binutils/diffutils
+ - [ ] binutils/diffutils ([]())
  - [ ] binutils/gettext
  - [ ] binutils/zlib
+
+ - [ ] biobambam2/autoconf
+ - [ ] biobambam2/libmaus2
+ - [ ] biobambam2/libtool
+ - [ ] biobambam2/m4
 
 
 These were run with a smaller set of dependency versions (to fit in GH-actions):
