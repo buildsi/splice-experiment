@@ -1,0 +1,6 @@
+package:
+  name: cget
+  versions:
+  - 0.1.9
+replace: python
+splice: python

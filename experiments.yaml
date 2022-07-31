@@ -1,6 +1,14 @@
 experiments:
-- binutils # not e4s but has tests
+- binutils
+- cget
+- cmake
+- biobambam2
+- dssp
+- emacs
+- falcon
+- formetis
 
+# above here not e4s but has tests
 - swig
 - qthreads
 - upcxx

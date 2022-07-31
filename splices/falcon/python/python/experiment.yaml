@@ -1,0 +1,13 @@
+package:
+  name: falcon
+  versions:
+  - '2017-05-30'
+replace: python
+splice: python
+splice_versions:
+  - "3.10.5" 
+  - "3.9.13"
+  - "3.8.13"
+  - "3.7.13"
+  - "3.6.15"
+  - "3.5.10"

@@ -1,0 +1,6 @@
+package:
+  name: formetis
+  versions:
+  - 0.0.2
+replace: metis
+splice: metis

@@ -3,232 +3,71 @@
 This is planning for the [spliced](https://github.com/buildsi/spliced) experiment
 that we plan to run for the BUILDSI project. We will use a container base to the largest extent possible.
 To see our original manual setup, you can look in [manual](manual), or to read the original
-experiment plan and design, see [plan.md](plan.md). Note that @vsoch is currently working on this
-locally with docker because there are filesystem issues on HPC.
+experiment plan and design, see [plan.md](plan.md). Note that although the original plan was to run this on HPC, the file-system had significant issues and it was entirely run in GitHub actions. For the interested user,
+examples of running scripts are provided for Singularity, Podman, and Docker, in the case you want to do this manually. The actual running of experiments happened in [this repository](https://github.com/buildsi/splice-experiment-runs).
 
-## Usage
+## Setup
 
-### Singularity and Slurm
+### 1. Experiment Derivation
 
-Generate all experiments (yaml) and run all splices with Singularity. Make sure spack isn't on your PATH
-so it gets picked up in the container!
+**data from this step is provided here**
 
-```bash
-$ mkdir -p ./results ./spack-opt ./cache
-$ singularity pull docker://ghcr.io/buildsi/spliced-experiment
-
-# Generate splice experiment configs (runs internal to container)
-$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
-
-# Submit jobs (using configs) to cluster - submission is external to container, runs with container
-$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
-```
-
-### Podman and Slurm
+Starting from the repository cloned, first we generated [experiments_with_tests.yaml](experiments_with_tests.yaml). This was run with a previous (17.x) version of spack, as concetization wasn't required to inspect the underlying package.
 
 ```bash
-$ mkdir -p ./results ./spack-opt ./cache
-$ podman pull ghcr.io/buildsi/spliced-experiment
-
-# Generate splice experiment configs (runs internal to container)
-$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/splices:/splices ghcr.io/buildsi/spliced-experiment spack python /code/scripts/generate_experiments.py /splices
-
-# Try a single command
-$ podman run -v $(pwd)/spack-opt:/spack/opt -v $(pwd)/results:/results -v /tmp/sochat1:/tmp -v $(pwd)/cache:/cache ghcr.io/buildsi/spliced-experiment spack python /usr/local/bin/spliced splice --package swig@fortran --splice pcre --runner spack --replace pcre --experiment experiment
-
-# Submit jobs (using configs) to cluster - submission is external to container, runs with container
-$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache --podman
+cd /tmp
+wget https://github.com/spack/spack/releases/download/v0.17.3/spack-0.17.3.tar.gz
+tar -xzvf spack-0.17.3.tar.gz
+export PATH=/tmp/spack-0.17.3/bin:$PATH
 ```
 
-
-The experiment [splices](splices) we generated are included here.
-
-### Preview Underlying Commands
-
-Want to generate commands for a single run, perhaps to test? The following are easy ways to generate commands (for testing):
+After the above, the spack from that install should be on the path, and you can run the command with spack
+python to generate the [experiments_with_tests.yaml](experiments_with_tests.yaml) file.
 
 ```bash
-# Generate singularity (default) run commands to manually test (with default paths)
-$ python scripts/submit_jobs.py ./splices --dry-run
-
-# Generate singularity (default) run commands, with a single command per package (e.g., to time)
-$ python scripts/submit_jobs.py ./splices --dry-run --single
-
-# Generate docker run commands to manually test (with default paths)
-$ python scripts/submit_jobs.py ./splices --docker --dry-run
-
-# One command per top level package
-$ python scripts/submit_jobs.py ./splices --docker --dry-run --single > commands.txt
-
-# Limit to 10
-$ python scripts/submit_jobs.py ./splices --docker --dry-run -N 10
-
-# Custom paths for spack-opt and cache
-$ python scripts/submit_jobs.py ./splices --docker --spack-opt ./spack-opt --cache ./cache --dry-run
+$ spack python scripts/derive_experiments.py
 ```
 
-and of course you can shell into any container with the same binds to do the same.
+Across spack, when we remove Python libraries, there are unfortunately only 104 with tests.
 
+### 2. Filtering
 
-### Generating subset with tests
+**data from this step is provided here**
 
-1. I modified experiments.yaml -> experiments_with_tests.yaml in scripts/generate_commands.py
-2. `docker build -t ghcr.io/buildsi/spliced-experiment .`
-2. `mkdir -p with_tests/splices`
-3. `docker run -v $PWD/cache:/cache -v $PWD/with_tests/splices:/splices -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/generate_experiments.py /code/experiments_with_tests.yaml /splices/`
-
-
-## Running the Experiment
-
-### Clone the repository
-
-It's easiest to get access to the `experiments.yaml` file via a clone, however you
-can make your own. It's a yaml file with a single key "experiments" and then a list
-of spack package names. E.g.,
-
-```yaml
-experiments:
-  - caliper
-  - swig
-  ...
-```
-
-If you choose to clone:
+Since @vsoch was going to run this in GitHub actions, she wanted to ensure she only used workers for packages that would actually build. To do this, she used the same underlying runner container (bound to a common install directory) and manually tested the base installs (what spack installs by default) to filter down to a set of experiments that would build. In addition, she also removed experiments that didn't have any binaries in bin or lib.
+The final set of experiments are in [experiments.yaml](experiments.yaml), and they are separated into e4s and non-e4s packages (the latter set was too small for the entire study). You can see a log of her work in [manual-runs.md](manual-runs.md). If you want to use the container interactively to do similar, you can do:
 
 ```bash
-$ git clone https://github.com/buildsi/spliced-experiment
-$ cd spliced-experiment
+$ mkdir -p spack-opt
+$ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/splice-experiment
 ```
 
-### Pull the Container
+Binding spack-opt allows for re-use (and faster testing).
 
-The container will come with:
+### 3. Splice Experiment Generation
 
- - pyelftools for symbols
- - libabigail
- - abi-laboratory
- - smeagle dependencies (cle)
- - spliced (the main running framework that uses spack)
- 
-Spack is not provided in the container, as it is intended to be bound. Note that this
-container is provided as an automated build for this repository, so you should only need to pull
-it down to an HPC system with singularity.
+**data from this step is provided here**
+
+At this point we want to take the experiments.yaml and generate [splices](splices).
+Here is how to generate that directory:
 
 ```bash
-$ singularity pull docker://ghcr.io/buildsi/spliced-experiment
+$ docker run -v $PWD/splices:/splices -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/generate_experiments.py /splices/
 ```
 
-### Experiments
+Note that the experiments.yaml is used inside the container at `/code/experiments.yaml`, so if you change it you will need to bind a file explicitly there (or rebuild the container locally). In addition, for dependencies with many versions (and too many to run within 6 hours) @vsoch selected a consistent range (e.g., Python)
+and defined the `splice_versions` of the experiment.yaml in splices. This is so the run would be reasonable to do on GitHub actions.
 
-We used a manual approach to derive a list of experiments (just package names in e4s)
-that we wanted to run (see [manual](manual)) and put them into the [experiments.yaml](experiments.yaml)
-file.
+### 4. Running Experiments
 
-### Prepare Splice Metadata
+Running experiments is easy! Simply:
 
-Since we will submit jobs that run the container, we need to generate our experiments
-in separate files. We can use the container for this:
-
-```bash
-$ singularity exec --containall --home $PWD --bind ./spack-opt:/spack/opt spliced-experiment_latest.sif spack python /code/scripts/generate_experiments.py splices/
-```
-
-or with Docker:
-
-```bash
-$ docker run -v $PWD/cache:/cache -v $PWD/splices:/splices -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/generate_experiments.py /splices/
-```
-
-You should not have spack on your path (so it can be found in the container) if you are using Singularity.
-Note that home needs to be set to somewhere that isn't actually your home to not interfere with your host configs.
-After this run, you can see example splices in [splices](splices).
+1. Ensure this repository is pushed (up to date), as the [splices](splices) come from here.
+2. Go to [buildsi/splice-experiment-runs Actions](https://github.com/buildsi/splice-experiment-runs/actions)
+3. Click on the "Spliced Analysis" workflow, and then "Run Workflow"
+4. The name in the box should correspond to the main package and dependency folder to run for (e.g., upcxx/python would run [splices/upcxx/python/python/experiment.yaml](splices/upcxx/python/python/experiment.yaml).
 
 
-### Manually Run a Splice
+When you are done, you can clone the [artifacts repository](https://github.com/buildsi/splice-experiment-artifacts) to manually update artifacts, or just wait for it to update overnight. The full analysis (with the artifacts as a git submodule) is in [buildsi/splice-experiment-results](https://github.com/buildsi/splice-experiment-results).
 
-To run a splice you will want to bind:
-
- - an originally empty directory to install packages to `/spack/opt` (e.g., not a local spack installs)
- - an empty directory to cache data to `/cache`
- - a results directory for results to `/results` (if saving files)
-
-Note that you can also use the commands shown in [Preview Underlying Commands](#preview-underlying-commands) to generate testing commands. First, generate an example command using an experiment file:
-
-```bash
-$ singularity exec --containall --home $PWD spliced-experiment_latest.sif spliced command splices/swig/pcre/pcre/experiment.yaml
-```
-
-or with Docker:
-
-```bash
-$ docker run -it ghcr.io/buildsi/spliced-experiment spliced command splices/swig/pcre/pcre/experiment.yaml
-```
-
-Then you can choose a command, and test running (and printing to the terminal).  Note that we are binding a fresh (empty) install directory with spack installs to the container. This directory should *only* be used for your container, and you should start with it empty. The reason is because paths (from within the container) will be hard-coded there, and you can get erroneous results to have a mixture of both. You'll also need to bind a cache directory to `/cache` - if you don't it will work for Docker but not Singularity (as there will be no write). And we are also binding the original path to itself (so it can be found, e.g., for RPATHs).  Here is Singularity:
-
-```bash
-$ mkdir -p cache spack-opt
-$ singularity exec --containall --home $PWD --bind $PWD/spack-opt:/spack/opt --bind $PWD/cache:/cache spliced-experiment_latest.sif spack python /usr/local/bin/spliced --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
-```
-
-and Docker:
-
-```bash
-$ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment spliced splice --package swig@1.3.40 --splice pcre --runner spack --replace pcre --experiment experiment
-```
-
-### Automated Run Splices
-
-The script [submit_jobs.py](scripts/submit_jobs.py) will do exactly that - submit jobs for all your experiments in some subdirectory of `spliced` ensuring we have the correct environment variables, etc. You should provide the input directory (splices), the existing results directory (results) and a path to the container SIF (Singularity).
-
-```bash
-$ python scripts/submit_jobs.py ./splices spliced-experiment_latest.sif --spack-opt spack-opt --cache cache
-```
-
-The above will submit a bunch of jobs for all `experiment.yaml` files it finds under spliced. Note that this variat of experiment.yaml has a splice, replace, and main package (it's not the one in the root here with your main experiment package names). Submission scripts will be written to `$PWD/submit` for you to inspect or re-run.
-
-
-### Notes
-
-Conceptually, we are providing a spack install in the container, and only writing the database and libraries installed to our local filesystem to be used as a shared cache. Since an installed package might pull in system libraries, this is why it is essential that you don't bind an actual spack install, and (worse) one that has a mix of already installed things. Also note that the spack in the container is a custom (modified) version that, along with easily printing all versions and other tweaks, runs in debug mode. In practice we found some locking issues on our HPC system and it was helpful to have this verbosity.
-
-## Development
-
-If you want to clone this repository, you can develop locally.
-
-```bash
-cd /p/vast1/build
-git clone https://github.com/buildsi/spliced-experiment
-```
-
-### Build the Container
-
-```bash
-$ docker build -t ghcr.io/buildsi/spliced-experiment .
-```
-
-You can even pull from the docker-deamon after that!
-
-```bash
-$ singularity pull docker-daemon:ghcr.io/buildsi/spliced-experiment:latest
-```
-
-### Local Spack
-
-If you want to test a local spack against the container, just bind it to `/spack` in the container.
-Note that we are currently using an older version of spack that doesn't have as many bugs
-that were added with the 0.17 release.
-
-```bash
-git clone -b vsoch/db-17-splice-july-25 https://github.com/vsoch/spack
-. spack/share/spack/setup-env.sh 
-```
-
-Ensure in your default spack config (`spack/etc/spack/defaults/config.yaml`) to set deprecated: true so we download deprecated packages, and that debug is enabled.
-
-```yaml
-config:
-  deprecated: true
-  debug: true
-```
-
+To see commands that are possible using the containers for other environments (but not used here) see [commands.md](commands.md)

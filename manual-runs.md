@@ -22,20 +22,42 @@ This is a manual test of installing the main packages (to be spliced) - if this 
 
 Not e4s, but have tests (and were added)
 
- - [ ] binutils/diffutils ([]())
- - [ ] binutils/gettext
- - [ ] binutils/zlib
+ - [ ] binutils/diffutils ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770405790))
+ - [ ] binutils/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770713059))
+ - [ ] binutils/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770860947))
+ - [ ] cget/python ([run]())
+ - [ ] cmake/ncurses ([run]())
+ - [ ] cmake/openssl ([run]())
 
- - [ ] biobambam2/autoconf
- - [ ] biobambam2/libmaus2
- - [ ] biobambam2/libtool
- - [ ] biobambam2/m4
+ - [ ] biobambam2/autoconf ([run]())
+ - [ ] biobambam2/libmaus2 ([run]())
+ - [ ] biobambam2/libtool ([run]())
+ - [ ] biobambam2/m4 ([run]())
+
+ - [ ] dssp/autoconf ([run]())
+ - [ ] dssp/boost ([run]())
+ - [ ] dssp/libtool ([run]())
+ - [ ] dssp/m4 ([run]())
+
+ - [ ] emacs/libjpeg-turbo ([run]())
+ - [ ] emacs/libxml2 ([run]())
+ - [ ] emacs/ncurses ([run]())
+ - [ ] emacs/pcre ([run]())
+ - [ ] emacs/pkgconf ([run]())
+ - [ ] emacs/zlib ([run]())
+
+ - [ ] falcon/pacbio-daligner ([run]())
+ - [ ] falcon/pacbio-damasker ([run]())
+ - [ ] falcon/pacbio-dazz-db ([run]())
+ - [ ] falcon/pacbio-dextractor ([run]())
+ - [ ] falcon/python ([run]())
+ - [ ] formetis/metis ([run]())
 
 
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
- - [ ] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2766904278)) seems to get cancelled for going out of bounds of resources available.
- - [ ] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764793482))
+ - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770335432))
+ - [x] upcxx/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770326508))
 
 
 The following packages were either attempted but killed the worker (meaning likely were using too much memory), or
