@@ -1,0 +1,8 @@
+package:
+  name: genesis
+  versions:
+  - 1.5.1
+  - 1.6.0
+  - master
+replace: openmpi
+splice: openmpi
