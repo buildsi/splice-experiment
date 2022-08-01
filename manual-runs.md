@@ -26,32 +26,30 @@ Not e4s, but have tests (and were added)
  - [x] binutils/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770713059))
  - [x] binutils/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770860947))
  - [x] cget/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771126935))
- - [x] cmake/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128292))
- - [x] cmake/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128599))
 
  - [x] biobambam2/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771652502))
  - [x] biobambam2/libmaus2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645367))
  - [x] biobambam2/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645624))
  - [x] biobambam2/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771650932))
 
- - [ ] dssp/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771130783))
- - [ ] dssp/boost ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771131926))
- - [ ] dssp/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133304))
- - [ ] dssp/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133485))
+ - [x] dssp/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771130783))
+ - [x] dssp/boost ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771131926))
+ - [x] dssp/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133304))
+ - [x] dssp/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133485))
 
- - [ ] emacs/libjpeg-turbo ([run]())
- - [ ] emacs/libxml2 ([run]())
- - [ ] emacs/ncurses ([run]())
+ - [x] emacs/libjpeg-turbo ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772785270))
+ - [x] emacs/libxml2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772787764))
+ - [x] emacs/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772790365))
  - [ ] emacs/pcre ([run]())
  - [ ] emacs/pkgconf ([run]())
  - [ ] emacs/zlib ([run]())
 
- - [ ] falcon/pacbio-daligner ([run]())
- - [ ] falcon/pacbio-damasker ([run]())
+ - [x] falcon/pacbio-daligner ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772792981))
+ - [ ] falcon/pacbio-damasker ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772794886))
  - [ ] falcon/pacbio-dazz-db ([run]())
  - [ ] falcon/pacbio-dextractor ([run]())
  - [ ] falcon/python ([run]())
- - [ ] formetis/metis ([run]())
+ - [x] formetis/metis ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772800557))
 
  - [ ] gdal/brunsli ([run]())
  - [ ] gdal/expat ([run]())
@@ -69,18 +67,18 @@ Not e4s, but have tests (and were added)
  - [ ] gdal/sqlite ([run]())
  - [ ] gdal/zlib ([run]())
 
- - [ ] m4/diffutils ([run]())
- - [ ] m4/libsigsegv ([run]())
+ - [x] m4/diffutils ([run]())
+ - [x] m4/libsigsegv ([run]())
 
  - [ ] genesis/openblas ([run]())
  - [ ] genesis/openmpi ([run]())
 
- - [ ] libxml2/libiconv ([run]())
+ - [x] libxml2/libiconv ([run]())
  - [ ] libxml2/pkgconf ([run]())
- - [ ] libxml2/xz ([run]())
+ - [x] libxml2/xz ([run]())
  - [ ] libxml2/zlib ([run]())
  - [ ] mercurial/python ([run]())
- - [ ] meson/ninja  ([run]())
+ - [x] meson/ninja  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772810403))
  - [ ] meson/python  ([run]())
 
  - [ ] minimap2/python ([run]())
@@ -144,6 +142,7 @@ Not e4s, but have tests (and were added)
  - [ ] warpx/openmpi ([run]())
  - [ ] warpx/openpmd-api ([run]())
  - [ ] warpx/pkgconf ([run]())
+
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
  - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770335432))
@@ -156,6 +155,8 @@ The following packages were either attempted or decided to not be used:
  - [ ] superlu/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767052014))
  - [ ] bolt/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767908491)) automake won't work, something about the container
  - [ ] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400)) we can't iterate over automake, error that aclocal file missing (cannot reproduce locally).
+ - [ ] cmake/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128292))
+ - [ ] cmake/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128599)) these timed out.
 
 
 A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:

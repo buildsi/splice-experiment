@@ -1,0 +1,14 @@
+package:
+  name: libxml2
+  versions:
+  - 2.7.8
+  - 2.9.10
+  - 2.9.11
+  - 2.9.12
+  - 2.9.13
+  - 2.9.2
+  - 2.9.4
+  - 2.9.8
+  - 2.9.9
+replace: pkgconf
+splice: pkgconf
