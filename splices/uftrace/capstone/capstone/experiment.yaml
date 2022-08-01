@@ -1,0 +1,8 @@
+package:
+  name: uftrace
+  versions:
+  - '0.10'
+  - '0.11'
+  - master
+replace: capstone
+splice: capstone

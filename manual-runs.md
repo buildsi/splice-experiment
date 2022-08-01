@@ -29,10 +29,10 @@ Not e4s, but have tests (and were added)
  - [x] cmake/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128292))
  - [x] cmake/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128599))
 
- - [x] biobambam2/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771034917))
- - [x] biobambam2/libmaus2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771037860))
- - [x] biobambam2/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771038870))
- - [x] biobambam2/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771039859))
+ - [x] biobambam2/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771652502))
+ - [x] biobambam2/libmaus2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645367))
+ - [x] biobambam2/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645624))
+ - [x] biobambam2/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771650932))
 
  - [ ] dssp/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771130783))
  - [ ] dssp/boost ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771131926))
@@ -69,10 +69,81 @@ Not e4s, but have tests (and were added)
  - [ ] gdal/sqlite ([run]())
  - [ ] gdal/zlib ([run]())
 
+ - [ ] m4/diffutils ([run]())
+ - [ ] m4/libsigsegv ([run]())
+
  - [ ] genesis/openblas ([run]())
  - [ ] genesis/openmpi ([run]())
 
+ - [ ] libxml2/libiconv ([run]())
+ - [ ] libxml2/pkgconf ([run]())
+ - [ ] libxml2/xz ([run]())
+ - [ ] libxml2/zlib ([run]())
+ - [ ] mercurial/python ([run]())
+ - [ ] meson/ninja  ([run]())
+ - [ ] meson/python  ([run]())
 
+ - [ ] minimap2/python ([run]())
+ - [ ] minimap2/zlib ([run]())
+ - [ ] mptensor/openblas ([run]())
+
+ - [ ] openmpi/hwloc ([run]())
+ - [ ] openmpi/numactl ([run]())
+ - [ ] openmpi/openssh ([run]())
+ - [ ] openmpi/perl ([run]())
+ - [ ] openmpi/pkgconf ([run]())
+ - [ ] openmpi/pmix ([run]())
+ - [ ] openmpi/zlib ([run]())
+
+ - [ ] parallel-netcdf/m4 ([run]())
+ - [ ] parallel-netcdf/openmpi ([run]())
+ - [ ] parallel-netcdf/perl ([run]())
+ 
+ - [ ] perl/berkeley-db ([run]())
+ - [ ] perl/bzip2 ([run]())
+ - [ ] perl/gdbm ([run]())
+ - [ ] perl/zlib ([run]())
+ 
+ - [ ] python/bzip2 ([run]())
+ - [ ] python/expat ([run]())
+ - [ ] python/gdbm ([run]())
+ - [ ] python/gettext ([run]())
+ - [ ] python/libffi ([run]())
+ - [ ] python/ncurses ([run]())
+ - [ ] python/openssl ([run]())
+ - [ ] python/pkgconf ([run]())
+ - [ ] python/readline ([run]())
+ - [ ] python/sqlite ([run]())
+ - [ ] python/util-linux-uuid ([run]())
+ - [ ] python/xz ([run]())
+ - [ ] python/zlib ([run]())
+
+ - [ ] tk/libx11 ([run]())
+ - [ ] tk/libxft ([run]())
+ - [ ] tk/libxscrnsaver ([run]())
+ - [ ] tk/tcl ([run]())
+ 
+ - [ ] uftrace/capstone  ([run]())
+ - [ ] uftrace/elfutils  ([run]())
+ - [ ] uftrace/libunwind  ([run]())
+ - [ ] uftrace/lua-luajit  ([run]())
+ - [ ] uftrace/ncurses  ([run]())
+ - [ ] uftrace/pkgconf  ([run]())
+ - [ ] uftrace/python  ([run]())
+ 
+ - [ ] pinentry/libassuan ([run]())
+ - [ ] pinentry/libgpg-error ([run]())
+ - [ ] sqlite/readline ([run]())
+ - [ ] sqlite/zlib ([run]())
+ 
+ - [ ] umpire/blt ([run]())
+ - [ ] umpire/blt ([run]())
+ - [ ] umpire/camp ([run]())
+ 
+ - [ ] warpx/fftw ([run]())
+ - [ ] warpx/openmpi ([run]())
+ - [ ] warpx/openpmd-api ([run]())
+ - [ ] warpx/pkgconf ([run]())
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
  - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770335432))
@@ -88,6 +159,32 @@ The following packages were either attempted or decided to not be used:
 
 
 A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:
+
+Testing install of additional packages:
+
+
+ - alps: failed
+ - busco: failed
+ - callflow: failed 
+ - cpmd: manual download required
+ - darshan-runtime: failed
+ - eigenexa: failed 
+ - gatetools: needs llvm, too much for gh-actions
+ - hdf: failed
+ - ibm-databroker: failed
+ - kitty: failed
+ - magma: killed
+ - mpich: yaksa too big
+ - mxnet: too long to build
+ - n2p2: failed 
+ - omega-h: requires trillinos, nope
+ - nrm: failed
+ - openrasmol: failed
+ - phylice: boost somewhere...
+ - povray: boost somewhere...
+ - timemory: has submodules that failed
+ - tix: fail
+
 
 ### strumpack: FAIL
 
@@ -2838,7 +2935,7 @@ Won't work, requires openmpi.
 docker run -v /home/vanessa/Desktop/Code/spliced-experiment/cache:/cache -v /home/vanessa/Desktop/Code/spliced-experiment/spack-opt:/spack/opt -v /home/vanessa/Desktop/Code/spliced-experiment/results:/results -it ghcr.io/buildsi/spliced-experiment:latest spack python /code/scripts/run_spliced.py splice --package pumi@2.1.0 --splice openmpi --runner spack --replace openmpi --experiment pumi --outfile /results/pumi/2.1.0/openmpi/experiment.json
 ```
 
-### sundial: FAIL
+### sundials: FAIL
 
 Won't work, requires openmpi.
 

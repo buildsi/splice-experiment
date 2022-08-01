@@ -9,6 +9,22 @@ experiments:
 - formetis
 - gdal
 - genesis
+- libxml2
+- m4
+- mercurial
+- meson
+- minimap2
+- mptensor
+- openmpi
+- parallel-netcdf
+- perl
+- python
+- pinentry
+- sqlite
+- tk
+- uftrace
+- umpire
+- warpx
 
 # above here not e4s but has tests
 - swig
@@ -33,7 +49,7 @@ experiments:
 - superlu-dist
 - py-warpx
 - heffte
-- openpmd-api
+- openpmd-api 
 - parallel-netcdf
 - py-petsc4py
 - tau

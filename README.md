@@ -39,7 +39,7 @@ The final set of experiments are in [experiments.yaml](experiments.yaml), and th
 
 ```bash
 $ mkdir -p spack-opt
-$ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/splice-experiment
+$ docker run -it -v $PWD/spack-opt:/spack/opt ghcr.io/buildsi/spliced-experiment
 ```
 
 Binding spack-opt allows for re-use (and faster testing).

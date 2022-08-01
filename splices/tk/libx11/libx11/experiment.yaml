@@ -1,0 +1,12 @@
+package:
+  name: tk
+  versions:
+  - 8.5.19
+  - 8.6.10
+  - 8.6.11
+  - 8.6.3
+  - 8.6.5
+  - 8.6.6
+  - 8.6.8
+replace: libx11
+splice: libx11

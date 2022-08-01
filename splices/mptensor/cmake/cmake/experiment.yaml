@@ -1,0 +1,6 @@
+package:
+  name: mptensor
+  versions:
+  - 0.3.0
+replace: cmake
+splice: cmake
