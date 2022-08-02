@@ -26,42 +26,38 @@ Not e4s, but have tests (and were added)
  - [x] binutils/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770713059))
  - [x] binutils/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770860947))
  - [x] cget/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771126935))
-
  - [x] biobambam2/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771652502))
  - [x] biobambam2/libmaus2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645367))
  - [x] biobambam2/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771645624))
  - [x] biobambam2/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771650932))
-
  - [x] dssp/autoconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771130783))
  - [x] dssp/boost ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771131926))
  - [x] dssp/libtool ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133304))
  - [x] dssp/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771133485))
-
  - [x] emacs/libjpeg-turbo ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772785270))
  - [x] emacs/libxml2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772787764))
  - [x] emacs/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772790365))
  - [x] emacs/pcre ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774486993))
  - [x] emacs/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774490893))
  - [x] emacs/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774493772))
-
  - [x] falcon/pacbio-daligner ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772792981))
  - [x] falcon/pacbio-damasker ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772794886))
  - [x] falcon/pacbio-dazz-db ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774514872))
  - [x] falcon/pacbio-dextractor ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774519062))
  - [x] falcon/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774522379))
  - [x] formetis/metis ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772800557))
-
  - [x] gdal/brunsli ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774525509))
- - [ ] gdal/expat ([run]())
- - [ ] gdal/geos ([run]())
- - [ ] gdal/json-c ([run]())
- - [ ] gdal/lerc ([run]())
- - [ ] gdal/libgeotiff ([run]())
- - [ ] gdal/libjpeg-turbo ([run]())
- - [ ] gdal/libpng ([run]())
- - [ ] gdal/libtiff ([run]())
- - [ ] gdal/ninja ([run]())
- - [ ] gdal/pkgconf ([run]())
+ - [x] gdal/expat ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2780033083))
+ - [x] gdal/geos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2780035150))
+ - [x] gdal/json-c ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783906183))
+ - [x] gdal/lerc ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783909666))
+ - [x] gdal/libgeotiff ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783916171))
+ - [x] gdal/libjpeg-turbo ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783918506))
+ - [x] gdal/libpng ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783926683))
+ - [x] gdal/libtiff ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783929037))
+ - [x] gdal/ninja ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783929037))
+ - [x] gdal/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783935613))
+
  - [ ] gdal/proj ([run]())
  - [ ] gdal/qhull ([run]())
  - [ ] gdal/sqlite ([run]())
@@ -70,20 +66,18 @@ Not e4s, but have tests (and were added)
  - [x] m4/diffutils ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772988213))
  - [x] m4/libsigsegv ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772986782))
 
- - [x] genesis/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774529157))
  - [ ] genesis/openmpi ([run]())
 
  - [x] libxml2/libiconv ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772991881))
- - [ ] libxml2/pkgconf ([run]())
+ - [x] libxml2/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783938552))
  - [x] libxml2/xz ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772994156))
- - [ ] libxml2/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772996664))
+ - [x] libxml2/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772996664))
  - [x] mercurial/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774534658))
  - [x] meson/ninja  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2772810403))
- - [ ] meson/python  ([run]())
+ - [x] meson/python  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2783947151))
 
  - [ ] minimap2/python ([run]())
  - [x] minimap2/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774549142))
- - [ ] mptensor/openblas ([run]())
 
  - [ ] openmpi/hwloc ([run]())
  - [ ] openmpi/numactl ([run]())
@@ -134,7 +128,7 @@ Not e4s, but have tests (and were added)
  - [x] sqlite/readline ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774570264))
  - [ ] sqlite/zlib ([run]())
  
- - [x] umpire/blt ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774573247))
+ - [x] umpire/blt ([run]())
  - [ ] umpire/camp ([run]())
  
  - [x] warpx/fftw ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774575698))
@@ -156,7 +150,9 @@ The following packages were either attempted or decided to not be used:
  - [ ] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400)) we can't iterate over automake, error that aclocal file missing (cannot reproduce locally).
  - [ ] cmake/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128292))
  - [ ] cmake/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128599)) these timed out.
+ - [x] genesis/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774529157))
 
+openblas / cmake generally failed to build (and was not included).
 
 A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:
 
