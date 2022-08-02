@@ -71,3 +71,8 @@ Running experiments is easy, and automated! We use the container build alongside
 When you are done, you can clone the [artifacts repository](https://github.com/buildsi/splice-experiment-artifacts) to manually update artifacts, or just wait for it to update overnight. The full analysis (with the artifacts as a git submodule) is in [buildsi/splice-experiment-results](https://github.com/buildsi/splice-experiment-results).
 
 To see commands that are possible using the containers for other environments (but not used here) see [commands.md](commands.md)
+
+## Changelog:
+
+ - version 0.0.1: original version with some tweaks
+ - version 0.0.11: updating cle from its master to resolve dependency install bugs [commit](https://github.com/vsoch/cle/commit/b631940d5598e457533866cbc7284123c2c08ef1)

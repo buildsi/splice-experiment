@@ -116,7 +116,6 @@ Not e4s, but have tests (and were added)
  - [ ] tk/tcl ([run]())
  
  - [ ] uftrace/capstone  ([run]())
- - [x] uftrace/elfutils  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774565807))
  - [ ] uftrace/libunwind  ([run]())
  - [ ] uftrace/lua-luajit  ([run]())
  - [ ] uftrace/ncurses  ([run]())
@@ -150,7 +149,8 @@ The following packages were either attempted or decided to not be used:
  - [ ] darshan-util/automake ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2767480400)) we can't iterate over automake, error that aclocal file missing (cannot reproduce locally).
  - [ ] cmake/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128292))
  - [ ] cmake/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2771128599)) these timed out.
- - [x] genesis/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774529157))
+ - [ ] genesis/openblas ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774529157))
+ - [ ] uftrace/elfutils  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774565807)) spack bug
 
 openblas / cmake generally failed to build (and was not included).
 
