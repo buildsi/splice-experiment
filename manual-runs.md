@@ -4,7 +4,7 @@ Welcome to the new game of...
 
 > Does it build?
 
-This is a manual test of installing the main packages (to be spliced) - if this fails, there is no point attempting them in the experiment. Spack MUST build and splice them to get any kind of result. From the below, I've derived the following list of packages we can run/test in GitHub actions. I'm also linking to the runs that were used for the experiment.
+This is a manual test of installing the main packages (to be spliced) - if this fails, there is no point attempting them in the experiment. Spack MUST build and splice them to get any kind of result. From the below, I've derived the following list of packages we can run/test in GitHub actions. I'm also linking to the runs that were used for the experiment. **TODO** we need to account for experiments that don't generate logs, e.g, either spack error or cancelled.
 
  - [x] qthreads/numactl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2762890515))
  - [x] hdf5/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2764243645))
@@ -83,19 +83,19 @@ Not e4s, but have tests (and were added)
  - [ ] openmpi/zlib ([run]())
 
  - [x] parallel-netcdf/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774554498))
- - [ ] parallel-netcdf/openmpi ([run]())
- - [ ] parallel-netcdf/perl ([run]())
+ - [x] parallel-netcdf/openmpi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790592496))
+ - [x] parallel-netcdf/perl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790595576))
  
- - [ ] perl/berkeley-db ([run]())
+ - [x] perl/berkeley-db ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790602946))
  - [x] perl/bzip2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774557288))
- - [ ] perl/gdbm ([run]())
- - [ ] perl/zlib ([run]())
+ - [x] perl/gdbm ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790598102))
+ - [x] perl/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790600505))
  
- - [ ] python/bzip2 ([run]())
+ - [x] python/bzip2 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790605912))
  - [x] python/expat ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774560281))
- - [ ] python/gdbm ([run]())
- - [ ] python/gettext ([run]())
- - [ ] python/libffi ([run]())
+ - [x] python/gdbm ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800716946))
+ - [x] python/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800724842))
+ - [x] python/libffi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800726654))
  - [ ] python/ncurses ([run]())
  - [ ] python/openssl ([run]())
  - [ ] python/pkgconf ([run]())
@@ -110,7 +110,7 @@ Not e4s, but have tests (and were added)
  - [ ] tk/libxscrnsaver ([run]())
  - [ ] tk/tcl ([run]())
  
- - [ ] uftrace/capstone  ([run]())
+ - [x] uftrace/capstone  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800731216))
  - [ ] uftrace/libunwind  ([run]())
  - [ ] uftrace/lua-luajit  ([run]())
  - [ ] uftrace/ncurses  ([run]())
@@ -123,12 +123,12 @@ Not e4s, but have tests (and were added)
  - [ ] sqlite/zlib ([run]())
  
  - [x] umpire/blt ([run]())
- - [ ] umpire/camp ([run]())
+ - [x] umpire/camp ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793763642))
  
  - [x] warpx/fftw ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774575698))
- - [ ] warpx/openmpi ([run]())
- - [ ] warpx/openpmd-api ([run]())
- - [ ] warpx/pkgconf ([run]())
+ - [x] warpx/openmpi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793762538))
+ - [x] warpx/openpmd-api ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793761379))
+ - [x] warpx/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793760369))
 
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
