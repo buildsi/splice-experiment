@@ -74,13 +74,12 @@ Not e4s, but have tests (and were added)
  - [x] minimap2/python ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2786708414))
  - [x] minimap2/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774549142))
  - [x] openmpi/hwloc ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2786709756))
-
- - [ ] openmpi/numactl ([run]())
- - [ ] openmpi/openssh ([run]())
- - [ ] openmpi/perl ([run]())
- - [ ] openmpi/pkgconf ([run]())
+ - [x] openmpi/numactl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805310391))
+ - [x] openmpi/openssh ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805308302))
+ - [x] openmpi/perl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805306274))
+ - [x] openmpi/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805304121))
  - [x] openmpi/pmix ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774551989))
- - [ ] openmpi/zlib ([run]())
+ - [x] openmpi/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805302043))
 
  - [x] parallel-netcdf/m4 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774554498))
  - [x] parallel-netcdf/openmpi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2790592496))
@@ -96,40 +95,35 @@ Not e4s, but have tests (and were added)
  - [x] python/gdbm ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800716946))
  - [x] python/gettext ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800724842))
  - [x] python/libffi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800726654))
- - [ ] python/ncurses ([run]())
- - [ ] python/openssl ([run]())
- - [ ] python/pkgconf ([run]())
- - [ ] python/readline ([run]())
- - [ ] python/sqlite ([run]())
- - [ ] python/util-linux-uuid ([run]())
- - [ ] python/xz ([run]())
- - [ ] python/zlib ([run]())
+ - [x] python/ncurses ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805281671))
+ - [x] python/openssl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805284038))
+ - [x] python/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805286126))
+ - [x] python/readline ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805288526))
+ - [x] python/sqlite ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805290653))
+ - [x] python/util-linux-uuid ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805293203))
+ - [x] python/xz ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805295224))
+ - [x] python/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805297172))
 
  - [x] tk/libx11 ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774563144))
- - [ ] tk/libxft ([run]())
- - [ ] tk/libxscrnsaver ([run]())
- - [ ] tk/tcl ([run]())
+ - [x] tk/libxft ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805217323))
+ - [x] tk/libxscrnsaver ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805219650))
+ - [x] tk/tcl ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805221621))
  
  - [x] uftrace/capstone  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2800731216))
- - [ ] uftrace/libunwind  ([run]())
- - [ ] uftrace/lua-luajit  ([run]())
- - [ ] uftrace/ncurses  ([run]())
- - [ ] uftrace/pkgconf  ([run]())
- - [ ] uftrace/python  ([run]())
+ - [x] uftrace/libunwind  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805230987))
+ - [x] uftrace/lua-luajit  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805233647))
+ - [x] uftrace/ncurses  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805236193))
+ - [x] uftrace/pkgconf  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805237860))
+ - [x] uftrace/python  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805272535))
  
  - [x] pinentry/libassuan ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774568022))
- - [ ] pinentry/libgpg-error ([run]())
+ - [x] pinentry/libgpg-error ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805274549))
  - [x] sqlite/readline ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774570264))
- - [ ] sqlite/zlib ([run]())
+ - [x] sqlite/zlib ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2805276379))
  
- - [x] umpire/blt ([run]())
+ - [x] umpire/blt ([run](https://github.com/buildsi/splice-experiment-runs/actions/workflows/analysis.yaml))
  - [x] umpire/camp ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793763642))
  
- - [x] warpx/fftw ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774575698))
- - [x] warpx/openmpi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793762538))
- - [x] warpx/openpmd-api ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793761379))
- - [x] warpx/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793760369))
-
 These were run with a smaller set of dependency versions (to fit in GH-actions):
 
  - [x] arborx/kokkos ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2770335432))
@@ -148,6 +142,13 @@ The following packages were either attempted or decided to not be used:
  - [ ] uftrace/elfutils  ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774565807)) spack bug
 
 openblas / cmake generally failed to build (and was not included).
+
+warpx always errored
+
+ - [x] warpx/fftw ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2774575698))
+ - [x] warpx/openmpi ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793762538))
+ - [x] warpx/openpmd-api ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793761379))
+ - [x] warpx/pkgconf ([run](https://github.com/buildsi/splice-experiment-runs/actions/runs/2793760369))
 
 A checkbox means we have run -> artifacts -> results. Here are additional libraries with tests we can use:
 
