@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y build-essential gfortran patchelf unzip
 
 # always build with debug (this is in template script too)
 ENV SPACK_ADD_DEBUG_FLAGS=true
+
+# Abi laboratory wants this for better performance
+ENV SPACK_DEBUG_FLAGS="-Og"
 ENV SPACK_DISABLE_LOCAL_CONFIG=true
 ENV SPACK_USER_CACHE_PATH=/cache/spack
    
