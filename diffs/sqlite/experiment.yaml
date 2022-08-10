@@ -1,0 +1,7 @@
+# NOTE: you obviously wouldn't splice the same package, this is an example only
+package:
+  name: sqlite
+  so_prefix: libsqlite
+splice:
+  name: sqlite
+  so_prefix: libsqlite
