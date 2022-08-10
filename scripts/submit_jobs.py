@@ -181,9 +181,8 @@ class ExperimentJobsGenerator:
                 splice_version,
                 "%s.json" % self.experiment_name,
             )
-        slug = "%s-%s-%s-%s" % (
+        slug = "%s-%s-%s" % (
             self.experiment["package"]["name"],
-            version,
             splice_version,
             self.experiment_name,
         )
