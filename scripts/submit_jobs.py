@@ -122,7 +122,7 @@ class ExperimentJobsGenerator:
         matrix = []
 
         # Versions across top level package
-        for version in self.experiment["package"]["versions"]:
+        if "versions" not in self.experiment["package"]:
 
             # One version (the dep name, versions extracted in job run)
             if "splice_versions" in self.experiment:
@@ -132,28 +132,55 @@ class ExperimentJobsGenerator:
                         splice_version,
                     )
                     matrix.append(
-                        self.generate_spliced_command(version, splice_version)
+                        self.generate_spliced_command(None, splice_version["name"])
                     )
             else:
                 for splice_version in [self.experiment["splice"]]:
                     matrix.append(
-                        self.generate_spliced_command(version, splice_version)
+                        self.generate_spliced_command(None, splice_version["name"])
                     )
+
+        else:
+            for version in self.experiment["package"]["versions"]:
+
+                # One version (the dep name, versions extracted in job run)
+                if "splice_versions" in self.experiment:
+                    for splice_version in self.experiment["splice_versions"]:
+                        splice_version = "%s@%s" % (
+                            self.experiment["splice"],
+                            splice_version["name"],
+                        )
+                        matrix.append(
+                            self.generate_spliced_command(
+                                version, splice_version["name"]
+                            )
+                        )
+                else:
+                    raise NotImplementedError
         return matrix
 
     def generate_spliced_command(self, version, splice_version):
         """
-        Generate a command fora single experiment
+        Generate a command for a single experiment
         """
         # versioned package
-        package = "%s@%s" % (self.experiment["package"]["name"], version)
+        package = self.experiment["package"]["name"]
         outfile = os.path.join(
             "/results",
             self.experiment["package"]["name"],
-            version,
             splice_version,
             "%s.json" % self.experiment_name,
         )
+
+        if version:
+            package = "%s@%s" % (self.experiment["package"]["name"], version)
+            outfile = os.path.join(
+                "/results",
+                self.experiment["package"]["name"],
+                version,
+                splice_version,
+                "%s.json" % self.experiment_name,
+            )
         slug = "%s-%s-%s-%s" % (
             self.experiment["package"]["name"],
             version,
@@ -161,24 +188,36 @@ class ExperimentJobsGenerator:
             self.experiment_name,
         )
         # The command requires spack python from the getgo to get exactly what spack is settingup
-        cmd = (
-            "spack python /code/scripts/run_spliced.py diff --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s %s"
-            % (
-                package,
-                splice_version,
-                self.experiment["replace"],
-                self.experiment["package"]["name"],
-                outfile,
-                "--skip" if args.skip_smeagle else "",
+        if "replace" in self.experiment:
+            cmd = (
+                "spack python /code/scripts/run_spliced.py diff --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s %s"
+                % (
+                    package,
+                    splice_version,
+                    self.experiment["replace"],
+                    self.experiment["package"]["name"],
+                    outfile,
+                    "--skip" if self.skip_smeagle else "",
+                )
             )
-        )
+        else:
+            cmd = (
+                "spack python /code/scripts/run_spliced.py diff --package %s --splice %s --runner spack --experiment %s --outfile %s %s"
+                % (
+                    package,
+                    splice_version,
+                    self.experiment["package"]["name"],
+                    outfile,
+                    "--skip" if self.skip_smeagle else "",
+                )
+            )
 
         return {
             "command": cmd,
             "package": package,
             "runner": "spack",
             "splice": self.experiment["splice"],
-            "replace": self.experiment["replace"],
+            "replace": self.experiment.get("replace"),
             "experiment": self.experiment_name,
             "outfile": outfile,
             "outdir": os.path.dirname(outfile),
