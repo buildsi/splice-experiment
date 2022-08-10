@@ -34,7 +34,7 @@ RUN git clone https://github.com/vsoch/cle && \
     pip install .
 
 RUN pip install git+https://github.com/vsoch/elfcall@tweaks
-RUN pip install git+https://github.com/buildsi/spliced@tweaks
+RUN pip install git+https://github.com/buildsi/spliced@add/diff
 
 # Install abi-laboratory tools
 RUN git clone https://github.com/lvc/abi-dumper && \

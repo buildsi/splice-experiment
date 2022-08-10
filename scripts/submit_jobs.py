@@ -62,6 +62,12 @@ def get_parser():
         action="store_true",
     )
     parser.add_argument(
+        "--skip-smeagle",
+        help="Skip running smeagle",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
         "--single",
         help="Show a single command for each",
         default=False,
@@ -103,10 +109,11 @@ class ExperimentJobsGenerator:
     Generate a matrix of jobs for an experiment.
     """
 
-    def __init__(self, experiment_yaml, outdir):
+    def __init__(self, experiment_yaml, outdir, skip_smeagle=False):
         self.experiment = read_yaml(experiment_yaml)
         self.outdir = outdir
         self.experiment_name = os.path.basename(experiment_yaml).split(".")[0]
+        self.skip_smeagle = skip_smeagle
 
     def generate_jobs(self):
         """
@@ -155,13 +162,14 @@ class ExperimentJobsGenerator:
         )
         # The command requires spack python from the getgo to get exactly what spack is settingup
         cmd = (
-            "spack python /code/scripts/run_spliced.py splice --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s"
+            "spack python /code/scripts/run_spliced.py splice --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s %s"
             % (
                 package,
                 splice_version,
                 self.experiment["replace"],
                 self.experiment["package"]["name"],
                 outfile,
+                "--skip smeagle" if args.skip_smeagle else ""
             )
         )
 
@@ -255,7 +263,7 @@ def main():
             continue
 
         # The generator will derive versions, etc. and a matrix of jobs
-        gen = ExperimentJobsGenerator(experiment_yaml, outdir)
+        gen = ExperimentJobsGenerator(experiment_yaml, outdir, args.skip_smeagle)
 
         if args.single and gen.experiment["package"]["name"] in seen:
             continue
