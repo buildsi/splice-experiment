@@ -36,14 +36,14 @@ def has_test_method(pkg):
 def main():
     """
     Find packages with tests in spack
-    """    
+    """
     packages = spack.repo.all_package_names()
     print("Found %s total packages" % len(packages))
     has_tests = set()
     for experiment in packages:
 
         # Don't include python, typically nothing compiled
-        if experiment.startswith('py-'):
+        if experiment.startswith("py-"):
             continue
         spec = Spec(experiment)
         if has_test_method(spec.package.__class__):
@@ -55,6 +55,7 @@ def main():
     # Save to file
     outfile = os.path.join(here, "experiments_with_tests.yaml")
     write_yaml(outfile, {"experiments": list(has_tests)})
+
 
 if __name__ == "__main__":
     main()

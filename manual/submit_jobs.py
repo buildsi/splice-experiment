@@ -101,4 +101,7 @@ for entry in matrix:
     templated = template + "\n" + entry["command"]
     with open(tmpfile, "w") as fd:
         fd.writelines(templated)
-    os.system("sbatch --time 360 -A asi --out=%s -N 1 -n 1 --cpus-per-task=4 --err %s %s" % (outfile, outfile, tmpfile))
+    os.system(
+        "sbatch --time 360 -A asi --out=%s -N 1 -n 1 --cpus-per-task=4 --err %s %s"
+        % (outfile, outfile, tmpfile)
+    )

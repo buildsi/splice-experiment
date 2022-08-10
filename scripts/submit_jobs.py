@@ -162,14 +162,14 @@ class ExperimentJobsGenerator:
         )
         # The command requires spack python from the getgo to get exactly what spack is settingup
         cmd = (
-            "spack python /code/scripts/run_spliced.py splice --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s %s"
+            "spack python /code/scripts/run_spliced.py diff --package %s --splice %s --runner spack --replace %s --experiment %s --outfile %s %s"
             % (
                 package,
                 splice_version,
                 self.experiment["replace"],
                 self.experiment["package"]["name"],
                 outfile,
-                "--skip smeagle" if args.skip_smeagle else ""
+                "--skip" if args.skip_smeagle else "",
             )
         )
 
