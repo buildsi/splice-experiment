@@ -20,7 +20,7 @@ ENV SPLICED_SMEAGLE_CACHE_DIR=/cache
 ENV SPLICED_ABILAB_CACHE_DIR=/cache
 
 # Assume spack bound to /spack
-ENV PATH=/spack/bin:$PATH
+ENV PATH=/spack/bin:/code/scripts:$PATH
 
 # Install cle (dependency of spliced)
 RUN git clone https://github.com/vsoch/cle && \
